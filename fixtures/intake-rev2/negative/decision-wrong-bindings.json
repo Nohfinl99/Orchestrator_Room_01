@@ -1,0 +1,22 @@
+{
+  "case": "decision-wrong-bindings",
+  "record_type": "decision",
+  "instance": {
+    "decision_id": "DEC-e81b5e7deada9801",
+    "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+    "proposal_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "intake_id": "INTAKE-96bccfdbe2a16dfc",
+    "decision": "APPROVE",
+    "reason": "Owner reviewed proposal",
+    "operator_label": "local-operator",
+    "source_channel": "local-cli",
+    "provenance": "OPERATOR_ASSERTED",
+    "decided_utc": "2026-10-25T00:00:00Z"
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "decision_binding_mismatch"
+  },
+  "note": "proposal_digest does not match golden proposal digest; must be REJECTED_STALE in runtime, rejected here by binding cross-check."
+}

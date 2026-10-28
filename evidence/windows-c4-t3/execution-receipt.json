@@ -1,0 +1,63 @@
+{
+  "code_commit": "3d0bf76bab65c37e6b4bed359dfb6dffca7f8f4c",
+  "tooling_commit": "55bb2f90ee8a4a7a28555059ce122998d6477aa3",
+  "evidence_pin_commit": "d09d75f4b3c3b94dcd8cc9ea982d670ccf7e791b",
+  "reviewed_brief_commit": "f15cc245e93b0c6a6c05c32ea1ac0e40118014ac",
+  "reviewed_documents": {
+    "PRODUCT_INTAKE_BRIEF_REV1.md": {
+      "sha256": "fbc881a732178330cad024f4fb7fafa7fcc1defc48a67e3703dd560937b37dbc",
+      "matches_report": true
+    },
+    "PRODUCT_INTAKE_ACCEPTANCE_MATRIX_REV1.md": {
+      "sha256": "fd526270c3ad2a916937586cfdd08c9fc58d8322c22c4beb8bf8dc3b29cdd6b8",
+      "matches_report": true
+    },
+    "ROADMAP_STATUS.md": {
+      "sha256": "90752eb75de743a6573b5f6369f462373e921f4ada0fade86e34d5ac9b6057b6",
+      "matches_report": true
+    }
+  },
+  "source_before_and_after": "clean detached Git C4; all eight pinned source SHA-256 unchanged",
+  "tooling_before_and_after": "clean detached Git T3",
+  "powershell_command": "& \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\t3-meeting\\tooling\\scripts\\run_windows_tests.bat\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\source\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\tooling\\evidence\\rev4\\c4-pinned-manifest.json\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\t3-meeting\\windows-runs\"",
+  "observed_exit": {
+    "child": 0,
+    "helper": 0,
+    "bat": 0,
+    "tooling_regressions": 0,
+    "bat_controls": 0
+  },
+  "counts": {
+    "attempted": 36,
+    "passed": 35,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 1
+  },
+  "symlink_skip": "WinError 1314; subcase NOT_RUN",
+  "log_sha256": "92c6864b421e70cb7051ee9b2db8676eebe4918f3befb40fd06aa61a3129a9c8",
+  "helper_manifest_sha256": "d2a11733ecc92bef7a23ed35d0081221ab5ed0d41a04f8d9a5a71848d4caa8a1",
+  "tooling_sha256": {
+    "scripts/run_windows_tests.py": "be76066c5fd940553f2767afd27cdbac91ecbe0e9902f823fa01bef5b6221a9a",
+    "scripts/run_windows_tests.bat": "01edaf34223299b38d7d4f9a3a509d21a4cdea05aa79a105d847d0a9c9f3af79",
+    "scripts/test_runner.py": "278d21fc5b8fd7e681e9a11ef59e6208747c7abdd160a3ff8a7f9a185af0678c"
+  },
+  "regressions": {
+    "pass_assertions": 39,
+    "original_redirected_bytes_sha256": "fea62bd2980615805ce7faaa0b602370323fee5c9abc80604eb2f99e0237bea7",
+    "published_log_transformation": "PowerShell redirected UTF-16 decoded to UTF-8; not product raw log"
+  },
+  "raw_evidence": "Windows suite and BAT fixture logs/manifests copied byte-for-byte. Fixture Git metadata omitted; commits local synthetic only.",
+  "bat_console_capture_note": "C4 BAT exit observed in shell tool output; receipt records it. Fixture BAT console output is directly captured as raw bytes.",
+  "reviewer_harness_initial_attempt": {
+    "status": "FAILED_TO_LAUNCH_FIXTURE_HELPER",
+    "reason": "reviewer cmd quoting error, fixed in harness; separate fresh fixture/output directories used for successful six runs",
+    "local_console_path": "E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\t3-meeting\\bat-control-runs\\pass-0.console.log",
+    "raw_console_sha256": "e3045d49fdcf3321a29b6a646d0a76db577713caa6c935a41291fb0c8aedc9e0"
+  },
+  "finding_decision": {
+    "W04": "CLOSED_SCOPED",
+    "BRI01_to_BRI05": "OPEN_DESIGN_CONTRACT",
+    "overall": "NOT_VERIFIED"
+  }
+}

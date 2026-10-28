@@ -1,0 +1,12 @@
+child_exit=0
+helper_exit=0
+attempted=57 passed=55 errors=0 failures=0 skipped=2
+skipped: test_24_symlink_store_subcase (test_control_room.TestControlRoomRev3.test_24_symlink_store_subcase) ... skipped "symlink creation unavailable in this environment: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmp396uj6z3\\\\room.json' -> 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmp396uj6z3\\\\link.json'"
+skipped: test_c5_12_path_boundaries (test_intake_c5.TestIntakeC5.test_c5_12_path_boundaries) ... skipped "symlink creation unavailable: [WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmpvdul456g\\\\good.txt' -> 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmpvdul456g\\\\link.txt'"
+run_dir=E:\Kiến Trúc Thông Tin\Orchestrator\artifacts\reviews\2026-10-25-c4-roadmap\c5r1-review\windows-runs\run-20261025T175748Z-6f8195a8
+log=E:\Kiến Trúc Thông Tin\Orchestrator\artifacts\reviews\2026-10-25-c4-roadmap\c5r1-review\windows-runs\run-20261025T175748Z-6f8195a8\test-run.log
+log_sha256=c24cb3433e163b457c974908b126c05df342472a44cd0ae68ad1b59de570e7e6
+manifest=E:\Kiến Trúc Thông Tin\Orchestrator\artifacts\reviews\2026-10-25-c4-roadmap\c5r1-review\windows-runs\run-20261025T175748Z-6f8195a8\manifest.json
+manifest_sha256=7527ae7a9a70d1e06a5ad6cd40d9f870907b417c5e9e6645e4425f47d4f9ec89  (computed externally, not stored in manifest)
+reason=tests passed, counts valid, sources unchanged
+Done. Helper exit 0. Send the unique run directory (test-run.log + manifest.json) back to Muse in direct chat.

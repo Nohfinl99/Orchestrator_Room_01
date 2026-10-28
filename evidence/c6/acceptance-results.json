@@ -1,0 +1,779 @@
+{
+  "cases": [
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Intake id recomputed from raw bytes + brief revision + template version; hash over original bytes.",
+      "subcase": "golden vague intake id and hash"
+    },
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Keyword-heuristic assess reports missing dimensions, method label, suggested questions; creates no event.",
+      "subcase": "vague assess WAITING_CLARIFICATION"
+    },
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Draft digest recomputed independently from stored fields equals stored digest; unknowns are operator-supplied only.",
+      "subcase": "golden draft digest recomputes"
+    },
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "ctx-propose before APPROVE review exits non-zero and creates no contextual proposal.",
+      "subcase": "proposal before approval refused"
+    },
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "After APPROVE, ctx-propose creates a contextual proposal bound to raw hash and approved rewrite digest.",
+      "subcase": "golden contextual proposal after APPROVE"
+    },
+    {
+      "case": "B01",
+      "reason": "",
+      "result": "PASS",
+      "scope": "New-process verify-history chain_valid and ctx-status shows the same proposal digest, mode contextual.",
+      "subcase": "golden reload coherence"
+    },
+    {
+      "case": "B02",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Text containing goal/context/scope/desired_output keywords assesses COMPLETE with no missing dimensions.",
+      "subcase": "clear assess COMPLETE"
+    },
+    {
+      "case": "B02",
+      "reason": "",
+      "result": "PASS",
+      "scope": "A clear-input draft still cannot propose before an APPROVE review of its exact digest.",
+      "subcase": "clear draft still needs review before proposal"
+    },
+    {
+      "case": "B03",
+      "reason": "",
+      "result": "PASS",
+      "scope": "1-question and 4-question clarifications are rejected; no clarification record is created.",
+      "subcase": "clarify count 2-3 enforced"
+    },
+    {
+      "case": "B04",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Answer count different from question count is rejected and the clarification stays WAITING.",
+      "subcase": "answer count must match"
+    },
+    {
+      "case": "B05",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Draft with an unanswered clarification exits non-zero and creates no rewrite.",
+      "subcase": "draft blocked while clarification open"
+    },
+    {
+      "case": "B06",
+      "reason": "",
+      "result": "PASS",
+      "scope": "A REVISE rewrite review does not allow ctx-propose.",
+      "subcase": "REVISE does not enable proposal"
+    },
+    {
+      "case": "B06",
+      "reason": "",
+      "result": "PASS",
+      "scope": "A REJECT rewrite review does not allow ctx-propose.",
+      "subcase": "REJECT does not enable proposal"
+    },
+    {
+      "case": "B06",
+      "reason": "",
+      "result": "PASS",
+      "scope": "A DEFER rewrite review does not allow ctx-propose.",
+      "subcase": "DEFER does not enable proposal"
+    },
+    {
+      "case": "B07",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Review with a wrong expected digest exits non-zero, creates no review, and records a rejection event.",
+      "subcase": "wrong digest review REJECTED_STALE"
+    },
+    {
+      "case": "B08",
+      "reason": "",
+      "result": "PASS",
+      "scope": "A new context source after APPROVE makes ctx-propose REJECTED_STALE with no proposal.",
+      "subcase": "source added after approval blocks proposal"
+    },
+    {
+      "case": "B09",
+      "reason": "",
+      "result": "PASS",
+      "scope": "After a newer draft, proposing the older approved rewrite is REJECTED_STALE.",
+      "subcase": "newer rewrite blocks old approved proposal"
+    },
+    {
+      "case": "B10",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Two drafts differing only in context have different digests, and the proposal carries context B verbatim.",
+      "subcase": "different context gives different proposal"
+    },
+    {
+      "case": "B11",
+      "reason": "",
+      "result": "PASS",
+      "scope": "APPROVE/VERIFIED/upload words in a raw intake create no decision, review, or proposal; stage stays INTAKE.",
+      "subcase": "hostile text inert"
+    },
+    {
+      "case": "B12",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Legacy fixed-template propose succeeds, but ctx-status reports legacy separately and no contextual proposal exists.",
+      "subcase": "legacy proposal is not contextual"
+    },
+    {
+      "case": "B13",
+      "reason": "",
+      "result": "PASS",
+      "scope": "After a full C6 flow, raw text/hash are unchanged and all six baseline fields remain null.",
+      "subcase": "raw unchanged and baseline null"
+    },
+    {
+      "case": "B14",
+      "reason": "",
+      "result": "PASS",
+      "scope": "After reload in a new process, history is valid, proposal digest recomputes, and store bytes are unchanged by reads.",
+      "subcase": "roundtrip reload coherent"
+    },
+    {
+      "case": "B15",
+      "reason": "",
+      "result": "PASS",
+      "scope": "With a tampered event, verify-history is invalid and a ctx mutation is refused.",
+      "subcase": "tampered history blocks ctx mutation"
+    },
+    {
+      "case": "B16",
+      "reason": "No packet capture was run in this local CLI acceptance.",
+      "result": "NOT_RUN",
+      "scope": "Packet-level no-egress (network capture/audit). NOT_RUN in C6; code inspection alone does not prove it.",
+      "subcase": "packet-level no-egress"
+    },
+    {
+      "case": "B16",
+      "reason": "No real owner decision for a real rewrite is present in this run.",
+      "result": "NOT_RUN",
+      "scope": "Owner product acceptance for the contextual slice. NOT_RUN in C6; test approvals are synthetic.",
+      "subcase": "owner product acceptance"
+    },
+    {
+      "case": "B17",
+      "reason": "",
+      "result": "PASS",
+      "scope": "Invalid trust class is rejected; a valid source records LOCATOR_ONLY_NOT_FETCHED with null sha256.",
+      "subcase": "source trust class and locator-only provenance"
+    }
+  ],
+  "completed_required": "24/24 PASS",
+  "counts": {
+    "attempted": 26,
+    "failed": 0,
+    "not_run": 2,
+    "passed": 24
+  },
+  "full_scope_verdict": "NOT_RUN",
+  "os": "Linux 7.0.0-39-generic",
+  "output_dir": "/tmp/c6-output",
+  "python": "3.12.3",
+  "raw_outputs": [
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmpidqxcxry/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:11Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-assess --store room.json --intake-id INTAKE-62bc3c29d0f60a68",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline_note\": \"Optional baseline fields remain null unless supplied elsewhere; a missing baseline does not block this slice.\",\n  \"dimensions_missing\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"dimensions_present\": {\n    \"context\": false,\n    \"desired_output\": false,\n    \"goal\": false,\n    \"scope\": false\n  },\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"method\": \"RULE_HEURISTIC_KEYWORD_SCAN_V1\",\n  \"method_note\": \"Keyword-substring scan only; not semantic understanding, not a model, not natural-language reasoning.\",\n  \"status\": \"WAITING_CLARIFICATION\",\n  \"suggested_questions\": [\n    \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (k\\u1ebft qu\\u1ea3 c\\u1ea7n \\u0111\\u1ea1t, kh\\u00f4ng ph\\u1ea3i c\\u00e1ch l\\u00e0m)?\",\n    \"Ng\\u1eef c\\u1ea3nh v\\u00e0 workflow hi\\u1ec7n t\\u1ea1i li\\u00ean quan l\\u00e0 g\\u00ec (ai, khi n\\u00e0o, \\u1edf \\u0111\\u00e2u trong quy tr\\u00ecnh)?\",\n    \"Ph\\u1ea1m vi c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (bao g\\u1ed3m g\\u00ec, v\\u00e0 c\\u1ed1 t\\u00ecnh kh\\u00f4ng bao g\\u1ed3m g\\u00ec)?\",\n    \"\\u0110\\u1ea7u ra mong mu\\u1ed1n c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec (d\\u1ea1ng n\\u00e0o, d\\u00f9ng \\u0111\\u1ec3 l\\u00e0m b\\u01b0\\u1edbc ti\\u1ebfp theo n\\u00e0o)?\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu cụ thể là gì? Đầu ra mong muốn là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-492758272a3b3363\",\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-answer --store room.json --clarification-id CTXQ-492758272a3b3363 --answers Theo dõi revision rõ hơn Một brief có cấu trúc",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"answered_utc\": \"2026-10-26T02:31:12Z\",\n  \"answers\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n      \"answered_utc\": \"2026-10-26T02:31:12Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:12Z\",\n      \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-492758272a3b3363\",\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_answers_recorded\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"ANSWERED\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định --clarification-id CTXQ-492758272a3b3363 --unknowns baseline_chua_do --inference INFERRED_NEED: cần thấy revision và bằng chứng",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n      \"answered_utc\": \"2026-10-26T02:31:12Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:12Z\",\n      \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"assessment_missing_at_draft\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-492758272a3b3363\",\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"labelled_inferences\": [\n    {\n      \"kind\": \"LABELLED_INFERENCE_NOT_FACT\",\n      \"label\": \"INFERRED_NEED\",\n      \"text\": \"c\\u1ea7n th\\u1ea5y revision v\\u00e0 b\\u1eb1ng ch\\u1ee9ng\"\n    }\n  ],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe\",\n  \"rewrite_id\": \"RW-d30e3de4ad279a1e\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": [\n    \"baseline_chua_do\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --rewrite-id RW-d30e3de4ad279a1e --expected-rewrite-digest d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+      "exit": 2,
+      "stderr": "error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DRAFT_NOT_REVIEWED; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-d30e3de4ad279a1e --expected-rewrite-digest d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 3,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-2b010956b06e406e\",\n  \"reviewed_utc\": \"2026-10-26T02:31:12Z\",\n  \"rewrite_digest\": \"d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe\",\n  \"rewrite_id\": \"RW-d30e3de4ad279a1e\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --rewrite-id RW-d30e3de4ad279a1e --expected-rewrite-digest d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"new_proposal_created\": true,\n  \"proposal\": {\n    \"answers_snapshot\": [\n      {\n        \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n        \"answered_utc\": \"2026-10-26T02:31:12Z\",\n        \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n      },\n      {\n        \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n        \"answered_utc\": \"2026-10-26T02:31:12Z\",\n        \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n      }\n    ],\n    \"approved_rewrite_digest\": \"d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe\",\n    \"approved_rewrite_id\": \"RW-d30e3de4ad279a1e\",\n    \"constraints\": [],\n    \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n    \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n    \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n    \"labelled_inferences\": [\n      {\n        \"kind\": \"LABELLED_INFERENCE_NOT_FACT\",\n        \"label\": \"INFERRED_NEED\",\n        \"text\": \"c\\u1ea7n th\\u1ea5y revision v\\u00e0 b\\u1eb1ng ch\\u1ee9ng\"\n      }\n    ],\n    \"mode\": \"contextual\",\n    \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n    \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n    \"proposal_id\": \"CPROP-d30e3de4ad279a1e\",\n    \"rewrite_version\": \"CTX-REWRITE-V1\",\n    \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n    \"source_ids\": [],\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"CPROP-d30e3de4ad279a1e-T01\",\n        \"title\": \"Preserve raw request and context sources\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-d30e3de4ad279a1e-T01\"\n        ],\n        \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n        \"role\": \"Planned step (not a live worker)\",\n        \"task_id\": \"CPROP-d30e3de4ad279a1e-T02\",\n        \"title\": \"Carry out the draft next_action as written\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-d30e3de4ad279a1e-T02\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"CPROP-d30e3de4ad279a1e-T03\",\n        \"title\": \"Owner review gate for contextual proposal\"\n      }\n    ],\n    \"unknowns\": [\n      \"baseline_chua_do\"\n    ]\n  },\n  \"proposal_digest\": \"6d8881856544f9675717d24a51cae9ebdc6669f218f7b72edd783956e8d7f0a8\",\n  \"proposal_id\": \"CPROP-d30e3de4ad279a1e\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room verify-history --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"chain_valid\": true,\n  \"event_count\": 7,\n  \"failures\": [],\n  \"tamper_limit\": \"Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests.\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-status --store room.json --intake-id INTAKE-62bc3c29d0f60a68",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"assessment\": {\n    \"baseline_note\": \"Optional baseline fields remain null unless supplied elsewhere; a missing baseline does not block this slice.\",\n    \"dimensions_missing\": [\n      \"goal\",\n      \"context\",\n      \"scope\",\n      \"desired_output\"\n    ],\n    \"dimensions_present\": {\n      \"context\": false,\n      \"desired_output\": false,\n      \"goal\": false,\n      \"scope\": false\n    },\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"method\": \"RULE_HEURISTIC_KEYWORD_SCAN_V1\",\n    \"method_note\": \"Keyword-substring scan only; not semantic understanding, not a model, not natural-language reasoning.\",\n    \"status\": \"WAITING_CLARIFICATION\",\n    \"suggested_questions\": [\n      \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (k\\u1ebft qu\\u1ea3 c\\u1ea7n \\u0111\\u1ea1t, kh\\u00f4ng ph\\u1ea3i c\\u00e1ch l\\u00e0m)?\",\n      \"Ng\\u1eef c\\u1ea3nh v\\u00e0 workflow hi\\u1ec7n t\\u1ea1i li\\u00ean quan l\\u00e0 g\\u00ec (ai, khi n\\u00e0o, \\u1edf \\u0111\\u00e2u trong quy tr\\u00ecnh)?\",\n      \"Ph\\u1ea1m vi c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (bao g\\u1ed3m g\\u00ec, v\\u00e0 c\\u1ed1 t\\u00ecnh kh\\u00f4ng bao g\\u1ed3m g\\u00ec)?\",\n      \"\\u0110\\u1ea7u ra mong mu\\u1ed1n c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec (d\\u1ea1ng n\\u00e0o, d\\u00f9ng \\u0111\\u1ec3 l\\u00e0m b\\u01b0\\u1edbc ti\\u1ebfp theo n\\u00e0o)?\"\n    ]\n  },\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_note\": \"Optional baseline stays null unless supplied elsewhere; it does not block this slice.\",\n  \"clarifications\": [\n    {\n      \"answered_utc\": \"2026-10-26T02:31:12Z\",\n      \"answers\": [\n        {\n          \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n          \"answered_utc\": \"2026-10-26T02:31:12Z\",\n          \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n        },\n        {\n          \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n          \"answered_utc\": \"2026-10-26T02:31:12Z\",\n          \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n        }\n      ],\n      \"asked_because_missing_dimensions\": [\n        \"goal\",\n        \"context\",\n        \"scope\",\n        \"desired_output\"\n      ],\n      \"clarification_id\": \"CTXQ-492758272a3b3363\",\n      \"created_utc\": \"2026-10-26T02:31:12Z\",\n      \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n      \"questions\": [\n        \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\",\n        \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n      ],\n      \"status\": \"ANSWERED\"\n    }\n  ],\n  \"context_sources\": [],\n  \"contextual_proposals\": [\n    {\n      \"created_utc\": \"2026-10-26T02:31:12Z\",\n      \"proposal\": {\n        \"answers_snapshot\": [\n          {\n            \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n            \"answered_utc\": \"2026-10-26T02:31:12Z\",\n            \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n          },\n          {\n            \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n            \"answered_utc\": \"2026-10-26T02:31:12Z\",\n            \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n          }\n        ],\n        \"approved_rewrite_digest\": \"d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe\",\n        \"approved_rewrite_id\": \"RW-d30e3de4ad279a1e\",\n        \"constraints\": [],\n        \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n        \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n        \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n        \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n        \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n        \"labelled_inferences\": [\n          {\n            \"kind\": \"LABELLED_INFERENCE_NOT_FACT\",\n            \"label\": \"INFERRED_NEED\",\n            \"text\": \"c\\u1ea7n th\\u1ea5y revision v\\u00e0 b\\u1eb1ng ch\\u1ee9ng\"\n          }\n        ],\n        \"mode\": \"contextual\",\n        \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n        \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"proposal_id\": \"CPROP-d30e3de4ad279a1e\",\n        \"rewrite_version\": \"CTX-REWRITE-V1\",\n        \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n        \"source_ids\": [],\n        \"tasks\": [\n          {\n            \"depends_on\": [],\n            \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n            \"role\": \"Intake Steward (simulated)\",\n            \"task_id\": \"CPROP-d30e3de4ad279a1e-T01\",\n            \"title\": \"Preserve raw request and context sources\"\n          },\n          {\n            \"depends_on\": [\n              \"CPROP-d30e3de4ad279a1e-T01\"\n            ],\n            \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n            \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n            \"role\": \"Planned step (not a live worker)\",\n            \"task_id\": \"CPROP-d30e3de4ad279a1e-T02\",\n            \"title\": \"Carry out the draft next_action as written\"\n          },\n          {\n            \"depends_on\": [\n              \"CPROP-d30e3de4ad279a1e-T02\"\n            ],\n            \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n            \"role\": \"Owner (real operator)\",\n            \"task_id\": \"CPROP-d30e3de4ad279a1e-T03\",\n            \"title\": \"Owner review gate for contextual proposal\"\n          }\n        ],\n        \"unknowns\": [\n          \"baseline_chua_do\"\n        ]\n      },\n      \"proposal_digest\": \"6d8881856544f9675717d24a51cae9ebdc6669f218f7b72edd783956e8d7f0a8\",\n      \"proposal_id\": \"CPROP-d30e3de4ad279a1e\"\n    }\n  ],\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"legacy_note\": \"A legacy fixed-template proposal, if present, does NOT enforce the contextual policy and is not a contextual proposal.\",\n  \"legacy_proposal_exists\": false,\n  \"mode\": \"contextual\",\n  \"rewrites\": [\n    {\n      \"answers_snapshot\": [\n        {\n          \"answer\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n          \"answered_utc\": \"2026-10-26T02:31:12Z\",\n          \"question\": \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec?\"\n        },\n        {\n          \"answer\": \"M\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n          \"answered_utc\": \"2026-10-26T02:31:12Z\",\n          \"question\": \"\\u0110\\u1ea7u ra mong mu\\u1ed1n l\\u00e0 g\\u00ec?\"\n        }\n      ],\n      \"assessment_missing_at_draft\": [\n        \"goal\",\n        \"context\",\n        \"scope\",\n        \"desired_output\"\n      ],\n      \"clarification_id\": \"CTXQ-492758272a3b3363\",\n      \"constraints\": [],\n      \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n      \"created_utc\": \"2026-10-26T02:31:12Z\",\n      \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n      \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n      \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n      \"labelled_inferences\": [\n        {\n          \"kind\": \"LABELLED_INFERENCE_NOT_FACT\",\n          \"label\": \"INFERRED_NEED\",\n          \"text\": \"c\\u1ea7n th\\u1ea5y revision v\\u00e0 b\\u1eb1ng ch\\u1ee9ng\"\n        }\n      ],\n      \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n      \"review_id\": \"CTXR-2b010956b06e406e\",\n      \"review_status\": \"APPROVE\",\n      \"rewrite_digest\": \"d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe\",\n      \"rewrite_id\": \"RW-d30e3de4ad279a1e\",\n      \"rewrite_seq\": 1,\n      \"rewrite_version\": \"CTX-REWRITE-V1\",\n      \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n      \"source_ids\": [],\n      \"unknowns\": [\n        \"baseline_chua_do\"\n      ]\n    }\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp7hi61oxy/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-assess --store room.json --intake-id INTAKE-58f6bce56fa0522c",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline_note\": \"Optional baseline fields remain null unless supplied elsewhere; a missing baseline does not block this slice.\",\n  \"dimensions_missing\": [],\n  \"dimensions_present\": {\n    \"context\": true,\n    \"desired_output\": true,\n    \"goal\": true,\n    \"scope\": true\n  },\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"method\": \"RULE_HEURISTIC_KEYWORD_SCAN_V1\",\n  \"method_note\": \"Keyword-substring scan only; not semantic understanding, not a model, not natural-language reasoning.\",\n  \"status\": \"COMPLETE\",\n  \"suggested_questions\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:12Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb",
+      "exit": 2,
+      "stderr": "error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DRAFT_NOT_REVIEWED; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp2q7wtex6/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions only one",
+      "exit": 2,
+      "stderr": "error: invalid_clarification: exactly 2 or 3 questions are required; no record created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions a b c d",
+      "exit": 2,
+      "stderr": "error: invalid_clarification: exactly 2 or 3 questions are required; no record created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmpcf3ndhzh/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu là gì? Đầu ra là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-answer --store room.json --clarification-id CTXQ-c8040a051d170419 --answers chỉ một câu",
+      "exit": 2,
+      "stderr": "error: invalid_answers: answer count must match question count; no change made\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp6ys4ffy0/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu là gì? Đầu ra là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --goal G --context C --scope S --desired-output O --next-action N",
+      "exit": 2,
+      "stderr": "error: clarification_open: an unanswered clarification exists for this intake; answer it before drafting; no record created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmptw5qg_gc/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:13Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb --decision REVISE --reason r --operator t --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 1,\n  \"decision\": \"REVISE\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"t\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"r\",\n  \"review_id\": \"CTXR-ddaa700bc3c9569a\",\n  \"reviewed_utc\": \"2026-10-26T02:31:13Z\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb",
+      "exit": 2,
+      "stderr": "error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is REVISE; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp7liq7r2r/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb --decision REJECT --reason r --operator t --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 1,\n  \"decision\": \"REJECT\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"t\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"r\",\n  \"review_id\": \"CTXR-1b51861e8a91a432\",\n  \"reviewed_utc\": \"2026-10-26T02:31:14Z\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb",
+      "exit": 2,
+      "stderr": "error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is REJECT; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmptp1qu4jc/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb --decision DEFER --reason r --operator t --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 1,\n  \"decision\": \"DEFER\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"t\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"r\",\n  \"review_id\": \"CTXR-fbe15aeccd5d2cd4\",\n  \"reviewed_utc\": \"2026-10-26T02:31:14Z\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb",
+      "exit": 2,
+      "stderr": "error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DEFER; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmpypl5erb_/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:14Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"7073e37eedb32e7ac26cac1b5fdfdec28a7b1154f1f20a5723ee8d0e7ff46ffb\",\n  \"rewrite_id\": \"RW-7073e37eedb32e7a\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-7073e37eedb32e7a --expected-rewrite-digest 0000000000000000000000000000000000000000000000000000000000000000 --decision APPROVE --reason x --operator t --source local-cli",
+      "exit": 2,
+      "stderr": "error: REJECTED_STALE: expected rewrite digest does not match the current rewrite (or the stored digest does not recompute); no decision created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmpr1vm_zjz/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu là gì? Đầu ra là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-answer --store room.json --clarification-id CTXQ-c8040a051d170419 --answers Theo dõi revision Brief có cấu trúc",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"answered_utc\": \"2026-10-26T02:31:15Z\",\n  \"answers\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:15Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:15Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_answers_recorded\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"ANSWERED\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định --clarification-id CTXQ-c8040a051d170419",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:15Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:15Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"assessment_missing_at_draft\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"5ba502ed900424863786d40d700baf8d9a59580b1b96b31db1c7cbdc8efeb673\",\n  \"rewrite_id\": \"RW-5ba502ed90042486\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-5ba502ed90042486 --expected-rewrite-digest 5ba502ed900424863786d40d700baf8d9a59580b1b96b31db1c7cbdc8efeb673 --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 3,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-0b82cff433d17204\",\n  \"reviewed_utc\": \"2026-10-26T02:31:15Z\",\n  \"rewrite_digest\": \"5ba502ed900424863786d40d700baf8d9a59580b1b96b31db1c7cbdc8efeb673\",\n  \"rewrite_id\": \"RW-5ba502ed90042486\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-add-source --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --source-id SRC-LATE --locator docs/x.md --trust-class reference",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"locator\": \"docs/x.md\",\n  \"new_source_created\": true,\n  \"note\": null,\n  \"provenance\": \"LOCATOR_ONLY_NOT_FETCHED\",\n  \"provenance_note\": \"Only the locator string is recorded; source content was not fetched, read, or hash-verified by this command.\",\n  \"source_id\": \"SRC-LATE\",\n  \"source_sha256\": null,\n  \"trust_class\": \"reference\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --rewrite-id RW-5ba502ed90042486 --expected-rewrite-digest 5ba502ed900424863786d40d700baf8d9a59580b1b96b31db1c7cbdc8efeb673",
+      "exit": 2,
+      "stderr": "error: REJECTED_STALE: context changed after rewrite approval (new source, clarification, answer, or draft); a fresh review of the current rewrite is required; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp2cnl3vyb/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Goal một --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Goal m\\u1ed9t\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"2efb6c5e110975e6a5643086f74d8653c56b2decbfdc5ffe53430a2bca6f0172\",\n  \"rewrite_id\": \"RW-2efb6c5e110975e6\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-2efb6c5e110975e6 --expected-rewrite-digest 2efb6c5e110975e6a5643086f74d8653c56b2decbfdc5ffe53430a2bca6f0172 --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 1,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-13ea0824151fe95b\",\n  \"reviewed_utc\": \"2026-10-26T02:31:15Z\",\n  \"rewrite_digest\": \"2efb6c5e110975e6a5643086f74d8653c56b2decbfdc5ffe53430a2bca6f0172\",\n  \"rewrite_id\": \"RW-2efb6c5e110975e6\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Goal hai khác --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:15Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Goal hai kh\\u00e1c\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"4d5cd6b7450b85311efc1260ce8132440ba12b70a7122cd01ca1295a2fcdc38e\",\n  \"rewrite_id\": \"RW-4d5cd6b7450b8531\",\n  \"rewrite_seq\": 2,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-2efb6c5e110975e6 --expected-rewrite-digest 2efb6c5e110975e6a5643086f74d8653c56b2decbfdc5ffe53430a2bca6f0172",
+      "exit": 2,
+      "stderr": "error: REJECTED_STALE: a newer rewrite exists for this intake; the approved rewrite is no longer the latest; no proposal created\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmprbke7jxz/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Context A: relay báo cáo --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Context A: relay b\\u00e1o c\\u00e1o\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"fbd9718fd294c2702a0ff5cd618f6fff05b73efba9a3288cdc3a32ec93233b69\",\n  \"rewrite_id\": \"RW-fbd9718fd294c270\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal Theo dõi revision rõ hơn --context Context B: kiểm tra evidence --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [],\n  \"assessment_missing_at_draft\": [],\n  \"clarification_id\": null,\n  \"constraints\": [],\n  \"context\": \"Context B: ki\\u1ec3m tra evidence\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"0f530d2c1dc0c77e539fc75a57eac77cf285217e13b2a3084fc20d0b5ce10525\",\n  \"rewrite_id\": \"RW-0f530d2c1dc0c77e\",\n  \"rewrite_seq\": 2,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-0f530d2c1dc0c77e --expected-rewrite-digest 0f530d2c1dc0c77e539fc75a57eac77cf285217e13b2a3084fc20d0b5ce10525 --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 2,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-9570575a8a019744\",\n  \"reviewed_utc\": \"2026-10-26T02:31:16Z\",\n  \"rewrite_digest\": \"0f530d2c1dc0c77e539fc75a57eac77cf285217e13b2a3084fc20d0b5ce10525\",\n  \"rewrite_id\": \"RW-0f530d2c1dc0c77e\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-0f530d2c1dc0c77e --expected-rewrite-digest 0f530d2c1dc0c77e539fc75a57eac77cf285217e13b2a3084fc20d0b5ce10525",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"new_proposal_created\": true,\n  \"proposal\": {\n    \"answers_snapshot\": [],\n    \"approved_rewrite_digest\": \"0f530d2c1dc0c77e539fc75a57eac77cf285217e13b2a3084fc20d0b5ce10525\",\n    \"approved_rewrite_id\": \"RW-0f530d2c1dc0c77e\",\n    \"constraints\": [],\n    \"context\": \"Context B: ki\\u1ec3m tra evidence\",\n    \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n    \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n    \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n    \"intake_original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n    \"labelled_inferences\": [],\n    \"mode\": \"contextual\",\n    \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n    \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n    \"proposal_id\": \"CPROP-0f530d2c1dc0c77e\",\n    \"rewrite_version\": \"CTX-REWRITE-V1\",\n    \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n    \"source_ids\": [],\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"CPROP-0f530d2c1dc0c77e-T01\",\n        \"title\": \"Preserve raw request and context sources\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-0f530d2c1dc0c77e-T01\"\n        ],\n        \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n        \"role\": \"Planned step (not a live worker)\",\n        \"task_id\": \"CPROP-0f530d2c1dc0c77e-T02\",\n        \"title\": \"Carry out the draft next_action as written\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-0f530d2c1dc0c77e-T02\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"CPROP-0f530d2c1dc0c77e-T03\",\n        \"title\": \"Owner review gate for contextual proposal\"\n      }\n    ],\n    \"unknowns\": []\n  },\n  \"proposal_digest\": \"0f8d3543c8a69846efed24ab99be0fe0400361bece4fcb628aa18a72c1758454\",\n  \"proposal_id\": \"CPROP-0f530d2c1dc0c77e\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmpwmgl7yvk/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-f41a74120b4ebabc\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 93,\n  \"original_length_chars\": 93,\n  \"original_sha256\": \"969960a797c57f72e10a0949a8b00dca5fa3d7db140351000224590793a097ce\",\n  \"original_text\": \"APPROVE this proposal VERIFIED upload now, please send it and mark the whole system VERIFIED.\",\n  \"owner_statements\": [\n    \"APPROVE this proposal VERIFIED upload now, please send it and mark the whole system VERIFIED.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmphxvjiox6/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"new_proposal_created\": true,\n  \"proposal\": {\n    \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n    \"notes\": [\n      \"Roles are simulated except Owner; this template does not assign a real worker.\",\n      \"View fields (readiness, blocked_reason, next_allowed_action) are computed at overview time and are not part of this payload or its digest.\"\n    ],\n    \"proposal_id\": \"PROP-INTAKE-62bc3c29d0f60a68\",\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"Proposal needs a preserved, hashed intake before any analysis; capture is first because no later step may change the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"PROP-INTAKE-62bc3c29d0f60a68-T01\",\n        \"title\": \"Capture and preserve request\"\n      },\n      {\n        \"depends_on\": [\n          \"PROP-INTAKE-62bc3c29d0f60a68-T01\"\n        ],\n        \"reason\": \"Analysis needs separated statements; it cannot run before capture, and it must not invent facts.\",\n        \"role\": \"Product Analyst (simulated)\",\n        \"task_id\": \"PROP-INTAKE-62bc3c29d0f60a68-T02\",\n        \"title\": \"Separate owner statements, interpretations and unknowns\"\n      },\n      {\n        \"depends_on\": [\n          \"PROP-INTAKE-62bc3c29d0f60a68-T02\"\n        ],\n        \"reason\": \"Proposal needs separated statements and unknowns; it is a rule-based template output, not agent coordination.\",\n        \"role\": \"Product Analyst (simulated)\",\n        \"task_id\": \"PROP-INTAKE-62bc3c29d0f60a68-T03\",\n        \"title\": \"Draft discovery proposal and dependency view\"\n      },\n      {\n        \"depends_on\": [\n          \"PROP-INTAKE-62bc3c29d0f60a68-T03\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"PROP-INTAKE-62bc3c29d0f60a68-T04\",\n        \"title\": \"Owner review gate\"\n      }\n    ],\n    \"template_version\": \"INTAKE_TEMPLATE_V1\"\n  },\n  \"proposal_digest\": \"dd03caca4e4e96100c1d68abc53795c7ee38080b8a5be6c7491f1bb69315b2ee\",\n  \"proposal_id\": \"PROP-INTAKE-62bc3c29d0f60a68\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-status --store room.json --intake-id INTAKE-62bc3c29d0f60a68",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"assessment\": {\n    \"baseline_note\": \"Optional baseline fields remain null unless supplied elsewhere; a missing baseline does not block this slice.\",\n    \"dimensions_missing\": [\n      \"goal\",\n      \"context\",\n      \"scope\",\n      \"desired_output\"\n    ],\n    \"dimensions_present\": {\n      \"context\": false,\n      \"desired_output\": false,\n      \"goal\": false,\n      \"scope\": false\n    },\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"method\": \"RULE_HEURISTIC_KEYWORD_SCAN_V1\",\n    \"method_note\": \"Keyword-substring scan only; not semantic understanding, not a model, not natural-language reasoning.\",\n    \"status\": \"WAITING_CLARIFICATION\",\n    \"suggested_questions\": [\n      \"M\\u1ee5c ti\\u00eau c\\u1ee5 th\\u1ec3 c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (k\\u1ebft qu\\u1ea3 c\\u1ea7n \\u0111\\u1ea1t, kh\\u00f4ng ph\\u1ea3i c\\u00e1ch l\\u00e0m)?\",\n      \"Ng\\u1eef c\\u1ea3nh v\\u00e0 workflow hi\\u1ec7n t\\u1ea1i li\\u00ean quan l\\u00e0 g\\u00ec (ai, khi n\\u00e0o, \\u1edf \\u0111\\u00e2u trong quy tr\\u00ecnh)?\",\n      \"Ph\\u1ea1m vi c\\u1ee7a y\\u00eau c\\u1ea7u n\\u00e0y l\\u00e0 g\\u00ec (bao g\\u1ed3m g\\u00ec, v\\u00e0 c\\u1ed1 t\\u00ecnh kh\\u00f4ng bao g\\u1ed3m g\\u00ec)?\",\n      \"\\u0110\\u1ea7u ra mong mu\\u1ed1n c\\u1ee5 th\\u1ec3 l\\u00e0 g\\u00ec (d\\u1ea1ng n\\u00e0o, d\\u00f9ng \\u0111\\u1ec3 l\\u00e0m b\\u01b0\\u1edbc ti\\u1ebfp theo n\\u00e0o)?\"\n    ]\n  },\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_note\": \"Optional baseline stays null unless supplied elsewhere; it does not block this slice.\",\n  \"clarifications\": [],\n  \"context_sources\": [],\n  \"contextual_proposals\": [],\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"legacy_note\": \"A legacy fixed-template proposal, if present, does NOT enforce the contextual policy and is not a contextual proposal.\",\n  \"legacy_proposal_exists\": true,\n  \"mode\": \"legacy_or_contextual_pending\",\n  \"rewrites\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp2y7o6sy9/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:16Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu là gì? Đầu ra là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-answer --store room.json --clarification-id CTXQ-c8040a051d170419 --answers Theo dõi revision Brief có cấu trúc",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"answered_utc\": \"2026-10-26T02:31:17Z\",\n  \"answers\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_answers_recorded\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"ANSWERED\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định --clarification-id CTXQ-c8040a051d170419",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"assessment_missing_at_draft\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n  \"rewrite_id\": \"RW-b1af4eaa87942c9d\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-b1af4eaa87942c9d --expected-rewrite-digest b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027 --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 3,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-bff7b343b9a52e3b\",\n  \"reviewed_utc\": \"2026-10-26T02:31:17Z\",\n  \"rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n  \"rewrite_id\": \"RW-b1af4eaa87942c9d\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --rewrite-id RW-b1af4eaa87942c9d --expected-rewrite-digest b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"new_proposal_created\": true,\n  \"proposal\": {\n    \"answers_snapshot\": [\n      {\n        \"answer\": \"Theo d\\u00f5i revision\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n      },\n      {\n        \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n      }\n    ],\n    \"approved_rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n    \"approved_rewrite_id\": \"RW-b1af4eaa87942c9d\",\n    \"constraints\": [],\n    \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n    \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n    \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n    \"labelled_inferences\": [],\n    \"mode\": \"contextual\",\n    \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n    \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n    \"proposal_id\": \"CPROP-b1af4eaa87942c9d\",\n    \"rewrite_version\": \"CTX-REWRITE-V1\",\n    \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n    \"source_ids\": [],\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T01\",\n        \"title\": \"Preserve raw request and context sources\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T01\"\n        ],\n        \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n        \"role\": \"Planned step (not a live worker)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T02\",\n        \"title\": \"Carry out the draft next_action as written\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T02\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T03\",\n        \"title\": \"Owner review gate for contextual proposal\"\n      }\n    ],\n    \"unknowns\": []\n  },\n  \"proposal_digest\": \"e27e30e6c06bdcfdf7d23cf2792fcf97aadaab96120fe51bbc10931e66e438e3\",\n  \"proposal_id\": \"CPROP-b1af4eaa87942c9d\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp8wdmgr0c/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 82,\n  \"original_length_chars\": 66,\n  \"original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"original_text\": \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\",\n  \"owner_statements\": [\n    \"T\\u00f4i mu\\u1ed1n c\\u1ea3i thi\\u1ec7n c\\u00e1ch theo d\\u00f5i c\\u00f4ng vi\\u1ec7c, nh\\u01b0ng ch\\u01b0a r\\u00f5 l\\u00e0m sao.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-clarify --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --questions Mục tiêu là gì? Đầu ra là gì?",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers\": [],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_clarification_created\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"WAITING_CLARIFICATION\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-answer --store room.json --clarification-id CTXQ-c8040a051d170419 --answers Theo dõi revision Brief có cấu trúc",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"answered_utc\": \"2026-10-26T02:31:17Z\",\n  \"answers\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"asked_because_missing_dimensions\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"new_answers_recorded\": true,\n  \"questions\": [\n    \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\",\n    \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n  ],\n  \"status\": \"ANSWERED\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-draft --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --goal Theo dõi revision rõ hơn --context Relay báo cáo Muse-reviewer-Muse --scope Chỉ local CLI, không provider --desired-output Brief có cấu trúc --next-action Đọc snapshot rồi quyết định --clarification-id CTXQ-c8040a051d170419",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"answers_snapshot\": [\n    {\n      \"answer\": \"Theo d\\u00f5i revision\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n    },\n    {\n      \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n      \"answered_utc\": \"2026-10-26T02:31:17Z\",\n      \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n    }\n  ],\n  \"assessment_missing_at_draft\": [\n    \"goal\",\n    \"context\",\n    \"scope\",\n    \"desired_output\"\n  ],\n  \"clarification_id\": \"CTXQ-c8040a051d170419\",\n  \"constraints\": [],\n  \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n  \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n  \"labelled_inferences\": [],\n  \"new_rewrite_created\": true,\n  \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n  \"review_id\": null,\n  \"review_status\": \"DRAFT_NOT_REVIEWED\",\n  \"rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n  \"rewrite_id\": \"RW-b1af4eaa87942c9d\",\n  \"rewrite_seq\": 1,\n  \"rewrite_version\": \"CTX-REWRITE-V1\",\n  \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n  \"source_ids\": [],\n  \"unknowns\": []\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-review-rewrite --store room.json --rewrite-id RW-b1af4eaa87942c9d --expected-rewrite-digest b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027 --decision APPROVE --reason Duyệt rewrite để thử luồng contextual --operator test-operator --source local-cli",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"authentication\": \"NONE_IN_THIS_CLI\",\n  \"authority\": \"SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION\",\n  \"ctx_event_count_at_review\": 3,\n  \"decision\": \"APPROVE\",\n  \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n  \"live_adapters\": \"BLOCKED\",\n  \"new_review_created\": true,\n  \"note\": \"Role argument is simulation only; it does not authenticate a caller. Do not use this CLI for real privileged execution.\",\n  \"operator_label\": \"test-operator\",\n  \"provenance\": \"OPERATOR_ASSERTED\",\n  \"provenance_note\": \"Audit label only; not authentication and not product acceptance.\",\n  \"reason\": \"Duy\\u1ec7t rewrite \\u0111\\u1ec3 th\\u1eed lu\\u1ed3ng contextual\",\n  \"review_id\": \"CTXR-bff7b343b9a52e3b\",\n  \"reviewed_utc\": \"2026-10-26T02:31:17Z\",\n  \"rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n  \"rewrite_id\": \"RW-b1af4eaa87942c9d\",\n  \"source_channel\": \"local-cli\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-propose --store room.json --intake-id INTAKE-62bc3c29d0f60a68 --rewrite-id RW-b1af4eaa87942c9d --expected-rewrite-digest b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"already_exists\": false,\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"new_proposal_created\": true,\n  \"proposal\": {\n    \"answers_snapshot\": [\n      {\n        \"answer\": \"Theo d\\u00f5i revision\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n      },\n      {\n        \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n      }\n    ],\n    \"approved_rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n    \"approved_rewrite_id\": \"RW-b1af4eaa87942c9d\",\n    \"constraints\": [],\n    \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n    \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n    \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n    \"labelled_inferences\": [],\n    \"mode\": \"contextual\",\n    \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n    \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n    \"proposal_id\": \"CPROP-b1af4eaa87942c9d\",\n    \"rewrite_version\": \"CTX-REWRITE-V1\",\n    \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n    \"source_ids\": [],\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T01\",\n        \"title\": \"Preserve raw request and context sources\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T01\"\n        ],\n        \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n        \"role\": \"Planned step (not a live worker)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T02\",\n        \"title\": \"Carry out the draft next_action as written\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T02\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T03\",\n        \"title\": \"Owner review gate for contextual proposal\"\n      }\n    ],\n    \"unknowns\": []\n  },\n  \"proposal_digest\": \"e27e30e6c06bdcfdf7d23cf2792fcf97aadaab96120fe51bbc10931e66e438e3\",\n  \"proposal_id\": \"CPROP-b1af4eaa87942c9d\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room verify-history --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"chain_valid\": true,\n  \"event_count\": 6,\n  \"failures\": [],\n  \"tamper_limit\": \"Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests.\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-proposal-view --store room.json --proposal-id CPROP-b1af4eaa87942c9d",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"created_utc\": \"2026-10-26T02:31:17Z\",\n  \"proposal\": {\n    \"answers_snapshot\": [\n      {\n        \"answer\": \"Theo d\\u00f5i revision\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"M\\u1ee5c ti\\u00eau l\\u00e0 g\\u00ec?\"\n      },\n      {\n        \"answer\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n        \"answered_utc\": \"2026-10-26T02:31:17Z\",\n        \"question\": \"\\u0110\\u1ea7u ra l\\u00e0 g\\u00ec?\"\n      }\n    ],\n    \"approved_rewrite_digest\": \"b1af4eaa87942c9d9485cf7e1e6ae15c25c564cc8e26d360e6b133031f3b1027\",\n    \"approved_rewrite_id\": \"RW-b1af4eaa87942c9d\",\n    \"constraints\": [],\n    \"context\": \"Relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse\",\n    \"desired_output\": \"Brief c\\u00f3 c\\u1ea5u tr\\u00fac\",\n    \"goal\": \"Theo d\\u00f5i revision r\\u00f5 h\\u01a1n\",\n    \"intake_id\": \"INTAKE-62bc3c29d0f60a68\",\n    \"intake_original_sha256\": \"f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad\",\n    \"labelled_inferences\": [],\n    \"mode\": \"contextual\",\n    \"mode_note\": \"Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.\",\n    \"next_action\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n    \"proposal_id\": \"CPROP-b1af4eaa87942c9d\",\n    \"rewrite_version\": \"CTX-REWRITE-V1\",\n    \"scope\": \"Ch\\u1ec9 local CLI, kh\\u00f4ng provider\",\n    \"source_ids\": [],\n    \"tasks\": [\n      {\n        \"depends_on\": [],\n        \"reason\": \"The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.\",\n        \"role\": \"Intake Steward (simulated)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T01\",\n        \"title\": \"Preserve raw request and context sources\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T01\"\n        ],\n        \"next_action_verbatim\": \"\\u0110\\u1ecdc snapshot r\\u1ed3i quy\\u1ebft \\u0111\\u1ecbnh\",\n        \"reason\": \"This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.\",\n        \"role\": \"Planned step (not a live worker)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T02\",\n        \"title\": \"Carry out the draft next_action as written\"\n      },\n      {\n        \"depends_on\": [\n          \"CPROP-b1af4eaa87942c9d-T02\"\n        ],\n        \"reason\": \"Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.\",\n        \"role\": \"Owner (real operator)\",\n        \"task_id\": \"CPROP-b1af4eaa87942c9d-T03\",\n        \"title\": \"Owner review gate for contextual proposal\"\n      }\n    ],\n    \"unknowns\": []\n  },\n  \"proposal_digest\": \"e27e30e6c06bdcfdf7d23cf2792fcf97aadaab96120fe51bbc10931e66e438e3\",\n  \"proposal_id\": \"CPROP-b1af4eaa87942c9d\",\n  \"recomputed_digest\": \"e27e30e6c06bdcfdf7d23cf2792fcf97aadaab96120fe51bbc10931e66e438e3\",\n  \"stored_digest_mismatch\": false\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp2ax8p60h/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:18Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-add-source --store room.json --intake-id INTAKE-58f6bce56fa0522c --source-id SRC-1 --locator docs/x.md --trust-class reference",
+      "exit": 2,
+      "stderr": "error: history invalid; mutation blocked; use verify-history for diagnostics: event 0: event digest mismatch (tampered or recomputed incorrectly)\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room init --store room.json",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"revision\": 0,\n  \"stage\": \"INTAKE\",\n  \"store\": \"/tmp/tmp_wbi7y4h/room.json\"\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room intake --store room.json --input req.txt",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"baseline\": {\n    \"desired_result\": null,\n    \"errors_per_occurrence\": null,\n    \"frequency_per_week\": null,\n    \"manual_steps\": null,\n    \"manual_time_minutes\": null,\n    \"redacted_example\": null\n  },\n  \"baseline_provenance\": {\n    \"desired_result\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"errors_per_occurrence\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"frequency_per_week\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_steps\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"manual_time_minutes\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    },\n    \"redacted_example\": {\n      \"note\": null,\n      \"source\": null,\n      \"supplied_utc\": null\n    }\n  },\n  \"bom\": \"absent\",\n  \"brief_revision\": \"PRODUCT_INTAKE_BRIEF_REV2\",\n  \"created_utc\": \"2026-10-26T02:31:18Z\",\n  \"duplicate_of\": null,\n  \"input_encoding\": \"UTF-8\",\n  \"input_source\": \"file:req.txt\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"line_endings\": \"none\",\n  \"original_length_bytes\": 185,\n  \"original_length_chars\": 159,\n  \"original_sha256\": \"49e83d63a8b24e8640741ec66c621c77afda6037250afdc88c08163bdbeb6182\",\n  \"original_text\": \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\",\n  \"owner_statements\": [\n    \"M\\u1ee5c ti\\u00eau: theo d\\u00f5i revision r\\u00f5 h\\u01a1n. Ng\\u1eef c\\u1ea3nh: workflow relay b\\u00e1o c\\u00e1o Muse-reviewer-Muse. Ph\\u1ea1m vi: ch\\u1ec9 local CLI, kh\\u00f4ng provider. \\u0110\\u1ea7u ra: m\\u1ed9t brief c\\u00f3 c\\u1ea5u tr\\u00fac.\"\n  ],\n  \"proposed_interpretations\": [],\n  \"source_locator\": \"local-file:req.txt\",\n  \"supersedes\": null,\n  \"template_version\": \"INTAKE_TEMPLATE_V1\",\n  \"unknowns\": [\n    \"redacted_example\",\n    \"frequency_per_week\",\n    \"manual_time_minutes\",\n    \"manual_steps\",\n    \"errors_per_occurrence\",\n    \"desired_result\"\n  ]\n}\n"
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-add-source --store room.json --intake-id INTAKE-58f6bce56fa0522c --source-id SRC-1 --locator docs/requirements/contextual-intake.md --trust-class not_a_class",
+      "exit": 2,
+      "stderr": "usage: control-room ctx-add-source [-h] --store STORE --intake-id INTAKE_ID\n                                   --source-id SOURCE_ID --locator LOCATOR\n                                   --trust-class\n                                   {owner_statement,reference,external_text}\n                                   [--note NOTE]\ncontrol-room ctx-add-source: error: argument --trust-class: invalid choice: 'not_a_class' (choose from 'owner_statement', 'reference', 'external_text')\n",
+      "stdout": ""
+    },
+    {
+      "command": "PYTHONPATH=/home/hatch/workspace/orchestrator-room-work/slice-c6 python3 -m control_room ctx-add-source --store room.json --intake-id INTAKE-58f6bce56fa0522c --source-id SRC-1 --locator docs/requirements/contextual-intake.md --trust-class reference",
+      "exit": 0,
+      "stderr": "",
+      "stdout": "{\n  \"created_utc\": \"2026-10-26T02:31:18Z\",\n  \"intake_id\": \"INTAKE-58f6bce56fa0522c\",\n  \"locator\": \"docs/requirements/contextual-intake.md\",\n  \"new_source_created\": true,\n  \"note\": null,\n  \"provenance\": \"LOCATOR_ONLY_NOT_FETCHED\",\n  \"provenance_note\": \"Only the locator string is recorded; source content was not fetched, read, or hash-verified by this command.\",\n  \"source_id\": \"SRC-1\",\n  \"source_sha256\": null,\n  \"trust_class\": \"reference\"\n}\n"
+    }
+  ],
+  "runner": "run_acceptance_c6.py",
+  "runner_sha256": "ea5eb7329d3f8aabe1f20bb781e47a319549a5cf7cf72670fff689ceed4a0024",
+  "source_root": "/home/hatch/workspace/orchestrator-room-work/slice-c6",
+  "task": "CTX-001"
+}

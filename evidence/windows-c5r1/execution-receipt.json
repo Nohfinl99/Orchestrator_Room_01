@@ -1,0 +1,25 @@
+{
+  "code_commit": "fd3430c9f1b0e98d1f6c9c62067b935f20054498",
+  "evidence_commit": "dde7b605b0ef9c97e3ae91156303638f3ba843fd",
+  "source_clean_after": true,
+  "pin_count": 50,
+  "suite_counts": {
+    "attempted": 57,
+    "passed": 55,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 2
+  },
+  "suite_exits": {
+    "child": 0,
+    "helper": 0,
+    "BAT": 0
+  },
+  "suite_log_sha256": "c24cb3433e163b457c974908b126c05df342472a44cd0ae68ad1b59de570e7e6",
+  "suite_manifest_sha256": "7527ae7a9a70d1e06a5ad6cd40d9f870907b417c5e9e6645e4425f47d4f9ec89",
+  "source_before_after_equal": true,
+  "acceptance_manifest_verified": true,
+  "verdict": "READY_FOR_BOUNDED_OWNER_TRIAL",
+  "overall": "NOT_VERIFIED",
+  "trial_attachments": "not present in pinned E5R1, no paths supplied in current message; trial timing remains builder-reported unchecked"
+}

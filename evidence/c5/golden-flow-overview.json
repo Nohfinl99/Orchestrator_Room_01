@@ -1,0 +1,71 @@
+{
+  "authentication": "NONE_IN_THIS_CLI",
+  "authority_model": "SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION",
+  "blocked_reason": "missing ready observation",
+  "brief_count": 0,
+  "decision_count": 1,
+  "decision_ids": [
+    "DEC-e81b5e7deada9801"
+  ],
+  "event_count": 5,
+  "evidence_count": 0,
+  "history_failures": [],
+  "history_valid": true,
+  "inference_count": 0,
+  "intake_count": 1,
+  "intake_ids": [
+    "INTAKE-96bccfdbe2a16dfc"
+  ],
+  "judge_report_count": 0,
+  "live_adapters": "BLOCKED",
+  "next_permitted_action": "record a ready observation",
+  "observation_count": 0,
+  "owners": [],
+  "pain_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+  "project_id": "product-discovery-pilot",
+  "proposal_count": 1,
+  "proposal_ids": [
+    "PROP-INTAKE-96bccfdbe2a16dfc"
+  ],
+  "proposal_views": [
+    {
+      "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+      "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+      "tasks": [
+        {
+          "blocked_reason": null,
+          "next_allowed_action": null,
+          "readiness": "DONE",
+          "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T01"
+        },
+        {
+          "blocked_reason": null,
+          "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T02",
+          "readiness": "READY",
+          "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T02"
+        },
+        {
+          "blocked_reason": "Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T02",
+          "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T02",
+          "readiness": "BLOCKED",
+          "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T03"
+        },
+        {
+          "blocked_reason": "Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T03",
+          "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T03",
+          "readiness": "BLOCKED",
+          "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04"
+        }
+      ],
+      "view_note": "Computed view. View is not part of the proposal payload or digest."
+    }
+  ],
+  "ready_inference_count": 0,
+  "ready_observation_count": 0,
+  "ready_tasks": [],
+  "review_receipt_count": 0,
+  "room_id": "control-room-1",
+  "stage": "INTAKE",
+  "store_revision": 5,
+  "task_count": 0
+}

@@ -1,0 +1,5 @@
+subcases=63 passed=59 failed=0 not_run=4 full_scope=NOT_RUN exit=2
+NOT_RUN: A10 packet-level no-egress NOT_RUN in C5R1; requires packet-level monitoring/audit outside the local CLI, not performed. The PASS subcase above covers only the local command scope.
+NOT_RUN: A13 real changed-brief invalidation NOT_RUN in C5R1; C5 has no brief-editing command, so a prior approval followed by an actual brief change cannot be demonstrated. The PASS subcase above covers only expected-brief mismatch rejection against the unchanged REV2 proposal.
+NOT_RUN: A15 symlink NOT_RUN: symlink creation failed in this environment ([WinError 1314] A required privilege is not held by the client: 'C:\\Users\\Admin\\AppData\\Local\\Temp\\tmp46g8ua1f\\good.txt' -> 'C:\\Users\\Admin\\AppData\\Local\\Temp\\tmp46g8ua1f\\link.txt'); on Windows this is typically WinError 1314 (privilege). The subcase is not counted as PASS.
+NOT_RUN: A33 owner product acceptance NOT_RUN / PENDING: owner product acceptance requires a clear owner instruction with source, actor, time, and scope for the product slice itself. The PASS subcase above covers only that C5 does not self-create acceptance.

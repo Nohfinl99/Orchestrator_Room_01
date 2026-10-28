@@ -1,0 +1,20 @@
+PASS pass: helper 0 got 0
+PASS pass: child 0 
+PASS pass: counts 1 pass 1 skip {'attempted': 2, 'passed': 1, 'errors': 0, 'failures': 0, 'skipped': 1}
+PASS pass: log exists 
+PASS pass: manifest has no self hash 
+PASS fail: helper 1 got 1
+PASS fail: child 1 
+PASS fail: artifacts preserved 
+PASS changed: preflight 2 got 2
+PASS changed: no test log claimed 
+PASS changed: preflight recorded 
+PASS missing: preflight 2 got 2
+PASS interrupt: helper 3 not success got 3
+PASS interrupt: log preserved 
+PASS unique: two run dirs [PosixPath('/tmp/tmp79m35loy/out-twice/run-20261025T104011Z-78206d96'), PosixPath('/tmp/tmp79m35loy/out-twice/run-20261025T104011Z-7e940caa')]
+PASS unique: first log untouched 
+PASS bat: propagates helper exit 
+PASS bat: no unconditional Done before exit check 
+BAT execution: NOT_RUN on this platform (static check only); Windows execution must be reported separately.
+ALL RUNNER REGRESSIONS PASS

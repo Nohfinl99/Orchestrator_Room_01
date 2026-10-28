@@ -1,0 +1,56 @@
+{
+  "source_commit": "fd3430c9f1b0e98d1f6c9c62067b935f20054498",
+  "controls": [
+    {
+      "case": "reason-verbatim",
+      "padded_stored": "  same reason  ",
+      "padded_id": "DEC-6a82e87b3bdd26d0",
+      "unpadded_id": "DEC-1e34f4692b242c32",
+      "matched": true
+    },
+    {
+      "case": "T04-with-existing-decision",
+      "ready_with_decision": {
+        "blocked_reason": null,
+        "next_allowed_action": "decide --proposal-id PROP-INTAKE-96bccfdbe2a16dfc --expected-proposal-digest de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6 --expected-brief-revision PRODUCT_INTAKE_BRIEF_REV2 --expected-intake-id INTAKE-96bccfdbe2a16dfc (from operator-reviewed snapshot)",
+        "readiness": "READY",
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04"
+      },
+      "done_with_decision": {
+        "blocked_reason": null,
+        "next_allowed_action": null,
+        "readiness": "DONE",
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04"
+      },
+      "minor_residual": "READY still points to decide despite existing decision; DONE correctly has no action. No authority or verdict change."
+    },
+    {
+      "case": "T04-DONE-without-decision",
+      "view": {
+        "blocked_reason": null,
+        "next_allowed_action": "decide --proposal-id PROP-INTAKE-9bba373eceaf38ec --expected-proposal-digest 2503c1cac6c056d4fbc15ee2b5bb524f7ac6b02f4fa6f0bcd2a07826451ca44c --expected-brief-revision PRODUCT_INTAKE_BRIEF_REV2 --expected-intake-id INTAKE-9bba373eceaf38ec (from operator-reviewed snapshot)",
+        "readiness": "DONE",
+        "task_id": "PROP-INTAKE-9bba373eceaf38ec-T04"
+      },
+      "matched": true
+    },
+    {
+      "case": "legacy-Judge-label",
+      "overview": "C4 collections only (observations, inferences, briefs, evidence, tasks); C5 intake, proposal, decision, and proposal task status freshness are NOT covered by Judge reports or verify snapshots in this slice.",
+      "verify": "C4 collections only (observations, inferences, briefs, evidence, tasks); C5 intake, proposal, decision, and proposal task status freshness are NOT covered by Judge reports or verify snapshots in this slice.",
+      "implementation_verification": "NOT_VERIFIED",
+      "matched": true
+    },
+    {
+      "case": "retained-E5R1-golden-history",
+      "result": {
+        "chain_valid": true,
+        "event_count": 5,
+        "failures": [],
+        "tamper_limit": "Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests."
+      },
+      "matched": true
+    }
+  ],
+  "scope": "Independent synthetic local CLI controls, not owner trial, authentication or full pentest"
+}

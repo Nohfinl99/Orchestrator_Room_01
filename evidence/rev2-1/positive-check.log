@@ -1,0 +1,80 @@
+Command: python3 fixtures/intake-rev2/check_static.py
+OS: Linux 7.0.0-39-generic x86_64
+Python: Python 3.12.3
+Working dir: fixtures/intake-rev2 (slice-v7, packet REV2.1)
+---
+PASS schema-only-supported-keywords
+PASS schema-has-root-selectors
+PASS schema-has-baseline-provenance-definition
+PASS schema-decision-requires-decided-utc
+PASS schema-line-endings-enum-expanded
+PASS intake-instance-validates-against-schema
+PASS proposal-instance-validates-against-schema
+PASS decision-instance-validates-against-schema
+PASS correction-instance-validates-against-schema
+PASS intake-id-recomputed
+PASS intake-original-sha
+PASS intake-original-text-verbatim
+PASS intake-lengths
+PASS intake-brief-template
+PASS intake-no-owner-facts-field
+PASS intake-statements-are-derived-lines
+PASS intake-baseline-all-null
+PASS intake-baseline-provenance-null-for-null
+PASS intake-duplicate-supersedes-null
+PASS proposal-digest-recomputed
+PASS proposal-id-from-intake
+PASS proposal-binds-intake
+PASS proposal-four-tasks-chain
+PASS proposal-task-dependencies-chain
+PASS proposal-review-role-real-operator
+PASS proposal-no-timestamp-or-view-in-payload
+PASS proposal-view-matches-payload
+PASS proposal-view-initial-readiness
+PASS duplicate-response-matches
+PASS propose-repeat-matches
+PASS decision-id-recomputed
+PASS decision-provenance-operator-asserted
+PASS negative-stale-mismatch
+PASS negative-pasted-approval-no-decision
+PASS operator-snapshot-matches-golden-proposal
+PASS line-endings-example-request.txt-classified
+PASS line-endings-example-request.txt-statements-derived
+PASS line-endings-example-request.txt-hash
+PASS line-endings-example-request.txt-lengths
+PASS line-endings-request-crlf.txt-classified
+PASS line-endings-request-crlf.txt-statements-derived
+PASS line-endings-request-crlf.txt-hash
+PASS line-endings-request-crlf.txt-lengths
+PASS line-endings-request-mixed.txt-classified
+PASS line-endings-request-mixed.txt-statements-derived
+PASS line-endings-request-mixed.txt-hash
+PASS line-endings-request-mixed.txt-lengths
+PASS line-endings-request-bare-cr.txt-classified
+PASS line-endings-request-bare-cr.txt-statements-derived
+PASS line-endings-request-bare-cr.txt-hash
+PASS line-endings-request-bare-cr.txt-lengths
+PASS line-endings-request-no-newline.txt-classified
+PASS line-endings-request-no-newline.txt-statements-derived
+PASS line-endings-request-no-newline.txt-hash
+PASS line-endings-request-no-newline.txt-lengths
+PASS line-endings-statements-strip-breaks-not-original
+PASS correction-id-recomputed
+PASS correction-supersedes-original
+PASS correction-new-bytes-new-id
+PASS correction-original-sha
+PASS char-cap-ok-size
+PASS char-cap-over-size
+PASS byte-cap-over-size
+PASS whitespace-only-strips-empty
+PASS crlf-preserved-not-normalized
+PASS bom-input-starts-with-bom
+PASS bom-expected-reject
+PASS nul-input-contains-nul
+PASS nul-expected-reject
+PASS manifest-lists-every-bundle-file
+PASS manifest-hashes-and-sizes-match
+PASS manifest-self-exclusion-noted
+
+ALL POSITIVE CHECKS PASS
+EXIT: 0

@@ -1,0 +1,41 @@
+{
+  "implementation_commit_C3": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "base_commit_C": "d409eca531a202879c2d5bcddc3f9e90794335d3",
+  "branch": "muse/local-control-room",
+  "repository": "Nohfinl99/Orchestrator-Room",
+  "clean_checkout_source_digests": {
+    "control_room/__init__.py": "386a72d4662b9fd5656ecd85ffa34bd72d4700d1e18a577cd0483d5479c8c834",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "b62c58452ce0c6b4a952456e06fd73475526fae2f0aab416c0124bd4292d905c",
+    "control_room/cli.py": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+    "control_room/README.md": "48523bf4d3a521b412fa667b7fddb98a5932c2ccb8ac41f227c4f4209a71b905",
+    "tests/test_control_room.py": "38caedf41c1eca068754d39f9ab83664715b33b45343aef3da3be98bd0161570",
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV3.md": "7b8ef43b5d2dbf3d4cfbd2704e788b0c9213bff3831e4a05a71356c892f325a0"
+  },
+  "clean_checkout_test_linux": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "cwd": "clean checkout of C3 (control_room/ + tests/ only, downloaded via GitHub API)",
+    "python": "3.12.3",
+    "platform": "Linux htch-runtime 7.0.0-39-generic x86_64",
+    "exit_code": 0,
+    "tests_run": 34,
+    "tests_passed": 34,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "log": "evidence/rev3/clean-checkout-test-run-2026-10-25.log",
+    "log_sha256": "dfd3c7df5c537d3b05bd57d82fcf729dedbdc6ee45057ca95e118944b4e567cd"
+  },
+  "windows_test": {
+    "status": "NOT_RUN_BY_MUSE",
+    "reason": "Muse VM is Linux; no Windows host, no wine/powershell, and no authorised external Windows runner was provided in this turn. Windows results below are NOT claimed.",
+    "rev2_windows_baseline_for_reference_only": "Windows 11 build 26300, Python 3.14.4: 25 attempted, 23 PASS, 1 ERROR (T12 WinError 206), 1 SKIP (symlink WinError 1314), exit 1 — that was Rev2 code, not Rev3, and is not presented as a Rev3 result.",
+    "windows_run_commands_for_owner_or_reviewer": [
+      "git clone --branch muse/local-control-room https://github.com/Nohfinl99/Orchestrator-Room.git",
+      "cd Orchestrator-Room",
+      "git checkout 9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+      "py -3.14 -m unittest discover -s tests -v"
+    ],
+    "note": "Send the raw Windows log back to Muse in direct chat; it will be packaged as a supplement naming C3 without changing C3 code, or a separate reviewer can include it in the next review."
+  },
+  "note": "This manifest describes builder-run local checks only. It is not an independent Judge review, not a pentest, and does not make the system verified. A binding_checks PASS is structural only; implementation verification is NOT_VERIFIED."
+}

@@ -1,0 +1,399 @@
+{
+  "briefs": [],
+  "clarifications": {
+    "CTXQ-492758272a3b3363": {
+      "answered_utc": "2026-10-26T02:31:12Z",
+      "answers": [
+        {
+          "answer": "Theo dõi revision rõ hơn",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Mục tiêu cụ thể là gì?"
+        },
+        {
+          "answer": "Một brief có cấu trúc",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Đầu ra mong muốn là gì?"
+        }
+      ],
+      "asked_because_missing_dimensions": [
+        "goal",
+        "context",
+        "scope",
+        "desired_output"
+      ],
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "created_utc": "2026-10-26T02:31:12Z",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "questions": [
+        "Mục tiêu cụ thể là gì?",
+        "Đầu ra mong muốn là gì?"
+      ],
+      "status": "ANSWERED"
+    }
+  },
+  "context_sources": {},
+  "contextual_proposals": {
+    "CPROP-d30e3de4ad279a1e": {
+      "created_utc": "2026-10-26T02:31:12Z",
+      "proposal": {
+        "answers_snapshot": [
+          {
+            "answer": "Theo dõi revision rõ hơn",
+            "answered_utc": "2026-10-26T02:31:12Z",
+            "question": "Mục tiêu cụ thể là gì?"
+          },
+          {
+            "answer": "Một brief có cấu trúc",
+            "answered_utc": "2026-10-26T02:31:12Z",
+            "question": "Đầu ra mong muốn là gì?"
+          }
+        ],
+        "approved_rewrite_digest": "d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+        "approved_rewrite_id": "RW-d30e3de4ad279a1e",
+        "constraints": [],
+        "context": "Relay báo cáo Muse-reviewer-Muse",
+        "desired_output": "Brief có cấu trúc",
+        "goal": "Theo dõi revision rõ hơn",
+        "intake_id": "INTAKE-62bc3c29d0f60a68",
+        "intake_original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+        "labelled_inferences": [
+          {
+            "kind": "LABELLED_INFERENCE_NOT_FACT",
+            "label": "INFERRED_NEED",
+            "text": "cần thấy revision và bằng chứng"
+          }
+        ],
+        "mode": "contextual",
+        "mode_note": "Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.",
+        "next_action": "Đọc snapshot rồi quyết định",
+        "proposal_id": "CPROP-d30e3de4ad279a1e",
+        "rewrite_version": "CTX-REWRITE-V1",
+        "scope": "Chỉ local CLI, không provider",
+        "source_ids": [],
+        "tasks": [
+          {
+            "depends_on": [],
+            "reason": "The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.",
+            "role": "Intake Steward (simulated)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T01",
+            "title": "Preserve raw request and context sources"
+          },
+          {
+            "depends_on": [
+              "CPROP-d30e3de4ad279a1e-T01"
+            ],
+            "next_action_verbatim": "Đọc snapshot rồi quyết định",
+            "reason": "This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.",
+            "role": "Planned step (not a live worker)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T02",
+            "title": "Carry out the draft next_action as written"
+          },
+          {
+            "depends_on": [
+              "CPROP-d30e3de4ad279a1e-T02"
+            ],
+            "reason": "Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.",
+            "role": "Owner (real operator)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T03",
+            "title": "Owner review gate for contextual proposal"
+          }
+        ],
+        "unknowns": [
+          "baseline_chua_do"
+        ]
+      },
+      "proposal_digest": "6d8881856544f9675717d24a51cae9ebdc6669f218f7b72edd783956e8d7f0a8",
+      "proposal_id": "CPROP-d30e3de4ad279a1e"
+    }
+  },
+  "decisions": {},
+  "events": [
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "d9626aed49dda15a8c07f3dd93abe0060f3ea890554eb941a02c1de5a0c24e7f",
+      "content_digest_before": "73b3def1c2733298added660001e43a236589b4f8bda57cf03a2f46009fa2ee5",
+      "event_digest": "1fe513ed0628b792f6f56130b1061624bf90a2bdd235c7f057c4772a8123c724",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "intake_created",
+      "linked_evidence": null,
+      "prev_event_digest": "GENESIS",
+      "reason": "intake INTAKE-62bc3c29d0f60a68 created",
+      "role": "owner",
+      "store_revision_after": 1,
+      "store_revision_before": 0,
+      "timestamp_utc": "2026-10-26T02:31:11.895212Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "content_digest_after": "657cf32bd181ebb6ccf8fb9c3d7ca4bca1c6027f2749e8dbc491fde4ed64e44c",
+      "content_digest_before": "d9626aed49dda15a8c07f3dd93abe0060f3ea890554eb941a02c1de5a0c24e7f",
+      "event_digest": "e2f63a4c89639cba8a6ef01d799fdb36d7831964764dc18b62560bf797ff47dc",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_clarification_created",
+      "linked_evidence": null,
+      "prev_event_digest": "1fe513ed0628b792f6f56130b1061624bf90a2bdd235c7f057c4772a8123c724",
+      "reason": "clarification CTXQ-492758272a3b3363 created for INTAKE-62bc3c29d0f60a68",
+      "role": "owner",
+      "store_revision_after": 2,
+      "store_revision_before": 1,
+      "timestamp_utc": "2026-10-26T02:31:12.071380Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "content_digest_after": "cc450a4597ff91a2e5061cdb8389b6364d6c4e44e854dcf7d3b1da39d9b56767",
+      "content_digest_before": "657cf32bd181ebb6ccf8fb9c3d7ca4bca1c6027f2749e8dbc491fde4ed64e44c",
+      "event_digest": "24e690a61e35f6f0f6a8aa50d0d6b03a9f8b73ebf72b94b17dcf0fc83e26ea63",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_clarification_answered",
+      "linked_evidence": null,
+      "prev_event_digest": "e2f63a4c89639cba8a6ef01d799fdb36d7831964764dc18b62560bf797ff47dc",
+      "reason": "clarification CTXQ-492758272a3b3363 answered",
+      "role": "owner",
+      "store_revision_after": 3,
+      "store_revision_before": 2,
+      "timestamp_utc": "2026-10-26T02:31:12.156775Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "668f3cb69ffede31a22db0783d664e372ce2c0c7103094ec08df76f915656430",
+      "content_digest_before": "cc450a4597ff91a2e5061cdb8389b6364d6c4e44e854dcf7d3b1da39d9b56767",
+      "event_digest": "c50f5195041e1133ffa7af38a017ae98613f18aceed8a6e57e12a0aa7dec8ddf",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_rewrite_drafted",
+      "linked_evidence": null,
+      "prev_event_digest": "24e690a61e35f6f0f6a8aa50d0d6b03a9f8b73ebf72b94b17dcf0fc83e26ea63",
+      "reason": "rewrite RW-d30e3de4ad279a1e drafted for INTAKE-62bc3c29d0f60a68",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "role": "owner",
+      "store_revision_after": 4,
+      "store_revision_before": 3,
+      "timestamp_utc": "2026-10-26T02:31:12.226582Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "668f3cb69ffede31a22db0783d664e372ce2c0c7103094ec08df76f915656430",
+      "content_digest_before": "668f3cb69ffede31a22db0783d664e372ce2c0c7103094ec08df76f915656430",
+      "event_digest": "27ff2434c19459a22ffbf3255b37b92fb0daff132b9c3df9b7a55dbd7c5d2528",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_contextual_proposal_rejected",
+      "linked_evidence": null,
+      "prev_event_digest": "c50f5195041e1133ffa7af38a017ae98613f18aceed8a6e57e12a0aa7dec8ddf",
+      "proposal_id": "CPROP-d30e3de4ad279a1e",
+      "reason": "rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DRAFT_NOT_REVIEWED",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "role": "owner",
+      "store_revision_after": 5,
+      "store_revision_before": 4,
+      "timestamp_utc": "2026-10-26T02:31:12.299468Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "ec8423c2a8637c615145b7603c8de87eb057a93e0b11615ffda43471c94c8ac3",
+      "content_digest_before": "668f3cb69ffede31a22db0783d664e372ce2c0c7103094ec08df76f915656430",
+      "event_digest": "5d67cb79b7903214a009731ee12482ef0c306790e5a270f55e29517bc56d8149",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_rewrite_reviewed",
+      "linked_evidence": null,
+      "prev_event_digest": "27ff2434c19459a22ffbf3255b37b92fb0daff132b9c3df9b7a55dbd7c5d2528",
+      "reason": "rewrite review CTXR-2b010956b06e406e (APPROVE) for RW-d30e3de4ad279a1e",
+      "review_id": "CTXR-2b010956b06e406e",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "role": "owner",
+      "store_revision_after": 6,
+      "store_revision_before": 5,
+      "timestamp_utc": "2026-10-26T02:31:12.371156Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "e128dbcf347a93396347a0ae31024deda5ec7710fca96036ce01776a4deba06f",
+      "content_digest_before": "ec8423c2a8637c615145b7603c8de87eb057a93e0b11615ffda43471c94c8ac3",
+      "event_digest": "c38fef59f45e4da3c17d04396e78a5a0ae862292525c72115f18018f2f7b8ee0",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "kind": "ctx_contextual_proposal_created",
+      "linked_evidence": null,
+      "prev_event_digest": "5d67cb79b7903214a009731ee12482ef0c306790e5a270f55e29517bc56d8149",
+      "proposal_id": "CPROP-d30e3de4ad279a1e",
+      "reason": "contextual proposal CPROP-d30e3de4ad279a1e created for INTAKE-62bc3c29d0f60a68",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "role": "owner",
+      "store_revision_after": 7,
+      "store_revision_before": 6,
+      "timestamp_utc": "2026-10-26T02:31:12.437899Z"
+    }
+  ],
+  "evidence": [],
+  "inferences": [],
+  "intakes": {
+    "INTAKE-62bc3c29d0f60a68": {
+      "baseline": {
+        "desired_result": null,
+        "errors_per_occurrence": null,
+        "frequency_per_week": null,
+        "manual_steps": null,
+        "manual_time_minutes": null,
+        "redacted_example": null
+      },
+      "baseline_provenance": {
+        "desired_result": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "errors_per_occurrence": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "frequency_per_week": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "manual_steps": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "manual_time_minutes": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "redacted_example": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        }
+      },
+      "bom": "absent",
+      "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+      "created_utc": "2026-10-26T02:31:11Z",
+      "duplicate_of": null,
+      "input_encoding": "UTF-8",
+      "input_source": "file:req.txt",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "line_endings": "none",
+      "original_length_bytes": 82,
+      "original_length_chars": 66,
+      "original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+      "original_text": "Tôi muốn cải thiện cách theo dõi công việc, nhưng chưa rõ làm sao.",
+      "owner_statements": [
+        "Tôi muốn cải thiện cách theo dõi công việc, nhưng chưa rõ làm sao."
+      ],
+      "proposed_interpretations": [],
+      "source_locator": "local-file:req.txt",
+      "supersedes": null,
+      "template_version": "INTAKE_TEMPLATE_V1",
+      "unknowns": [
+        "redacted_example",
+        "frequency_per_week",
+        "manual_time_minutes",
+        "manual_steps",
+        "errors_per_occurrence",
+        "desired_result"
+      ]
+    }
+  },
+  "judge_reports": [],
+  "observations": [],
+  "project": {
+    "id": "product-discovery-pilot",
+    "name": "Product-discovery pilot",
+    "pain_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+    "room_id": "control-room-1",
+    "soul": {
+      "authority_note": "Soul is guidance only; it never grants authority.",
+      "intended_user": "Project owner, self-use",
+      "interaction_principles": "Show what is known, what is inferred, what is missing, the current revision, who may act next, and what evidence supports the state.",
+      "purpose": "Supervise a local product-discovery workflow through evidence, hypothesis, owner review and a measured local prototype."
+    }
+  },
+  "proposal_task_status": {},
+  "proposals": {},
+  "review_receipts": [],
+  "revision": 7,
+  "rewrite_reviews": {
+    "CTXR-2b010956b06e406e": {
+      "ctx_event_count_at_review": 3,
+      "decision": "APPROVE",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "operator_label": "test-operator",
+      "provenance": "OPERATOR_ASSERTED",
+      "provenance_note": "Audit label only; not authentication and not product acceptance.",
+      "reason": "Duyệt rewrite để thử luồng contextual",
+      "review_id": "CTXR-2b010956b06e406e",
+      "reviewed_utc": "2026-10-26T02:31:12Z",
+      "rewrite_digest": "d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "source_channel": "local-cli"
+    }
+  },
+  "rewrites": {
+    "RW-d30e3de4ad279a1e": {
+      "answers_snapshot": [
+        {
+          "answer": "Theo dõi revision rõ hơn",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Mục tiêu cụ thể là gì?"
+        },
+        {
+          "answer": "Một brief có cấu trúc",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Đầu ra mong muốn là gì?"
+        }
+      ],
+      "assessment_missing_at_draft": [
+        "goal",
+        "context",
+        "scope",
+        "desired_output"
+      ],
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "constraints": [],
+      "context": "Relay báo cáo Muse-reviewer-Muse",
+      "created_utc": "2026-10-26T02:31:12Z",
+      "desired_output": "Brief có cấu trúc",
+      "goal": "Theo dõi revision rõ hơn",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "intake_original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+      "labelled_inferences": [
+        {
+          "kind": "LABELLED_INFERENCE_NOT_FACT",
+          "label": "INFERRED_NEED",
+          "text": "cần thấy revision và bằng chứng"
+        }
+      ],
+      "next_action": "Đọc snapshot rồi quyết định",
+      "review_id": "CTXR-2b010956b06e406e",
+      "review_status": "APPROVE",
+      "rewrite_digest": "d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "rewrite_seq": 1,
+      "rewrite_version": "CTX-REWRITE-V1",
+      "scope": "Chỉ local CLI, không provider",
+      "source_ids": [],
+      "unknowns": [
+        "baseline_chua_do"
+      ]
+    }
+  },
+  "schema_version": 2,
+  "stage": "INTAKE",
+  "tasks": []
+}

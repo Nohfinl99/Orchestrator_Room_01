@@ -1,0 +1,52 @@
+{
+  "synthetic_note": "Fixed synthetic timestamp; timestamp and view fields are not part of proposal_digest.",
+  "proposal": {
+    "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "template_version": "INTAKE_TEMPLATE_V1",
+    "intake_id": "INTAKE-96bccfdbe2a16dfc",
+    "intake_original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+    "tasks": [
+      {
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T01",
+        "title": "Capture and preserve request",
+        "role": "Intake Steward (simulated)",
+        "depends_on": [],
+        "reason": "Proposal needs a preserved, hashed intake before any analysis; capture is first because no later step may change the original."
+      },
+      {
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T02",
+        "title": "Separate owner statements, interpretations and unknowns",
+        "role": "Product Analyst (simulated)",
+        "depends_on": [
+          "PROP-INTAKE-96bccfdbe2a16dfc-T01"
+        ],
+        "reason": "Analysis needs separated statements; it cannot run before capture, and it must not invent facts."
+      },
+      {
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T03",
+        "title": "Draft discovery proposal and dependency view",
+        "role": "Product Analyst (simulated)",
+        "depends_on": [
+          "PROP-INTAKE-96bccfdbe2a16dfc-T02"
+        ],
+        "reason": "Proposal needs separated statements and unknowns; it is a rule-based template output, not agent coordination."
+      },
+      {
+        "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04",
+        "title": "Owner review gate",
+        "role": "Owner (real operator)",
+        "depends_on": [
+          "PROP-INTAKE-96bccfdbe2a16dfc-T03"
+        ],
+        "reason": "Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide."
+      }
+    ],
+    "notes": [
+      "Roles are simulated except Owner; this template does not assign a real worker.",
+      "View fields (readiness, blocked_reason, next_allowed_action) are computed at overview time and are not part of this payload or its digest."
+    ]
+  },
+  "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+  "created_utc": "2026-10-25T00:00:00Z"
+}

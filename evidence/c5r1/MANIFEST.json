@@ -1,0 +1,42 @@
+{
+  "code_commit_c5r1": "fd3430c9f1b0e98d1f6c9c62067b935f20054498",
+  "files": {
+    "acceptance-manifest.json": {
+      "bytes": 701,
+      "sha256": "6e7eac2a01d8b899f0dcbb833e3456aeceaf26455ee6d58128b98874e91c182e"
+    },
+    "acceptance-results.json": {
+      "bytes": 544806,
+      "sha256": "8b28e039e28af42e4a4ae51174216a8060feede35620685b8505e4751ea9824f"
+    },
+    "acceptance-results.md": {
+      "bytes": 10166,
+      "sha256": "b8cfee87a2818c7e420e4d483a8c763107993692c362c9dd8865e8e7d108d066"
+    },
+    "acceptance-runner.py": {
+      "bytes": 79043,
+      "sha256": "5a2da9f2f93eb86233be18e77e37780ec4b218527a1a06b65c2c95633a62df7a"
+    },
+    "golden-flow-overview.json": {
+      "bytes": 2474,
+      "sha256": "3427a0000f1212d8e6d50f2a23b17aadb7e70a835409bf9d7b0f247173d1a1b5"
+    },
+    "golden-flow-steps.txt": {
+      "bytes": 467,
+      "sha256": "b26674be4943d53923dfc2617f2ccf41ccfdecf39eebb11c91b1cd66fbb9879d"
+    },
+    "golden-flow-store.json": {
+      "bytes": 11179,
+      "sha256": "b65bd6a7aa3c88d5ac1e947b1b78d464c4b4c13c625dae26a3a9b1eac29ad0fc"
+    },
+    "golden-flow-verify-history.json": {
+      "bytes": 253,
+      "sha256": "495410c549ec153bdea2b5fdfe805d43369c4b701db54db856a3ae483c5fbc48"
+    },
+    "test-suite-c5r1.log": {
+      "bytes": 7722,
+      "sha256": "6a76192df1bcf042c51c4c2f7a1a7207cdf33d28632a05ad6dcded0c42d485ed"
+    }
+  },
+  "note": "E5R1 evidence manifest. MANIFEST.json excludes itself to avoid self-reference. All files are builder evidence for C5R1; none is a reviewer verdict or owner acceptance."
+}

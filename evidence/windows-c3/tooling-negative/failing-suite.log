@@ -1,0 +1,17 @@
+test_failure (test_expected_failure.NegativeControl.test_failure) ... FAIL
+
+======================================================================
+FAIL: test_failure (test_expected_failure.NegativeControl.test_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\Admin\AppData\Local\Temp\tmph6w446mr\tests\test_expected_failure.py", line 4, in test_failure
+    self.fail('synthetic runner failure control')
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: synthetic runner failure control
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)
+
+[runner] exit_code=1

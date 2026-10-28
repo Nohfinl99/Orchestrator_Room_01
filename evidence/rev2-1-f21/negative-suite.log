@@ -1,0 +1,22 @@
+Command: python3 fixtures/intake-rev2/check_static.py --negative
+OS: Linux 7.0.0-39-generic x86_64
+Python: Python 3.12.3
+---
+Negative probes: 13 file(s)
+REJECTED baseline-empty.json — $.baseline: missing required field 'redacted_example'
+REJECTED baseline-provenance-fake.json — baseline_provenance.desired_result: null value must not carry source 'owner'
+REJECTED baseline-provenance-missing.json — $.baseline_provenance: missing required field 'manual_time_minutes'
+REJECTED baseline-wrong-type.json — $.baseline.frequency_per_week: type str not in ['number', 'null']
+REJECTED correction-conflict.json — correction_conflict_existing_id: bytes already exist as original intake, supersedes points elsewhere
+REJECTED correction-noop.json — correction_no_op_same_bytes: correction bytes identical to original bytes
+REJECTED decision-explode.json — $.decision: value 'EXPLODE' not in enum ['APPROVE', 'REVISE', 'REJECT', 'DEFER']
+REJECTED decision-missing-decided-utc.json — $: missing required field 'decided_utc'
+REJECTED decision-wrong-bindings.json — decision_binding_mismatch: proposal_digest does not match reviewed proposal
+REJECTED decision-wrong-decision-id.json — decision_id_mismatch: ID does not match canonical decision identity
+REJECTED decision-wrong-proposal-id.json — decision_binding_mismatch: proposal_id does not match reviewed proposal
+REJECTED intake-missing-field.json — $: missing required field 'original_sha256'
+REJECTED proposal-wrong-type.json — $.tasks: type str not in ['array']
+
+Negative probes rejected: 13/13
+ALL NEGATIVE PROBES REJECTED
+EXIT: 0

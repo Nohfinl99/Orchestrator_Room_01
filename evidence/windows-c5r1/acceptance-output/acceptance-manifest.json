@@ -1,0 +1,17 @@
+{
+  "files": {
+    "acceptance-results.json": {
+      "bytes": 575740,
+      "sha256": "aebb81b709361651a2c69f57924a4584ea2dc50e1915ad5d575ea4e952b3d126"
+    },
+    "acceptance-results.md": {
+      "bytes": 10561,
+      "sha256": "525d83ba92568dceadef69cc963eb19015faa800b2c345a6fbac25fb5e74c511"
+    }
+  },
+  "full_scope_verdict": "NOT_RUN",
+  "note": "Runner output manifest. This manifest excludes itself to avoid self-reference.",
+  "source_root": "E:\\Ki\u1ebfn Tr\u00fac Th\u00f4ng Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source",
+  "tool_path": "E:\\Ki\u1ebfn Tr\u00fac Th\u00f4ng Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source\\acceptance\\run_acceptance_c5.py",
+  "tool_sha256": "5a2da9f2f93eb86233be18e77e37780ec4b218527a1a06b65c2c95633a62df7a"
+}

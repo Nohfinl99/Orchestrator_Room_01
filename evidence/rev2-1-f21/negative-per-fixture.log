@@ -1,0 +1,90 @@
+Per-fixture negative validation: each command must exit nonzero (rejection).
+OS: Linux 7.0.0-39-generic x86_64
+Python: Python 3.12.3
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/baseline-empty.json --as intake
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/baseline-empty.json
+  - $.baseline: missing required field 'redacted_example'
+  - $.baseline: missing required field 'frequency_per_week'
+  - $.baseline: missing required field 'manual_time_minutes'
+  - $.baseline: missing required field 'manual_steps'
+  - $.baseline: missing required field 'errors_per_occurrence'
+  - $.baseline: missing required field 'desired_result'
+  - $.baseline_provenance: missing required field 'redacted_example'
+  - $.baseline_provenance: missing required field 'frequency_per_week'
+  - $.baseline_provenance: missing required field 'manual_time_minutes'
+  - $.baseline_provenance: missing required field 'manual_steps'
+  - $.baseline_provenance: missing required field 'errors_per_occurrence'
+  - $.baseline_provenance: missing required field 'desired_result'
+  - baseline: must have exactly the six fields
+  - baseline_provenance: missing entry for redacted_example
+  - baseline_provenance: missing entry for frequency_per_week
+  - baseline_provenance: missing entry for manual_time_minutes
+  - baseline_provenance: missing entry for manual_steps
+  - baseline_provenance: missing entry for errors_per_occurrence
+  - baseline_provenance: missing entry for desired_result
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/baseline-provenance-fake.json --as intake
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/baseline-provenance-fake.json
+  - baseline_provenance.desired_result: null value must not carry source 'owner'
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/baseline-provenance-missing.json --as intake
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/baseline-provenance-missing.json
+  - $.baseline_provenance: missing required field 'manual_time_minutes'
+  - baseline_provenance: missing entry for manual_time_minutes
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/baseline-wrong-type.json --as intake
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/baseline-wrong-type.json
+  - $.baseline.frequency_per_week: type str not in ['number', 'null']
+  - baseline_provenance.frequency_per_week: non-null value must have source 'owner'
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/correction-conflict.json --as correction
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/correction-conflict.json
+  - correction_conflict_existing_id: bytes already exist as original intake, supersedes points elsewhere
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/correction-noop.json --as correction
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/correction-noop.json
+  - correction_no_op_same_bytes: correction bytes identical to original bytes
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/decision-explode.json --as decision
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/decision-explode.json
+  - $.decision: value 'EXPLODE' not in enum ['APPROVE', 'REVISE', 'REJECT', 'DEFER']
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/decision-missing-decided-utc.json --as decision
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/decision-missing-decided-utc.json
+  - $: missing required field 'decided_utc'
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/decision-wrong-bindings.json --as decision
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/decision-wrong-bindings.json
+  - decision_binding_mismatch: proposal_digest does not match reviewed proposal
+  - decision_id_mismatch: ID does not match canonical decision identity
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/decision-wrong-decision-id.json --as decision
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/decision-wrong-decision-id.json
+  - decision_id_mismatch: ID does not match canonical decision identity
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/decision-wrong-proposal-id.json --as decision
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/decision-wrong-proposal-id.json
+  - decision_binding_mismatch: proposal_id does not match reviewed proposal
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/intake-missing-field.json --as intake
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/intake-missing-field.json
+  - $: missing required field 'original_sha256'
+EXIT: 1
+---
+Command: python3 fixtures/intake-rev2/check_static.py --validate negative/proposal-wrong-type.json --as proposal
+INVALID /home/hatch/workspace/orchestrator-room-work/slice-v8/fixtures/intake-rev2/negative/proposal-wrong-type.json
+  - $.tasks: type str not in ['array']
+EXIT: 1
+---

@@ -1,0 +1,75 @@
+{
+  "case": "baseline-provenance-missing",
+  "record_type": "intake",
+  "instance": {
+    "intake_id": "INTAKE-96bccfdbe2a16dfc",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "template_version": "INTAKE_TEMPLATE_V1",
+    "created_utc": "2026-10-25T00:00:00Z",
+    "input_source": "file:example-request.txt",
+    "source_locator": "local-file:example-request.txt",
+    "original_text": "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.\nNguồn: báo cáo nội bộ tuần này.\nMục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.\n",
+    "original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+    "original_length_bytes": 222,
+    "original_length_chars": 165,
+    "input_encoding": "UTF-8",
+    "bom": "absent",
+    "line_endings": "LF",
+    "owner_statements": [
+      "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.",
+      "Nguồn: báo cáo nội bộ tuần này.",
+      "Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt."
+    ],
+    "proposed_interpretations": [],
+    "unknowns": [
+      "redacted_example",
+      "frequency_per_week",
+      "manual_time_minutes",
+      "manual_steps",
+      "errors_per_occurrence",
+      "desired_result"
+    ],
+    "baseline": {
+      "redacted_example": null,
+      "frequency_per_week": null,
+      "manual_time_minutes": 30,
+      "manual_steps": null,
+      "errors_per_occurrence": null,
+      "desired_result": null
+    },
+    "baseline_provenance": {
+      "redacted_example": {
+        "source": null,
+        "supplied_utc": null,
+        "note": null
+      },
+      "frequency_per_week": {
+        "source": null,
+        "supplied_utc": null,
+        "note": null
+      },
+      "manual_steps": {
+        "source": null,
+        "supplied_utc": null,
+        "note": null
+      },
+      "errors_per_occurrence": {
+        "source": null,
+        "supplied_utc": null,
+        "note": null
+      },
+      "desired_result": {
+        "source": null,
+        "supplied_utc": null,
+        "note": null
+      }
+    },
+    "duplicate_of": null,
+    "supersedes": null
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "baseline_provenance_missing"
+  },
+  "note": "Non-null baseline value without a provenance entry."
+}

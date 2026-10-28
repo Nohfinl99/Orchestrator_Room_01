@@ -1,0 +1,14 @@
+Command: python3 fixtures/intake-rev2/check_static.py --schema-probes
+OS: Linux 7.0.0-39-generic x86_64
+Python: Python 3.12.3
+Probes stored in: fixtures/intake-rev2/regression-schema-probes.json
+---
+Schema probes: 4 probe(s)
+REJECTED schema-probe-intake-selector — unsupported $ref sibling constraints at $.intake_schema
+REJECTED schema-probe-proposal-selector — unsupported $ref sibling constraints at $.proposal_schema
+REJECTED schema-probe-decision-selector — unsupported $ref sibling constraints at $.decision_schema
+REJECTED schema-probe-definition-property — unsupported schema keyword 'minimum' at $.definitions.intake.properties.original_length_bytes
+
+Schema probes rejected: 4/4
+ALL SCHEMA PROBES REJECTED
+EXIT: 0

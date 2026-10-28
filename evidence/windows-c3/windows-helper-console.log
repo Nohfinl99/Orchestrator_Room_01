@@ -1,0 +1,6 @@
+exit_code=0
+attempted=34 passed=33 errors=0 failures=0 skipped=1
+log=E:\Kiến Trúc Thông Tin\Orchestrator\artifacts\reviews\2026-10-25-muse-rev3-windows\evidence\windows\run-001\windows-test-run-2026-10-25.log
+log_sha256=d2a226190d43ac7db4ac08c5ca352ab9c0c947ebb2485f096ed638c734e75f9e
+manifest=E:\Kiến Trúc Thông Tin\Orchestrator\artifacts\reviews\2026-10-25-muse-rev3-windows\evidence\windows\run-001\windows-test-manifest.json
+manifest_sha256=e554112b1b2b1d32fcc96252169944c2cc474701f9492e7587ed85a05194afde

@@ -1,0 +1,9 @@
+child_exit=0
+helper_exit=0
+attempted=36 passed=36 errors=0 failures=0 skipped=0
+run_dir=/home/hatch/workspace/orchestrator-room-work/evidence-rev4-runs/run-20261025T103957Z-d41449a3
+log=/home/hatch/workspace/orchestrator-room-work/evidence-rev4-runs/run-20261025T103957Z-d41449a3/test-run.log
+log_sha256=52a601af16982e182ec5fc0324ace232234d5ef0f8758a238dcdf70c960aa186
+manifest=/home/hatch/workspace/orchestrator-room-work/evidence-rev4-runs/run-20261025T103957Z-d41449a3/manifest.json
+manifest_sha256=dd5233f853e334cd2aab23d02e5806179b09c9baa74061d9d67cebcb26010dcb  (computed externally, not stored in manifest)
+reason=tests passed, counts valid, sources unchanged

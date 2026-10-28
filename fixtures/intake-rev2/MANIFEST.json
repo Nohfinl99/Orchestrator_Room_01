@@ -1,0 +1,200 @@
+{
+  "note": "Fixture manifest for packet REV2.1 + checker fix F21. All files are synthetic. Golden timestamps are fixed synthetic values, not real run times. Hashes are SHA-256 of file bytes as stored. The manifest excludes itself to avoid a self-reference. Hash match alone is not schema validation: check_static.py validates golden instances against schema.json and rejects every negative/ fixture and every schema probe. REV2 bundle manifest (SHA-256 9348a4ef4ee8892a133639eade4053112249b6bef7a9b3c6d3bf1e64c6b2bc26, commit db1de0f) and REV2.1 bundle manifest (SHA-256 6d83722a8b558665e0c5d087a08b9f4674dd59ba3393db6aacd739a37c02525f, commit 0441dec) are preserved in their commits; unchanged golden files in this manifest have the same hashes as in REV2.1.",
+  "files": {
+    "check_static.py": {
+      "bytes": 27402,
+      "sha256": "f7abfa28cba156b163661d4946260baf3dcf114fd4094c5b5bbc087e06a6f806",
+      "kind": "checker"
+    },
+    "collection-template.md": {
+      "bytes": 679,
+      "sha256": "e81f9ac25a83cda851fc28bf09721edfaeb24f9afde7ac63c85cccca230e0d5c",
+      "kind": "fixture"
+    },
+    "correction-request.txt": {
+      "bytes": 263,
+      "sha256": "84910bb6be58d81b59dd239067b700d191b156cd41f7616e7f3e0ad39175f057",
+      "kind": "fixture"
+    },
+    "example-request.txt": {
+      "bytes": 222,
+      "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+      "kind": "fixture"
+    },
+    "expected-correction.json": {
+      "bytes": 2719,
+      "sha256": "88e3934ff9e46cf087740fb081fe2faf6fd907e879caf413bff5019a103a12d8",
+      "kind": "golden"
+    },
+    "expected-decision.json": {
+      "bytes": 616,
+      "sha256": "241adc09eceff6b68ef46fae94b40197e2ca20e09f7abae787205c42a1fb57ae",
+      "kind": "golden"
+    },
+    "expected-duplicate-response.json": {
+      "bytes": 257,
+      "sha256": "b21e8e678a965fada717a355d771fdb5b3c1a871ebd587a8b1c53e59bb3d89aa",
+      "kind": "golden"
+    },
+    "expected-intake.json": {
+      "bytes": 2420,
+      "sha256": "ddbfbe8642f8072e91bb604e63237081538bf553708ece039302511b10584dd0",
+      "kind": "golden"
+    },
+    "expected-line-endings.json": {
+      "bytes": 3508,
+      "sha256": "a511391e92dc581bc2a9623f91b5be96f4a758d7f46a2ae634d5376032b4cd0b",
+      "kind": "golden"
+    },
+    "expected-proposal-view.json": {
+      "bytes": 1254,
+      "sha256": "b12d8babb75e300fd1acd35bb407446c2be5bcb8cc1e16720bf3e18ded79b78a",
+      "kind": "golden"
+    },
+    "expected-proposal.json": {
+      "bytes": 2312,
+      "sha256": "be03f225419817a0303709019374c888669f1093ec2e67dd6b80af3c303919c7",
+      "kind": "golden"
+    },
+    "expected-propose-repeat-response.json": {
+      "bytes": 267,
+      "sha256": "1a8f64da03995f85c2937ac083faa0b0444ef1f89fb72bcb2bccf40e6b6b46c3",
+      "kind": "golden"
+    },
+    "negative/baseline-empty.json": {
+      "bytes": 1641,
+      "sha256": "26e7846c285a23b3ae6260786112c79ca368e62ed048193fd5024436e3727c89",
+      "kind": "negative"
+    },
+    "negative/baseline-provenance-fake.json": {
+      "bytes": 2538,
+      "sha256": "f05ccdad877df37f89f89b6a5189755315150fd5f85da2fc468769ba078a68b8",
+      "kind": "negative"
+    },
+    "negative/baseline-provenance-missing.json": {
+      "bytes": 2384,
+      "sha256": "b4500ca617e235d5ecea558ec0130a6626042b59f1f01d6ab6312f216a5aa337",
+      "kind": "negative"
+    },
+    "negative/baseline-wrong-type.json": {
+      "bytes": 2492,
+      "sha256": "44d395896beaa604d2d55b9a5f2ed889132b2b8fcd5dc167598b297b881c420c",
+      "kind": "negative"
+    },
+    "negative/correction-conflict.json": {
+      "bytes": 473,
+      "sha256": "8f2ecfa1db3161a3e8120140fecf9cc0cb1e425ddef68b1f220ab5b05bc0904d",
+      "kind": "negative"
+    },
+    "negative/correction-noop.json": {
+      "bytes": 393,
+      "sha256": "186d14da734d5ffa9c4e5faaced164ab8a1b681b7c06b1694510be6fc0056194",
+      "kind": "negative"
+    },
+    "negative/decision-explode.json": {
+      "bytes": 796,
+      "sha256": "7f8f160b9f75c0fad87ffa231b14b373a8ae37604120bf5b3997a232babe6146",
+      "kind": "negative"
+    },
+    "negative/decision-missing-decided-utc.json": {
+      "bytes": 700,
+      "sha256": "dbac74e27373c030ea4caccb04a42d4073e542b63cb9d380e64626901f0cec3b",
+      "kind": "negative"
+    },
+    "negative/decision-wrong-bindings.json": {
+      "bytes": 821,
+      "sha256": "62ba94f011b87f92a38310402fda361e7ded9f0dbb098b6ac609308a8fd1d4b7",
+      "kind": "negative"
+    },
+    "negative/decision-wrong-decision-id.json": {
+      "bytes": 821,
+      "sha256": "a52c6a277922d7af91df678b73aa96351aca73c016ccbbdba08d12fd4ee8aaa6",
+      "kind": "negative"
+    },
+    "negative/decision-wrong-proposal-id.json": {
+      "bytes": 834,
+      "sha256": "5dedb6a1fc578110d669326cb224997bfb07aa8244a18bc0b5ba9e23691758d6",
+      "kind": "negative"
+    },
+    "negative/intake-missing-field.json": {
+      "bytes": 2382,
+      "sha256": "ca618a0d262ed267f64c627c445556107805da8df981cad766ebaad308089b57",
+      "kind": "negative"
+    },
+    "negative/proposal-wrong-type.json": {
+      "bytes": 792,
+      "sha256": "a307031f833063781902f0bc14b9bcb3b7dbf5687c2b3f376e8fc743bb7d91fc",
+      "kind": "negative"
+    },
+    "negative-decision.json": {
+      "bytes": 1317,
+      "sha256": "5cb7da4f877cfc9e0f68582f985dfe8be74f0cb80c562d0aba00eeae097cd61c",
+      "kind": "golden"
+    },
+    "operator-reviewed-snapshot.json": {
+      "bytes": 589,
+      "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da",
+      "kind": "golden"
+    },
+    "regression-schema-probes.json": {
+      "bytes": 1061,
+      "sha256": "12a00d5792ee16fe4952389179ad0c8c1310b909da8cb84fe8434115584cbf2a",
+      "kind": "regression"
+    },
+    "request-bare-cr.txt": {
+      "bytes": 181,
+      "sha256": "dfd200a8953be59ec22398dc36571edb4c3be42f78e33eabfa40500d973ece00",
+      "kind": "fixture"
+    },
+    "request-bom.json": {
+      "bytes": 572,
+      "sha256": "fd92b4616500f86d71a3686b7cb9303922c528fab692c042c7410d0e3e81c716",
+      "kind": "fixture"
+    },
+    "request-byte-cap-over.txt": {
+      "bytes": 20001,
+      "sha256": "24e9393cfe95959b84669c585c492578df744208bd974a40c229bca1bd77630e",
+      "kind": "fixture"
+    },
+    "request-char-cap-ok.txt": {
+      "bytes": 10000,
+      "sha256": "27dd1f61b867b6a0f6e9d8a41c43231de52107e53ae424de8f847b821db4b711",
+      "kind": "fixture"
+    },
+    "request-char-cap-over.txt": {
+      "bytes": 10001,
+      "sha256": "0cab99a058600ffaad1292d0c53c0548ebaf88dd1d01030345705f018a813909",
+      "kind": "fixture"
+    },
+    "request-crlf.txt": {
+      "bytes": 225,
+      "sha256": "04307f39d5138b9e080b09cb8d3770df59f285453fb778d6baafa30359e0b807",
+      "kind": "fixture"
+    },
+    "request-mixed.txt": {
+      "bytes": 182,
+      "sha256": "e16e08684654dfd97d7d6170f1f3524b99455eff1923900f64e300f4d19e25db",
+      "kind": "fixture"
+    },
+    "request-no-newline.txt": {
+      "bytes": 72,
+      "sha256": "53ce72c288d5c4b28046b8d49ac21ef088c9ff8009bc91d8636b9cde16c1ac0c",
+      "kind": "fixture"
+    },
+    "request-nul.json": {
+      "bytes": 568,
+      "sha256": "8f651c4d7f752436e758a9812fbc95bba5b0345af974597f9dda15144bd70bc4",
+      "kind": "fixture"
+    },
+    "request-whitespace.txt": {
+      "bytes": 9,
+      "sha256": "d3fc4500327202de9fd3571f7d1ac8c62570d53903d87aba481e6b95f1ef3444",
+      "kind": "fixture"
+    },
+    "schema.json": {
+      "bytes": 6453,
+      "sha256": "9b32c44853b4e8a6214d469a9c57015e870912528317f8617334f4f43210407b",
+      "kind": "schema"
+    }
+  }
+}

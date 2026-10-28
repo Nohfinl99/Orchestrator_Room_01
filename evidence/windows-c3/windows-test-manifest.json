@@ -1,0 +1,41 @@
+{
+  "code_commit_under_review": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "branch": "muse/local-control-room",
+  "repository": "Nohfinl99/Orchestrator-Room",
+  "command": [
+    "C:\\Program Files\\Python314\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "exit_code": 0,
+  "counts": {
+    "attempted": 34,
+    "passed": 33,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 1
+  },
+  "log_file": "windows-test-run-2026-10-25.log",
+  "log_sha256": "d2a226190d43ac7db4ac08c5ca352ab9c0c947ebb2485f096ed638c734e75f9e",
+  "source_digests": {
+    "control_room/__init__.py": "386a72d4662b9fd5656ecd85ffa34bd72d4700d1e18a577cd0483d5479c8c834",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "b62c58452ce0c6b4a952456e06fd73475526fae2f0aab416c0124bd4292d905c",
+    "control_room/cli.py": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+    "control_room/README.md": "48523bf4d3a521b412fa667b7fddb98a5932c2ccb8ac41f227c4f4209a71b905",
+    "tests/test_control_room.py": "38caedf41c1eca068754d39f9ab83664715b33b45343aef3da3be98bd0161570"
+  },
+  "missing_source_files": [],
+  "notes": [
+    "Raw log is the primary evidence; counts above are derived from it by line suffix.",
+    "A skipped symlink test (WinError 1314) is NOT_RUN, not PASS.",
+    "This run is a builder/test-suite run, not an independent Judge review and not a pentest.",
+    "Send this log and this manifest back to Muse in direct chat for packaging as a Windows supplement naming the code commit."
+  ]
+}

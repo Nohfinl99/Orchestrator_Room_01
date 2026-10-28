@@ -1,0 +1,65 @@
+command: PYTHONPATH=. python3 -m unittest tests.test_control_room tests.test_intake_c5 -v
+Python 3.12.3
+Linux htch-runtime 7.0.0-39-generic #1 SMP PREEMPT_DYNAMIC Thu Sep 24 08:42:15 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+test_01_overview_initial (tests.test_control_room.TestControlRoomRev3.test_01_overview_initial) ... ok
+test_02_observation_save_reload_null_elapsed_and_readiness (tests.test_control_room.TestControlRoomRev3.test_02_observation_save_reload_null_elapsed_and_readiness) ... ok
+test_03_facts_and_inferences_separate (tests.test_control_room.TestControlRoomRev3.test_03_facts_and_inferences_separate) ... ok
+test_04_locator_and_hash_retained (tests.test_control_room.TestControlRoomRev3.test_04_locator_and_hash_retained) ... ok
+test_05_task_done_does_not_advance (tests.test_control_room.TestControlRoomRev3.test_05_task_done_does_not_advance) ... ok
+test_06_illegal_and_unauthorised_changes_rejected (tests.test_control_room.TestControlRoomRev3.test_06_illegal_and_unauthorised_changes_rejected) ... ok
+test_07_dependency_ready_and_stale_update (tests.test_control_room.TestControlRoomRev3.test_07_dependency_ready_and_stale_update) ... ok
+test_08_full_stage_path_and_owner_decision_binding (tests.test_control_room.TestControlRoomRev3.test_08_full_stage_path_and_owner_decision_binding) ... ok
+test_09_history_shows_before_after_and_chain (tests.test_control_room.TestControlRoomRev3.test_09_history_shows_before_after_and_chain) ... ok
+test_10_verification_no_false_pass_and_binding_separation (tests.test_control_room.TestControlRoomRev3.test_10_verification_no_false_pass_and_binding_separation) ... ok
+test_10b_verification_without_receipt_is_inconclusive (tests.test_control_room.TestControlRoomRev3.test_10b_verification_without_receipt_is_inconclusive) ... ok
+test_11_hostile_text_is_inert (tests.test_control_room.TestControlRoomRev3.test_11_hostile_text_is_inert) ... ok
+test_12a_in_process_boundaries_and_true_aggregate_overflow (tests.test_control_room.TestControlRoomRev3.test_12a_in_process_boundaries_and_true_aggregate_overflow) ... ok
+test_12b_cli_smoke_with_small_args_and_preserved_env (tests.test_control_room.TestControlRoomRev3.test_12b_cli_smoke_with_small_args_and_preserved_env) ... ok
+test_13_no_network_or_shell_in_slice_code (tests.test_control_room.TestControlRoomRev3.test_13_no_network_or_shell_in_slice_code) ... ok
+test_14_reload_keeps_history_coherent (tests.test_control_room.TestControlRoomRev3.test_14_reload_keeps_history_coherent) ... ok
+test_15_binary_store_is_rejected (tests.test_control_room.TestControlRoomRev3.test_15_binary_store_is_rejected) ... ok
+test_16_verify_history_tamper_detection (tests.test_control_room.TestControlRoomRev3.test_16_verify_history_tamper_detection) ... ok
+test_17_stale_whole_store_writer_is_rejected (tests.test_control_room.TestControlRoomRev3.test_17_stale_whole_store_writer_is_rejected) ... ok
+test_18_failed_save_preserves_previous_store (tests.test_control_room.TestControlRoomRev3.test_18_failed_save_preserves_previous_store) ... ok
+test_19_stale_judge_snapshot_rejects_and_records (tests.test_control_room.TestControlRoomRev3.test_19_stale_judge_snapshot_rejects_and_records) ... ok
+test_20_empty_gates_cannot_close_product_path (tests.test_control_room.TestControlRoomRev3.test_20_empty_gates_cannot_close_product_path) ... ok
+test_21_role_simulation_is_labelled (tests.test_control_room.TestControlRoomRev3.test_21_role_simulation_is_labelled) ... ok
+test_22_brief_recompute_and_tamper (tests.test_control_room.TestControlRoomRev3.test_22_brief_recompute_and_tamper) ... ok
+test_23_schema_v1_is_rejected (tests.test_control_room.TestControlRoomRev3.test_23_schema_v1_is_rejected) ... ok
+test_24_symlink_store_subcase (tests.test_control_room.TestControlRoomRev3.test_24_symlink_store_subcase) ... ok
+test_25_frozen_plan_cannot_be_overridden (tests.test_control_room.TestControlRoomRev3.test_25_frozen_plan_cannot_be_overridden) ... ok
+test_26_binding_pass_is_not_implementation_pass (tests.test_control_room.TestControlRoomRev3.test_26_binding_pass_is_not_implementation_pass) ... ok
+test_27_history_anchor_blocks_tampered_state (tests.test_control_room.TestControlRoomRev3.test_27_history_anchor_blocks_tampered_state) ... ok
+test_28_history_controls (tests.test_control_room.TestControlRoomRev3.test_28_history_controls) ... ok
+test_29_lock_released_on_abrupt_child_death (tests.test_control_room.TestControlRoomRev3.test_29_lock_released_on_abrupt_child_death) ... ok
+test_30_two_real_processes_exactly_one_writer_accepted (tests.test_control_room.TestControlRoomRev3.test_30_two_real_processes_exactly_one_writer_accepted) ... ok
+test_31_brief_content_recompute_invalidates (tests.test_control_room.TestControlRoomRev3.test_31_brief_content_recompute_invalidates) ... ok
+test_32_orphan_brief_and_whitespace_readiness (tests.test_control_room.TestControlRoomRev3.test_32_orphan_brief_and_whitespace_readiness) ... ok
+test_33_genesis_project_integrity (tests.test_control_room.TestControlRoomRev3.test_33_genesis_project_integrity) ... ok
+test_34_genesis_via_cli_verify_history (tests.test_control_room.TestControlRoomRev3.test_34_genesis_via_cli_verify_history) ... ok
+test_c5_01_golden_intake (tests.test_intake_c5.TestIntakeC5.test_c5_01_golden_intake) ... ok
+test_c5_02_duplicate_response_and_original_unchanged (tests.test_intake_c5.TestIntakeC5.test_c5_02_duplicate_response_and_original_unchanged) ... ok
+test_c5_03_propose_golden_and_repeat (tests.test_intake_c5.TestIntakeC5.test_c5_03_propose_golden_and_repeat) ... ok
+test_c5_04_view_initial_and_complete (tests.test_intake_c5.TestIntakeC5.test_c5_04_view_initial_and_complete) ... ok
+test_c5_05_decide_golden_stale_and_repeat (tests.test_intake_c5.TestIntakeC5.test_c5_05_decide_golden_stale_and_repeat) ... ok
+test_c5_06_decide_binding_mismatch_and_format (tests.test_intake_c5.TestIntakeC5.test_c5_06_decide_binding_mismatch_and_format) ... ok
+test_c5_07_correction_paths (tests.test_intake_c5.TestIntakeC5.test_c5_07_correction_paths) ... ok
+test_c5_08_format_rejections (tests.test_intake_c5.TestIntakeC5.test_c5_08_format_rejections) ... ok
+test_c5_09_line_endings (tests.test_intake_c5.TestIntakeC5.test_c5_09_line_endings) ... ok
+test_c5_10_combining_and_no_trim (tests.test_intake_c5.TestIntakeC5.test_c5_10_combining_and_no_trim) ... ok
+test_c5_11_hostile_and_pasted_approval_inert (tests.test_intake_c5.TestIntakeC5.test_c5_11_hostile_and_pasted_approval_inert) ... ok
+test_c5_12_path_boundaries (tests.test_intake_c5.TestIntakeC5.test_c5_12_path_boundaries) ... ok
+test_c5_13_stdin_intake (tests.test_intake_c5.TestIntakeC5.test_c5_13_stdin_intake) ... ok
+test_c5_14_reload_and_history_anchor (tests.test_intake_c5.TestIntakeC5.test_c5_14_reload_and_history_anchor) ... ok
+test_c5_15_template_invariance_and_soul (tests.test_intake_c5.TestIntakeC5.test_c5_15_template_invariance_and_soul) ... ok
+test_c5_16_task_done_no_advance_and_no_product_acceptance (tests.test_intake_c5.TestIntakeC5.test_c5_16_task_done_no_advance_and_no_product_acceptance) ... ok
+test_c5_17_two_processes_decide_exactly_one (tests.test_intake_c5.TestIntakeC5.test_c5_17_two_processes_decide_exactly_one) ... ok
+test_c5_18_overview_counts_and_views (tests.test_intake_c5.TestIntakeC5.test_c5_18_overview_counts_and_views) ... ok
+test_c5_19_padded_reason_verbatim (tests.test_intake_c5.TestIntakeC5.test_c5_19_padded_reason_verbatim) ... ok
+test_c5_20_t04_next_action_is_decide (tests.test_intake_c5.TestIntakeC5.test_c5_20_t04_next_action_is_decide) ... ok
+test_c5_21_judge_scope_is_c4_only (tests.test_intake_c5.TestIntakeC5.test_c5_21_judge_scope_is_c4_only) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 38.261s
+
+OK

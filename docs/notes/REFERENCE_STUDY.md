@@ -1,0 +1,31 @@
+# Reference study: Bear Agent Manager
+
+## Scope and evidence
+
+Read-only static study of public repository gnutirt/bear-agent-manager at commit c957fcb3d4896ff6a89f9d58c311fe14337e4265, accessed 2026-10-25. Reviewed README, architecture/API docs and selected source for the hub, permissions, routing, files, workers, MCP HTTP and security tests. Source was not executed; no test, smoke run or dynamic exploit was performed. This is a bounded design/security study, not a verification or full pentest.
+
+The upstream README states that no license is provided and reuse, modification and redistribution are not granted. Therefore this handoff does not copy or port its source. It records high-level design observations and defines an independent implementation for Orchestrator-Room. See [upstream license statement](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/README.md#L362-L364).
+
+## Useful design patterns to adapt independently
+
+- A single local hub owns room/task/message state; UI, hooks and MCP are clients. This reduces split-brain state. [Architecture](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/docs/architecture.md)
+- Room routing, a lead, task ownership/dependencies and an operator-visible task board make coordination inspectable. [Task model](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/tasks.ts)
+- Agent-generated wake loops have a cap and pause. Human messages are distinguished from agent messages. [Routing](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/routing.ts)
+- Permission prompts wait for a person and deny on timeout/cancellation. [Permission broker](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/permissions.ts)
+- File browsing/writing is scoped to an agent workspace, blocks recognized secrets, and the commit path uses a scratch index to avoid sweeping unrelated staged changes. [Workspace file guard](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/files.ts) · [Scoped writes](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/filewrite.ts)
+- The source includes security tests, a fake-agent smoke test, and explicit prototype caveats. Their existence is not proof that the current revision passed; we did not run them. [Security tests](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/test/security.test.ts) · [Smoke description](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/README.md#L340-L348)
+
+## Risks and limits observed in the reviewed source
+
+These are source-level observations, not confirmed exploits:
+
+1. **Broad permission defaults.** The source default settings include permissions mode bypass and apiAgents.allTools set to true. In the permission route, an API profile with allTools enabled is allowed without the normal guard. This is a high-impact default for a new system to avoid. [Defaults](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/settings.ts#L199-L203) · [Permission path](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/server.ts#L3114-L3134)
+2. **Background execution is not a sandbox.** The README explicitly says background Claude sessions may use full permissions via --dangerously-skip-permissions and tells the operator this is not a sandbox. Orchestrator-Room must use least privilege and must not present a permission prompt as isolation. [Upstream warning](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/README.md#L298-L306)
+3. **Workers can send task data outside the machine.** The README says worker skills use a separate API key/provider and the data given to a worker leaves the machine. This must never be silently inherited. [Worker data note](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/README.md#L307-L313)
+4. **UI token exposure relies partly on a user-agent speed bump.** The hub injects its token into the unauthenticated UI response, blocks selected user-agent strings, and itself comments that this is only a speed bump and token injection must be removed for a real boundary. The API also accepts a token query parameter. We did not demonstrate a remote exploit; a new system should not expose long-lived credentials in HTML or URLs. [UI/token handling](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/server.ts#L2531-L2544)
+5. **Task done is a coordination status, not proof.** A task can transition to done with a task update; the hub then asks a lead to audit in the room, but the status itself is not bound to a verified test artifact. Orchestrator-Room must keep task state and evidence-backed verification as different fields and gates. [Task update route](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/hub/server.ts#L3921-L3972)
+6. **Fail-open hooks need narrow semantics.** The architecture says hooks fail open when the hub is unavailable so they do not block an IDE session. That can be reasonable for telemetry or a developer convenience; it must not be used for an approval, evidence gate, or external side effect. [Architecture](https://github.com/gnutirt/bear-agent-manager/blob/c957fcb3d4896ff6a89f9d58c311fe14337e4265/docs/architecture.md)
+
+## Application to Orchestrator-Room
+
+Use the control-room pattern to supervise a product-discovery workflow: intake → evidence → hypothesis → owner review → thin-slice plan → implementation → independent Judge → owner decision. The room should show state, owner, dependency, evidence and next allowed action. The hub/backend—not model text—must enforce transitions. An agent may propose a finding or report completion; only a validator with concrete evidence can set verification PASS. Human approval is required for provider use, network access, writes outside the private repo, and advancing product gates.

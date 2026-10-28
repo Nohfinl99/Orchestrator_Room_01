@@ -1,0 +1,14 @@
+{
+  "case": "correction-noop",
+  "record_type": "correction",
+  "instance": {
+    "bytes_source": "example-request.txt",
+    "supersedes": "INTAKE-96bccfdbe2a16dfc",
+    "note": "Same bytes as original intake."
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "correction_no_op_same_bytes"
+  },
+  "note": "Correction bytes identical to original bytes: no-op reject, no new record."
+}

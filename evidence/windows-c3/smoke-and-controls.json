@@ -1,0 +1,273 @@
+{
+  "target_code_C3": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "scope": "Bounded local smoke/controls, not full pentest",
+  "command": [
+    "smoke_and_controls.py",
+    "--source-root",
+    "source",
+    "--builder-evidence-root",
+    "builder-evidence",
+    "--output",
+    "evidence"
+  ],
+  "environment": {
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "results": [
+    {
+      "case": "EMPTY_PLAN",
+      "expected": "An empty override cannot pass binding or implementation verification",
+      "observed": {
+        "binding_checks": "INCONCLUSIVE",
+        "mechanism_result": "INCONCLUSIVE",
+        "implementation_verification": "NOT_VERIFIED",
+        "verification": "INCONCLUSIVE",
+        "plan_id": "CONTROL_ROOM_VERIFICATION_PLAN",
+        "plan_revision": "REV3-1",
+        "plan_digest": "57c3913558aacbd77c949d32a532be892eb5483d50a5124a1abacfe69103bcae",
+        "reason": "unbound plan override rejected: required_cases must equal the frozen plan exactly; empty, reduced, malformed or unrelated plans never yield a binding PASS"
+      },
+      "result": "PASS"
+    },
+    {
+      "case": "SIMULATED_BINDING_SEPARATION",
+      "expected": "Structural binding may pass but implementation verification never passes synthetic claims",
+      "observed": {
+        "binding_checks": "PASS",
+        "mechanism_result": "PASS",
+        "implementation_verification": "NOT_VERIFIED",
+        "verification": "INCONCLUSIVE",
+        "plan_id": "CONTROL_ROOM_VERIFICATION_PLAN",
+        "plan_revision": "REV3-1",
+        "plan_digest": "57c3913558aacbd77c949d32a532be892eb5483d50a5124a1abacfe69103bcae",
+        "reason": "binding checks pass (structural only); implementation verification remains INCONCLUSIVE because no trusted run/code/review binding exists in this simulation",
+        "evidence_ids": [
+          "e0",
+          "e1",
+          "e2",
+          "e3",
+          "e4",
+          "e5",
+          "e6",
+          "e7",
+          "e8",
+          "e9"
+        ],
+        "review_receipt_id": "r",
+        "independent_review_established": false,
+        "independent_review_note": "A judge role argument in this simulation is not authentication and does not prove independent review. A separate reviewer must still issue a verdict.",
+        "scope": "binding_checks_only_not_implementation_verification_not_product_validation"
+      },
+      "result": "PASS"
+    },
+    {
+      "case": "BRIEF_CONTENT",
+      "expected": "Actual content change invalidates cached approval",
+      "observed": {
+        "approval_valid": false
+      },
+      "result": "PASS"
+    },
+    {
+      "case": "TERMINAL_STATE_ANCHOR",
+      "expected": "State tampering after an event is detected",
+      "observed": {
+        "chain_valid": false,
+        "failures": [
+          "final anchor: last event content digest after does not match current store content digest"
+        ],
+        "event_count": 1,
+        "tamper_limit": "Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests."
+      },
+      "result": "PASS"
+    },
+    {
+      "case": "GENESIS_PROJECT_ANCHOR",
+      "expected": "Empty-event genesis validates actual project content against the pristine genesis",
+      "observed": {
+        "pristine": {
+          "chain_valid": true,
+          "failures": [],
+          "event_count": 0,
+          "tamper_limit": "Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests."
+        },
+        "tampered": {
+          "chain_valid": true,
+          "failures": [],
+          "event_count": 0,
+          "tamper_limit": "Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests."
+        },
+        "pain_status": "VALIDATED_WITHOUT_EVIDENCE"
+      },
+      "result": "FAIL"
+    },
+    {
+      "case": "CLI_INTAKE_SMOKE",
+      "expected": "CLI captures observation and presents owner-controlled next step with live adapters blocked",
+      "observed": [
+        {
+          "command_args": [
+            "init",
+            "--store",
+            "room.json"
+          ],
+          "exit_code": 0,
+          "output": {
+            "ok": true,
+            "revision": 0,
+            "stage": "INTAKE",
+            "store": "C:\\Users\\Admin\\AppData\\Local\\Temp\\tmpobokl683\\room.json"
+          },
+          "stderr": ""
+        },
+        {
+          "command_args": [
+            "overview",
+            "--store",
+            "room.json"
+          ],
+          "exit_code": 0,
+          "output": {
+            "authentication": "NONE_IN_THIS_CLI",
+            "authority_model": "SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION",
+            "blocked_reason": "missing ready observation",
+            "brief_count": 0,
+            "event_count": 0,
+            "evidence_count": 0,
+            "history_failures": [],
+            "history_valid": true,
+            "inference_count": 0,
+            "judge_report_count": 0,
+            "live_adapters": "BLOCKED",
+            "next_permitted_action": "record a ready observation",
+            "observation_count": 0,
+            "owners": [],
+            "pain_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+            "project_id": "product-discovery-pilot",
+            "ready_inference_count": 0,
+            "ready_observation_count": 0,
+            "ready_tasks": [],
+            "review_receipt_count": 0,
+            "room_id": "control-room-1",
+            "stage": "INTAKE",
+            "store_revision": 0,
+            "task_count": 0
+          },
+          "stderr": ""
+        },
+        {
+          "command_args": [
+            "add-observation",
+            "--store",
+            "room.json",
+            "--role",
+            "agent",
+            "--id",
+            "SYNTHETIC-OWNER-DISCOVERY",
+            "--trigger",
+            "synthetic product discovery",
+            "--problem",
+            "synthetic repeated manual synthesis",
+            "--source-locator",
+            "synthetic:owner-workflow"
+          ],
+          "exit_code": 0,
+          "output": {
+            "current_steps": [],
+            "current_workaround": null,
+            "elapsed_time_minutes": null,
+            "id": "SYNTHETIC-OWNER-DISCOVERY",
+            "is_direct_observation": null,
+            "privacy": {
+              "external_provider_upload_allowed": false,
+              "real_customer_or_business_data": false
+            },
+            "raw_problem_statement": "synthetic repeated manual synthesis",
+            "result_or_rework": null,
+            "schema_revision": 1,
+            "source_locator": "synthetic:owner-workflow",
+            "source_sha256_if_file": null,
+            "trigger_or_goal": "synthetic product discovery",
+            "where_work_stalled_or_repeated": null
+          },
+          "stderr": ""
+        },
+        {
+          "command_args": [
+            "overview",
+            "--store",
+            "room.json"
+          ],
+          "exit_code": 0,
+          "output": {
+            "authentication": "NONE_IN_THIS_CLI",
+            "authority_model": "SIMULATED_ROLE_ARGUMENT_NOT_AUTHENTICATION",
+            "blocked_reason": "awaiting owner transition to NEEDS_EVIDENCE",
+            "brief_count": 0,
+            "event_count": 1,
+            "evidence_count": 0,
+            "history_failures": [],
+            "history_valid": true,
+            "inference_count": 0,
+            "judge_report_count": 0,
+            "live_adapters": "BLOCKED",
+            "next_permitted_action": "owner: transition to NEEDS_EVIDENCE",
+            "observation_count": 1,
+            "owners": [],
+            "pain_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+            "project_id": "product-discovery-pilot",
+            "ready_inference_count": 0,
+            "ready_observation_count": 1,
+            "ready_tasks": [],
+            "review_receipt_count": 0,
+            "room_id": "control-room-1",
+            "stage": "INTAKE",
+            "store_revision": 1,
+            "task_count": 0
+          },
+          "stderr": ""
+        },
+        {
+          "command_args": [
+            "verify",
+            "--store",
+            "room.json",
+            "--code-revision",
+            "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa"
+          ],
+          "exit_code": 0,
+          "output": {
+            "binding_checks": "NOT_RUN",
+            "implementation_verification": "NOT_VERIFIED",
+            "mechanism_result": "NOT_RUN",
+            "plan_digest": "57c3913558aacbd77c949d32a532be892eb5483d50a5124a1abacfe69103bcae",
+            "plan_id": "CONTROL_ROOM_VERIFICATION_PLAN",
+            "plan_revision": "REV3-1",
+            "reason": "no evidence for code revision 9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+            "verification": "NOT_RUN"
+          },
+          "stderr": ""
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "POST_RUN_CUSTODY",
+      "expected": "All seven C3 files still match E3 source hashes after suite/smoke",
+      "observed": {
+        "matches": {
+          "control_room/__init__.py": true,
+          "control_room/__main__.py": true,
+          "control_room/backend.py": true,
+          "control_room/cli.py": true,
+          "control_room/README.md": true,
+          "tests/test_control_room.py": true,
+          "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV3.md": true
+        }
+      },
+      "result": "PASS"
+    }
+  ],
+  "overall_system": "NOT_VERIFIED"
+}

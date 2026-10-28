@@ -1,0 +1,88 @@
+===== REPRO AFTER FIX (C6R1 code) =====
+--- stdout ---
+current source_ids= ['SRC-NEW']
+missing= ['goal', 'context', 'scope', 'desired_output']
+n_suggested= 3
+missing= ['desired_output']
+n_suggested= 2
+--- stderr (commands + exits) ---
+===== F01a pending clarification after draft =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input req.txt
+### exit=0
+### ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal G --context C --scope S --desired-output O --next-action N
+### exit=0
+### ctx-clarify --store room.json --intake-id INTAKE-58f6bce56fa0522c --questions Câu hỏi mới 1? Câu hỏi mới 2?
+### exit=0
+--- review APPROVE, pending clarification open ---
+### ctx-review-rewrite --store room.json --rewrite-id RW-a0a53c73ea7f0f87 --expected-rewrite-digest a0a53c73ea7f0f870da0b38ce038af9b59110a442d7fac71288ca91c421fc0ad --decision APPROVE --reason duyet --operator t --source local-cli
+error: clarification_open: an unanswered clarification exists for this intake; no decision created
+### exit=2
+--- propose ---
+### ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-a0a53c73ea7f0f87 --expected-rewrite-digest a0a53c73ea7f0f870da0b38ce038af9b59110a442d7fac71288ca91c421fc0ad
+error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DRAFT_NOT_REVIEWED; no proposal created
+### exit=2
+===== F01b new source after draft, before APPROVE =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input req.txt
+### exit=0
+### ctx-draft --store room.json --intake-id INTAKE-d6ca1921ad229b7f --goal G --context C --scope S --desired-output O --next-action N
+### exit=0
+### ctx-add-source --store room.json --intake-id INTAKE-d6ca1921ad229b7f --source-id SRC-NEW --locator docs/new.md --trust-class reference
+### exit=0
+--- review APPROVE, draft source_ids=[] but current=[SRC-NEW] ---
+### ctx-review-rewrite --store room.json --rewrite-id RW-e94b869078a8ffe4 --expected-rewrite-digest e94b869078a8ffe432d591f52d95c367385a6491b2601f2e32f8b1cea16c85c5 --decision APPROVE --reason duyet --operator t --source local-cli
+error: REJECTED_STALE: context changed after draft (new source, clarification, answer, or draft); a fresh draft/review is required; no decision created
+### exit=2
+--- propose ---
+### ctx-propose --store room.json --intake-id INTAKE-d6ca1921ad229b7f --rewrite-id RW-e94b869078a8ffe4 --expected-rewrite-digest e94b869078a8ffe432d591f52d95c367385a6491b2601f2e32f8b1cea16c85c5
+error: rewrite_not_approved: contextual proposal requires an APPROVE review of the exact rewrite revision; current review status is DRAFT_NOT_REVIEWED; no proposal created
+### exit=2
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+===== F02a raw hello: 4 missing =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input hello.txt
+### exit=0
+### ctx-assess --store room.json --intake-id INTAKE-96ee142746cabc98
+### exit=0
+--- clarify with all 4 suggested questions ---
+### ctx-clarify --store room.json --intake-id INTAKE-96ee142746cabc98 --questions Mục tiêu cụ thể của yêu cầu này là gì (kết quả cần đạt, không phải cách làm)? Ngữ cảnh và workflow hiện tại liên quan là gì (ai, khi nào, ở đâu trong quy trình)? Phạm vi của yêu cầu này là gì (bao gồm gì, và cố tình không bao gồm gì)? Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?
+error: invalid_clarification: exactly 2 or 3 questions are required; no record created
+### exit=2
+===== F02b goal/context/scope, no output: 1 missing =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input partial.txt
+### exit=0
+### ctx-assess --store room.json --intake-id INTAKE-0c8ee65c2a9f57d9
+### exit=0
+--- clarify with the 1 suggested question ---
+### ctx-clarify --store room.json --intake-id INTAKE-0c8ee65c2a9f57d9 --questions Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?
+error: invalid_clarification: exactly 2 or 3 questions are required; no record created
+### exit=2
+--- post-fix: clarify with NEW suggested batches ---
+--- F02a post-fix: clarify with NEW suggested batch (3 questions) ---
+missing= ['goal', 'context', 'scope', 'desired_output']
+suggested_questions_dimensions= ['goal', 'context', 'scope']
+note= Four dimensions are missing but ctx-clarify accepts at most 3 questions, so the batch covers the first three in canonical order; the remaining missing dimension(s) ['desired_output'] need a follow-up clarification.
+clarify-with-new-3-batch exit=0
+--- F02b post-fix: clarify with NEW suggested batch (2 questions) ---
+missing= ['desired_output']
+suggested= ['Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?', 'Ngoài những thông tin đã cung cấp, còn ràng buộc, giới hạn hoặc điểm chưa rõ nào cần ghi rõ thêm trước khi viết lại yêu cầu không?']
+clarify-with-new-2-batch exit=0

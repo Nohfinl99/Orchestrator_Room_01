@@ -1,0 +1,87 @@
+{
+  "kind": "MUSE_PRIVATE_REPO_HANDOFF",
+  "revision": 3,
+  "status": "UPLOADED_CONTENT_MATCHED_PRIVATE_MAIN",
+  "prepared_date": "2026-10-25",
+  "selected_pilot": "OWNER_SELF_USE_PRODUCT_DISCOVERY",
+  "evidence_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+  "reference_repository": "gnutirt/bear-agent-manager",
+  "reference_commit": "c957fcb3d4896ff6a89f9d58c311fe14337e4265",
+  "reference_code_reuse": "NONE_LICENSE_NOT_GRANTED",
+  "reference_review_status": "BOUNDED_STATIC_STUDY_NOT_PENTESTED",
+  "source_archive_sha256": "619d0cbc198920b8847c776337f0c26494f79d7067f1413b10f47c6627922063",
+  "target_repository": "Nohfinl99/Orchestrator-Room",
+  "target_default_branch": "main",
+  "target_repo_initial_state": "README_PLACEHOLDER_ONLY_AT_INSPECTION",
+  "public_orchestrator_repo_head": "ede6f66d907f06290749992d864424b82254e28e",
+  "public_repo_worktree": "CLEAN_UNCHANGED",
+  "files": [
+    {
+      "path": "ACCEPTANCE.md",
+      "sha256": "1cbb3b04a34bb51bc68f1c60024ef895f94f87495d2985609526ac83ce4de5e9",
+      "bytes": 3351
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "74e24765769e3adaffde0ea04441a6855df7a5101f097cadc137d8aca77b1d6f",
+      "bytes": 4301
+    },
+    {
+      "path": "MUSE_HANDOFF.md",
+      "sha256": "9271ddafe6750261d3091b5f45870ad6c6fa3b1572de6a3d5fd428f6ec18236c",
+      "bytes": 4981
+    },
+    {
+      "path": "MUSE_RUN_INSTRUCTIONS.md",
+      "sha256": "a48eaa70fe4a12f3ec2598fe6bc7bc5967519a9b04d8eb15fdb32505d90506a2",
+      "bytes": 4538
+    },
+    {
+      "path": "OWNER_INPUT_NEEDED.md",
+      "sha256": "6deb27e3fed819ec1d11d0dc7113bac9ae4c3a45108503835100a437d3c7178a",
+      "bytes": 1400
+    },
+    {
+      "path": "painpoint-observation-template.json",
+      "sha256": "bdf1375a8577a12b81200a6c5f5f8a808b19879f36933b84edef0ff08c63e4e6",
+      "bytes": 1355
+    },
+    {
+      "path": "PENTEST_PLAN.md",
+      "sha256": "f14f1fa80f28895273cef96bf7e72b14b9509ab0665de038f6b77664a5fea6b2",
+      "bytes": 3133
+    },
+    {
+      "path": "PIPELINE.md",
+      "sha256": "174ad80e51271ae365df69db394111b4a4283ae980f679edaa62f657a73aead1",
+      "bytes": 4277
+    },
+    {
+      "path": "README.md",
+      "sha256": "4ea12474c14ca229218f068287c0eae34cae7d40ed907b358905ca7be9fedfe1",
+      "bytes": 2125
+    },
+    {
+      "path": "REFERENCE_STUDY.md",
+      "sha256": "81fc825dc0915b65b39627cecabbad97ebe16edd3afc109a1499cbcb0cdbfdeb",
+      "bytes": 6285
+    },
+    {
+      "path": "THREAT_MODEL.md",
+      "sha256": "8d513397c4a052d17e3bde8dd2543ceffa7032680d9e26c646578641cd9ed0ca",
+      "bytes": 2799
+    },
+    {
+      "path": "VERIFICATION_POLICY.md",
+      "sha256": "2415c82085705157945023faf2d1a0d5a63a561dd63e21be9292dd493a5ef8b6",
+      "bytes": 2453
+    }
+  ],
+  "uploaded_to": "https://github.com/Nohfinl99/Orchestrator-Room",
+  "application_status": "NOT_STARTED_NO_EXECUTABLE_APP_AT_REVIEW",
+  "transfer_check": "ALL_12_NON_MANIFEST_FILES_MATCHED_REMOTE_TEXT",
+  "transfer_comparison": "UTF-8 text equality after LF normalization and trimming trailing blank lines",
+  "last_handoff_content_commit_sha": "cbe2a654c4c0700c8bf0aba3b253a9d013827666",
+  "knowledge_source_status": "HISTORICAL_CANDIDATE_NOT_RUNTIME_KB_NO_CONSUMER_ACK"
+}
+

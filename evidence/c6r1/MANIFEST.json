@@ -1,0 +1,25 @@
+{
+  "files": {
+    "acceptance-results.json": {
+      "bytes": 146830,
+      "sha256": "9d89b21bb96703c5309abe8a684e5fa4e4982d451e413592d163c98c99be72b7"
+    },
+    "golden-flow-store.json": {
+      "bytes": 15850,
+      "sha256": "9fb82a65ff401d61ff28ff8372fe34723349b9e3ccfcb149ffdbefb04178051f"
+    },
+    "repro-after-fix.log": {
+      "bytes": 5777,
+      "sha256": "0925a9fd808ec0c8a2abbda12f02dc35b319808bb1e850e9d92955a46f9a230f"
+    },
+    "repro-before-fix.log": {
+      "bytes": 3619,
+      "sha256": "c36063c089dd892c55ee8472aaedda3373232a6558b72732f4a2af5bf9abdd32"
+    },
+    "test-suite-c6r1.log": {
+      "bytes": 11469,
+      "sha256": "316b5249e2fc6a127d5915e551c31f82a6225d3863a51201c36e1a65c4843b18"
+    }
+  },
+  "note": "E6R1 evidence manifest (builder evidence for C6R1). MANIFEST.json excludes itself to avoid self-reference. None of these files is a reviewer verdict or owner acceptance. Whole system stays NOT_VERIFIED; no merge, no PR."
+}

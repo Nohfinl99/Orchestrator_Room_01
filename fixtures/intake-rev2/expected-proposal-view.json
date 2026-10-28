@@ -1,0 +1,31 @@
+{
+  "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+  "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+  "view_note": "Computed view at initial state (no task marked DONE in the store). View is not part of the proposal payload or digest.",
+  "tasks": [
+    {
+      "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T01",
+      "readiness": "READY",
+      "blocked_reason": null,
+      "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T01"
+    },
+    {
+      "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T02",
+      "readiness": "BLOCKED",
+      "blocked_reason": "Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T01",
+      "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T01"
+    },
+    {
+      "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T03",
+      "readiness": "BLOCKED",
+      "blocked_reason": "Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T02",
+      "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T02"
+    },
+    {
+      "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04",
+      "readiness": "BLOCKED",
+      "blocked_reason": "Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T03",
+      "next_allowed_action": "complete PROP-INTAKE-96bccfdbe2a16dfc-T03"
+    }
+  ]
+}

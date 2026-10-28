@@ -1,0 +1,61 @@
+===== REPRO BEFORE FIX (pre-fix code = C6 snapshot) =====
+--- stdout ---
+new_proposal_created= True proposal source_ids= []
+current source_ids= ['SRC-NEW']
+missing= ['goal', 'context', 'scope', 'desired_output']
+n_suggested= 4
+missing= ['desired_output']
+n_suggested= 1
+--- stderr (commands + exits) ---
+===== F01a pending clarification after draft =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input req.txt
+### exit=0
+### ctx-draft --store room.json --intake-id INTAKE-58f6bce56fa0522c --goal G --context C --scope S --desired-output O --next-action N
+### exit=0
+### ctx-clarify --store room.json --intake-id INTAKE-58f6bce56fa0522c --questions Câu hỏi mới 1? Câu hỏi mới 2?
+### exit=0
+--- review APPROVE, pending clarification open ---
+### ctx-review-rewrite --store room.json --rewrite-id RW-a0a53c73ea7f0f87 --expected-rewrite-digest a0a53c73ea7f0f870da0b38ce038af9b59110a442d7fac71288ca91c421fc0ad --decision APPROVE --reason duyet --operator t --source local-cli
+### exit=0
+--- propose ---
+### ctx-propose --store room.json --intake-id INTAKE-58f6bce56fa0522c --rewrite-id RW-a0a53c73ea7f0f87 --expected-rewrite-digest a0a53c73ea7f0f870da0b38ce038af9b59110a442d7fac71288ca91c421fc0ad
+### exit=0
+===== F01b new source after draft, before APPROVE =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input req.txt
+### exit=0
+### ctx-draft --store room.json --intake-id INTAKE-d6ca1921ad229b7f --goal G --context C --scope S --desired-output O --next-action N
+### exit=0
+### ctx-add-source --store room.json --intake-id INTAKE-d6ca1921ad229b7f --source-id SRC-NEW --locator docs/new.md --trust-class reference
+### exit=0
+--- review APPROVE, draft source_ids=[] but current=[SRC-NEW] ---
+### ctx-review-rewrite --store room.json --rewrite-id RW-e94b869078a8ffe4 --expected-rewrite-digest e94b869078a8ffe432d591f52d95c367385a6491b2601f2e32f8b1cea16c85c5 --decision APPROVE --reason duyet --operator t --source local-cli
+### exit=0
+--- propose ---
+### ctx-propose --store room.json --intake-id INTAKE-d6ca1921ad229b7f --rewrite-id RW-e94b869078a8ffe4 --expected-rewrite-digest e94b869078a8ffe432d591f52d95c367385a6491b2601f2e32f8b1cea16c85c5
+### exit=0
+===== F02a raw hello: 4 missing =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input hello.txt
+### exit=0
+### ctx-assess --store room.json --intake-id INTAKE-96ee142746cabc98
+### exit=0
+--- clarify with all 4 suggested questions ---
+### ctx-clarify --store room.json --intake-id INTAKE-96ee142746cabc98 --questions Mục tiêu cụ thể của yêu cầu này là gì (kết quả cần đạt, không phải cách làm)? Ngữ cảnh và workflow hiện tại liên quan là gì (ai, khi nào, ở đâu trong quy trình)? Phạm vi của yêu cầu này là gì (bao gồm gì, và cố tình không bao gồm gì)? Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?
+error: invalid_clarification: exactly 2 or 3 questions are required; no record created
+### exit=2
+===== F02b goal/context/scope, no output: 1 missing =====
+### init --store room.json
+### exit=0
+### intake --store room.json --input partial.txt
+### exit=0
+### ctx-assess --store room.json --intake-id INTAKE-0c8ee65c2a9f57d9
+### exit=0
+--- clarify with the 1 suggested question ---
+### ctx-clarify --store room.json --intake-id INTAKE-0c8ee65c2a9f57d9 --questions Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?
+error: invalid_clarification: exactly 2 or 3 questions are required; no record created
+### exit=2

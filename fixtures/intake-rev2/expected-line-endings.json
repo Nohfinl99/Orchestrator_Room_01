@@ -1,0 +1,68 @@
+{
+  "synthetic_note": "Line-ending classification policy (REV2.1 addendum): LF = only \\n breaks; CRLF = only \\r\\n breaks; bare-CR = only \\r breaks; mixed = more than one kind; none = no line break. Derived owner_statements split on \\r\\n, \\n, or \\r and drop the break itself; original bytes/text/hash are unchanged.",
+  "cases": [
+    {
+      "file": "example-request.txt",
+      "line_endings": "LF",
+      "owner_statements": [
+        "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.",
+        "Nguồn: báo cáo nội bộ tuần này.",
+        "Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt."
+      ],
+      "original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+      "original_length_bytes": 222,
+      "original_length_chars": 165,
+      "note": "Original bytes/text/hash preserved verbatim; statements are derived by splitting on line breaks only, breaks are not in statements."
+    },
+    {
+      "file": "request-crlf.txt",
+      "line_endings": "CRLF",
+      "owner_statements": [
+        "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.",
+        "Nguồn: báo cáo nội bộ tuần này.",
+        "Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt."
+      ],
+      "original_sha256": "04307f39d5138b9e080b09cb8d3770df59f285453fb778d6baafa30359e0b807",
+      "original_length_bytes": 225,
+      "original_length_chars": 168,
+      "note": "Original bytes/text/hash preserved verbatim; statements are derived by splitting on line breaks only, breaks are not in statements."
+    },
+    {
+      "file": "request-mixed.txt",
+      "line_endings": "mixed",
+      "owner_statements": [
+        "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét.",
+        "Nguồn: báo cáo nội bộ tuần này.",
+        "Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt."
+      ],
+      "original_sha256": "e16e08684654dfd97d7d6170f1f3524b99455eff1923900f64e300f4d19e25db",
+      "original_length_bytes": 182,
+      "original_length_chars": 135,
+      "note": "Original bytes/text/hash preserved verbatim; statements are derived by splitting on line breaks only, breaks are not in statements."
+    },
+    {
+      "file": "request-bare-cr.txt",
+      "line_endings": "bare-CR",
+      "owner_statements": [
+        "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét.",
+        "Nguồn: báo cáo nội bộ tuần này.",
+        "Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt."
+      ],
+      "original_sha256": "dfd200a8953be59ec22398dc36571edb4c3be42f78e33eabfa40500d973ece00",
+      "original_length_bytes": 181,
+      "original_length_chars": 134,
+      "note": "Original bytes/text/hash preserved verbatim; statements are derived by splitting on line breaks only, breaks are not in statements."
+    },
+    {
+      "file": "request-no-newline.txt",
+      "line_endings": "none",
+      "owner_statements": [
+        "Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét."
+      ],
+      "original_sha256": "53ce72c288d5c4b28046b8d49ac21ef088c9ff8009bc91d8636b9cde16c1ac0c",
+      "original_length_bytes": 72,
+      "original_length_chars": 54,
+      "note": "Original bytes/text/hash preserved verbatim; statements are derived by splitting on line breaks only, breaks are not in statements."
+    }
+  ]
+}

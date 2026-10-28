@@ -1,0 +1,16 @@
+{
+  "synthetic_note": "Fixed synthetic timestamp; timestamp is not part of decision_id.",
+  "decision": {
+    "decision_id": "DEC-e81b5e7deada9801",
+    "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+    "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "intake_id": "INTAKE-96bccfdbe2a16dfc",
+    "decision": "APPROVE",
+    "reason": "Owner reviewed proposal",
+    "operator_label": "local-operator",
+    "source_channel": "local-cli",
+    "provenance": "OPERATOR_ASSERTED",
+    "decided_utc": "2026-10-25T00:00:00Z"
+  }
+}

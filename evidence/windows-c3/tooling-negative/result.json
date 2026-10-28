@@ -1,0 +1,35 @@
+{
+  "tooling_commit": "1a163e759380aad186568cfaefbd05653fd35339",
+  "reported_code_commit": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "fixture": "Synthetic test suite with one intentional failure; empty control_room directory, not C3",
+  "command": [
+    "cmd.exe",
+    "/d",
+    "/c",
+    "C:\\Users\\Admin\\AppData\\Local\\Temp\\tmph6w446mr\\scripts\\run_windows_tests.bat",
+    "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa"
+  ],
+  "launcher_process_exit": 0,
+  "test_child_exit": 1,
+  "counts": {
+    "attempted": 1,
+    "passed": 0,
+    "errors": 0,
+    "failures": 1,
+    "skipped": 0
+  },
+  "missing_source_files": [
+    "control_room/__init__.py",
+    "control_room/__main__.py",
+    "control_room/backend.py",
+    "control_room/cli.py",
+    "control_room/README.md",
+    "tests/test_control_room.py"
+  ],
+  "launch_should_fail_closed": false,
+  "missing_source_preflight_enforced": false,
+  "helper_recorded_C3_despite_missing_all_sources": true,
+  "log_sha256": "7af880436ce6cbca1817ef078a6ed9f95220d63bb34cc1d312b9889a84e77849",
+  "manifest_sha256": "e55eb35a27d38a11d43dd9ece28df18ee83dc72def6f35e9c32ac4ec55144500",
+  "actual_C3_suite_was_not_modified": true
+}

@@ -1,0 +1,37 @@
+{
+  "note": "Schema-probe regressions for V21-02. Each probe injects an unsupported keyword into a schema object in memory; the checker must reject it (ValueError from check_unsupported), not silently ignore it. These probes are not files to validate as instances; they are run by check_static.py --schema-probes.",
+  "probes": [
+    {
+      "case": "schema-probe-intake-selector",
+      "target": "intake_schema",
+      "inject": {
+        "minimum": 0
+      },
+      "expected": "rejected"
+    },
+    {
+      "case": "schema-probe-proposal-selector",
+      "target": "proposal_schema",
+      "inject": {
+        "minimum": 0
+      },
+      "expected": "rejected"
+    },
+    {
+      "case": "schema-probe-decision-selector",
+      "target": "decision_schema",
+      "inject": {
+        "minimum": 0
+      },
+      "expected": "rejected"
+    },
+    {
+      "case": "schema-probe-definition-property",
+      "target": "definitions.intake.properties.original_length_bytes",
+      "inject": {
+        "minimum": 0
+      },
+      "expected": "rejected"
+    }
+  ]
+}

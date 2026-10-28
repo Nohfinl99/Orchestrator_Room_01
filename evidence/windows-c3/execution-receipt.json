@@ -1,0 +1,153 @@
+{
+  "code_commit_C3": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "builder_evidence_E3": "c134d7ae1e871f3fba5338b7a674694c0350d3c6",
+  "runner_tooling_commit": "1a163e759380aad186568cfaefbd05653fd35339",
+  "acquisition": "Source files fetched via authenticated GitHub file API at exact C3, reconstructed as original UTF-8 bytes. This is an API snapshot, not a claimed local Git checkout.",
+  "execution_layout": "Audited runner from T was invoked externally with cwd at C3 source snapshot; no tooling files were inserted into frozen C3 source.",
+  "helper_command": [
+    "py",
+    "-3.14",
+    "-X",
+    "utf8",
+    "../tooling/scripts/run_windows_tests.py",
+    "--code-commit",
+    "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+    "--output-dir",
+    "../evidence/windows/run-001"
+  ],
+  "child_command": [
+    "C:\\Program Files\\Python314\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "environment": {
+    "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "PYTHONUTF8": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "helper_process_exit": 0,
+  "test_process_exit": 0,
+  "counts": {
+    "attempted": 34,
+    "passed": 33,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 1
+  },
+  "raw_summary_total": 34,
+  "counts_total_matches_summary": true,
+  "counts_sum_matches": true,
+  "log_sha256": "d2a226190d43ac7db4ac08c5ca352ab9c0c947ebb2485f096ed638c734e75f9e",
+  "log_hash_matches_helper_manifest": true,
+  "raw_manifest_sha256": "e554112b1b2b1d32fcc96252169944c2cc474701f9492e7587ed85a05194afde",
+  "pre_run_source_checks": [
+    {
+      "path": "control_room/__init__.py",
+      "expected": "386a72d4662b9fd5656ecd85ffa34bd72d4700d1e18a577cd0483d5479c8c834",
+      "actual": "386a72d4662b9fd5656ecd85ffa34bd72d4700d1e18a577cd0483d5479c8c834",
+      "matches": true
+    },
+    {
+      "path": "control_room/__main__.py",
+      "expected": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+      "actual": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+      "matches": true
+    },
+    {
+      "path": "control_room/backend.py",
+      "expected": "b62c58452ce0c6b4a952456e06fd73475526fae2f0aab416c0124bd4292d905c",
+      "actual": "b62c58452ce0c6b4a952456e06fd73475526fae2f0aab416c0124bd4292d905c",
+      "matches": true
+    },
+    {
+      "path": "control_room/cli.py",
+      "expected": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+      "actual": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+      "matches": true
+    },
+    {
+      "path": "control_room/README.md",
+      "expected": "48523bf4d3a521b412fa667b7fddb98a5932c2ccb8ac41f227c4f4209a71b905",
+      "actual": "48523bf4d3a521b412fa667b7fddb98a5932c2ccb8ac41f227c4f4209a71b905",
+      "matches": true
+    },
+    {
+      "path": "tests/test_control_room.py",
+      "expected": "38caedf41c1eca068754d39f9ab83664715b33b45343aef3da3be98bd0161570",
+      "actual": "38caedf41c1eca068754d39f9ab83664715b33b45343aef3da3be98bd0161570",
+      "matches": true
+    },
+    {
+      "path": "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV3.md",
+      "expected": "7b8ef43b5d2dbf3d4cfbd2704e788b0c9213bff3831e4a05a71356c892f325a0",
+      "actual": "7b8ef43b5d2dbf3d4cfbd2704e788b0c9213bff3831e4a05a71356c892f325a0",
+      "matches": true
+    }
+  ],
+  "post_run_source_checks": {
+    "control_room/__init__.py": {
+      "sha256": "386a72d4662b9fd5656ecd85ffa34bd72d4700d1e18a577cd0483d5479c8c834",
+      "matches_C3": true
+    },
+    "control_room/__main__.py": {
+      "sha256": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+      "matches_C3": true
+    },
+    "control_room/backend.py": {
+      "sha256": "b62c58452ce0c6b4a952456e06fd73475526fae2f0aab416c0124bd4292d905c",
+      "matches_C3": true
+    },
+    "control_room/cli.py": {
+      "sha256": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+      "matches_C3": true
+    },
+    "control_room/README.md": {
+      "sha256": "48523bf4d3a521b412fa667b7fddb98a5932c2ccb8ac41f227c4f4209a71b905",
+      "matches_C3": true
+    },
+    "tests/test_control_room.py": {
+      "sha256": "38caedf41c1eca068754d39f9ab83664715b33b45343aef3da3be98bd0161570",
+      "matches_C3": true
+    },
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV3.md": {
+      "sha256": "7b8ef43b5d2dbf3d4cfbd2704e788b0c9213bff3831e4a05a71356c892f325a0",
+      "matches_C3": true
+    }
+  },
+  "helper_six_source_hashes_match_C3": true,
+  "helper_missing_sources": [],
+  "tooling_identity": {
+    "scripts/run_windows_tests.py": {
+      "git_blob_expected": "b0136e83c8b76b57971d4c599bb0d0496c627685",
+      "git_blob_actual": "b0136e83c8b76b57971d4c599bb0d0496c627685",
+      "matches": true,
+      "sha256": "9bd9bc698cba5faea477aeb8d88ad852e13c24451529008ee37ff534ea3d7c81"
+    },
+    "scripts/run_windows_tests.bat": {
+      "git_blob_expected": "6a48205a8135016693b8b41777933761af430e7a",
+      "git_blob_actual": "6a48205a8135016693b8b41777933761af430e7a",
+      "matches": true,
+      "sha256": "500e3b435946203fbac429b269a96fcaf9c57e1eb4fd617f8b6a800b3e64afbb"
+    },
+    "WINDOWS_RUN_GUIDE.md": {
+      "git_blob_expected": "e772cc5b0d652d74ec0c93f03f4a75b748a73d31",
+      "git_blob_actual": "e772cc5b0d652d74ec0c93f03f4a75b748a73d31",
+      "matches": true,
+      "sha256": "8c17f88d728139387506b93b3eb19f8c59bf58e3d5b11e7dd98136e35be42709"
+    }
+  },
+  "source_changed": false,
+  "symlink_subcase": "SKIP / NOT_RUN: WinError 1314",
+  "Windows_lock_subcases": "T29 abrupt-death recovery and T30 synchronized two-process write both reported ok in this Windows run.",
+  "runtime_entry": "CLI commands only. Smoke capture records a synthetic observation and displays a suggested owner transition; live adapters remain BLOCKED.",
+  "review_status": "BOUNDED_WINDOWS_RUN_CAPTURED; TOOLING_AND_GENESIS_REVISE_REQUIRED; OVERALL_NOT_VERIFIED",
+  "full_pentest": "NOT_COMPLETED",
+  "packet_no_egress": "NOT_RUN",
+  "owner_acceptance": "NOT_ISSUED",
+  "receipt_written_utc": "2026-10-25T10:23:34.372055+00:00"
+}

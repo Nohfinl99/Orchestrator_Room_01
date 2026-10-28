@@ -1,0 +1,41 @@
+{
+  "packet_id": "CTX-001-PACKET-02",
+  "manifest_note": "Self-excluding: this manifest lists every packet file except itself.",
+  "entries": [
+    {
+      "path": "packets/ctx-001-packet-02/COMMANDS.md",
+      "sha256": "e071b5e6015a262b7a97728c1050cf35e6e76d82d469a4be08b10156d947fa0f",
+      "bytes": 2092
+    },
+    {
+      "path": "packets/ctx-001-packet-02/PACKET_README.md",
+      "sha256": "4ea1bd49744618c51da96836027957832c7d15d46b0930dd9289d5af88538eaa",
+      "bytes": 2588
+    },
+    {
+      "path": "packets/ctx-001-packet-02/PROVENANCE.md",
+      "sha256": "d09a04dbdac6b936d56b63d7f705631533c4350b06c38d7a871e3f2833562415",
+      "bytes": 2450
+    },
+    {
+      "path": "packets/ctx-001-packet-02/REWRITE_DESCRIPTOR.json",
+      "sha256": "4980acb20dc412021b61eb611fcbbbe434d8e08f0725a7fcf402bbc32154aece",
+      "bytes": 7804
+    },
+    {
+      "path": "packets/ctx-001-packet-02/ROOM_SNAPSHOT_HASHES.json",
+      "sha256": "5621e93908f6e4fac7ef483db8c2be35d7f55cf2061fe833b185306af9860dd4",
+      "bytes": 4785
+    },
+    {
+      "path": "packets/ctx-001-packet-02/ROOM_SNAPSHOT_REDACTED.json",
+      "sha256": "2ca5141fdc9d0210af49c3b28788176f11a3e57faf939e84d8afda7365c117c8",
+      "bytes": 14293
+    },
+    {
+      "path": "packets/ctx-001-packet-02/VERIFY_HISTORY.json",
+      "sha256": "c37179ad76f4670cdfd218e3d59a2a181b19ec79adc417038fdca382ae9c7605",
+      "bytes": 253
+    }
+  ]
+}

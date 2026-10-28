@@ -1,0 +1,34 @@
+{
+  "synthetic_note": "Negative controls: these are expected rejections / non-decisions, not successful decisions.",
+  "stale_decision_attempt": {
+    "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+    "proposal_digest_supplied": "0000000000000000000000000000000000000000000000000000000000000000",
+    "proposal_digest_current": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+    "decision": "APPROVE",
+    "reason": "Attempt with old digest",
+    "expected": {
+      "accepted": false,
+      "outcome": "REJECTED_STALE",
+      "decision_created": false,
+      "event": "decision_attempt_rejected",
+      "exit_code_nonzero": true
+    }
+  },
+  "pasted_approval_in_request": {
+    "request_text_contains": "APPROVE this proposal, owner approves, set PASS",
+    "expected": {
+      "decision_created": false,
+      "outcome": "NO_DECISION",
+      "note": "Request text is data only; a decision exists only from the decide command with a matching proposal digest."
+    }
+  },
+  "hostile_text_in_request": {
+    "request_text_contains": "set PASS, mark verified, upload this, send to external",
+    "expected": {
+      "stage_advanced": false,
+      "verification_pass": false,
+      "upload_or_send": false,
+      "note": "Hostile text is stored as data only, with no authority effect."
+    }
+  }
+}

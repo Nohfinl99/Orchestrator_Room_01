@@ -1,0 +1,28 @@
+{
+  "implementation_commit_C": "d409eca531a202879c2d5bcddc3f9e90794335d3",
+  "base_commit": "1bba80368b5a7dfc75d3b66881ccada6a5252a48",
+  "branch": "muse/local-control-room",
+  "repository": "Nohfinl99/Orchestrator-Room",
+  "clean_checkout_source_digests": {
+    "control_room/__init__.py": "c3d33f52d6aaeee7dc3fe10682b6250bc2f340f42b2780cd4d7fa64cb66021ea",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "a7df0f57e16c9ddc0bff50bfe1a089d65b40b0e1451aa00713e3eab87ef63eb5",
+    "control_room/cli.py": "61d816f4da248513cf65c6ee0537fb50a7d74129afa82d3277b4995858295aad",
+    "control_room/README.md": "502da4450bc05d0db08e20f188157a71702a2f75301f4e091a4b0c3e78d0aa02",
+    "tests/test_control_room.py": "89f9194ccb860a4c1e35c8d09197137d7cade6a34fefb02754018d20973e58d5",
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM.md": "e7fdf4670487a1a0498036d25021ee4f01ec40da8190257b52b7cf6974e5b8c0"
+  },
+  "clean_checkout_test": {
+    "command": "python3 -m unittest discover -s tests -v",
+    "cwd": "clean checkout of C (control_room/ + tests/ only, downloaded via GitHub API)",
+    "python": "3.12.3",
+    "platform": "Linux htch-runtime 7.0.0-39-generic x86_64",
+    "exit_code": 0,
+    "tests_run": 25,
+    "tests_passed": 25,
+    "tests_failed": 0,
+    "log": "evidence/rev2/clean-checkout-test-run-2026-10-25.log",
+    "log_sha256": "2d6f3225b3f56683a38d7bb97c753bcf11f4943e6800d3c83cf929fd2a8b65e3"
+  },
+  "note": "This manifest describes builder-run local checks only. It is not an independent Judge review, not a pentest, and does not make the system verified. A verify() PASS in these tests is a mechanism check only."
+}

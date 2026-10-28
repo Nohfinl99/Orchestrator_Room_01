@@ -1,0 +1,1573 @@
+{
+  "header": {
+    "runner": "acceptance/run_acceptance_c5.py (builder evidence, not a reviewer verdict)",
+    "os": "Linux 7.0.0-39-generic",
+    "python": "3.12.3",
+    "slice_root": "/home/hatch/workspace/orchestrator-room-work/slice-v9",
+    "code_sha256_local_pre_commit": {
+      "control_room/__init__.py": "2c28137567016b68858965e2cb01b5f7ddd98c36fb5581f065fcffdb61d85d01",
+      "control_room/backend.py": "66cc1dbe8a434dd9a95f493424478568c419d2a644e602c413a15018419605d8",
+      "control_room/cli.py": "86b189645d66381fd586c17fffb032eb69ba8c187205612b8c05709f3f87d4ae",
+      "control_room/README.md": "9d09fa0435d4228d2fd7da2864b0a184e68021a26cfffe1c0269008ae829bcb1",
+      "control_room/C5_BUILD_NOTE.md": "70ca604aac499c9679c8d4826afc06e1820b272e134f50e485b125dd5d51f502",
+      "tests/test_intake_c5.py": "24e145707882488c59456f6d2afb30ab90162cbc38c11cf313ff60f5573bc91e"
+    },
+    "fixture_manifest_sha256": "fd1716cb77b93adbe739663a630beb3eb80232dbc463f04cdad631d0c265a39c",
+    "note": "Store SHA after is not recorded per subcase in this JSON (stores are per-subcase temp dirs, deleted after the run); per-case store counts and hashes of intake/proposal/decision are recorded in checks. The full test-suite log is separate evidence."
+  },
+  "summary": {
+    "total_subcases": 53,
+    "passed": 53,
+    "failed": 0
+  },
+  "results": [
+    {
+      "case": "A01",
+      "subcase": "golden intake file",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "intake_id",
+          "passed": true,
+          "detail": "INTAKE-96bccfdbe2a16dfc"
+        },
+        {
+          "name": "sha",
+          "passed": true,
+          "detail": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+        },
+        {
+          "name": "lengths",
+          "passed": true,
+          "detail": "222/165"
+        },
+        {
+          "name": "text verbatim",
+          "passed": true,
+          "detail": "verbatim"
+        },
+        {
+          "name": "statements",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.', 'Nguồn: báo cáo nội bộ tuần này.', 'Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.']"
+        },
+        {
+          "name": "created_utc seconds pattern",
+          "passed": true,
+          "detail": "2026-10-25T17:04:04Z"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A02",
+      "subcase": "empty input",
+      "fixture": {
+        "name": "empty.txt (generated, 0 bytes)",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input empty.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason empty_input",
+          "passed": true,
+          "detail": "error: empty_input: input is zero bytes; no record created"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A03",
+      "subcase": "byte over cap",
+      "fixture": {
+        "name": "request-byte-cap-over.txt",
+        "sha256": "24e9393cfe95959b84669c585c492578df744208bd974a40c229bca1bd77630e"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-byte-cap-over.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason byte_cap_exceeded",
+          "passed": true,
+          "detail": "error: byte_cap_exceeded: input is 20001 bytes, cap 20000 bytes before decode; no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A03",
+      "subcase": "char over cap",
+      "fixture": {
+        "name": "request-char-cap-over.txt",
+        "sha256": "0cab99a058600ffaad1292d0c53c0548ebaf88dd1d01030345705f018a813909"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-char-cap-over.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason char_cap_exceeded",
+          "passed": true,
+          "detail": "error: char_cap_exceeded: input is 10001 characters, cap 10000 code points; no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A04",
+      "subcase": "invalid UTF-8",
+      "fixture": {
+        "name": "bad.txt (generated)",
+        "sha256": "282cf3237395d144c17581badf2813b321bbaf0b24fadc68f8319ff12131a219"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input bad.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason invalid_utf8",
+          "passed": true,
+          "detail": "error: invalid_utf8: input is not strict UTF-8; no replacement, no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A05",
+      "subcase": "baseline six null + provenance",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt"
+      ],
+      "checks": [
+        {
+          "name": "six baseline fields",
+          "passed": true,
+          "detail": "['desired_result', 'errors_per_occurrence', 'frequency_per_week', 'manual_steps', 'manual_time_minutes', 'redacted_example']"
+        },
+        {
+          "name": "all null",
+          "passed": true,
+          "detail": "{'desired_result': None, 'errors_per_occurrence': None, 'frequency_per_week': None, 'manual_steps': None, 'manual_time_minutes': None, 'redacted_example': None}"
+        },
+        {
+          "name": "provenance all null",
+          "passed": true,
+          "detail": "provenance null"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A06",
+      "subcase": "duplicate",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt (second time)"
+      ],
+      "checks": [
+        {
+          "name": "exit 0 duplicate",
+          "passed": true,
+          "detail": "{'duplicate': True, 'duplicate_of': 'INTAKE-96bccfdbe2a16dfc', 'event': 'duplicate_submission', 'intake_id': 'INTAKE-96bccfdbe2a16dfc', 'new_intake_created': False, 'new_proposal_created': False, 'note': 'Original intake record unchanged.'}"
+        },
+        {
+          "name": "intake count 1",
+          "passed": true,
+          "detail": "1"
+        },
+        {
+          "name": "original unchanged",
+          "passed": true,
+          "detail": "unchanged"
+        },
+        {
+          "name": "duplicate event",
+          "passed": true,
+          "detail": "event present"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A07",
+      "subcase": "statements vs interpretations separate",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt",
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc"
+      ],
+      "checks": [
+        {
+          "name": "statements are request lines",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.', 'Nguồn: báo cáo nội bộ tuần này.', 'Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.']"
+        },
+        {
+          "name": "proposal has no owner_statements field",
+          "passed": true,
+          "detail": "separate"
+        },
+        {
+          "name": "intake has no proposal notes",
+          "passed": true,
+          "detail": "separate"
+        },
+        {
+          "name": "interpretations empty, not invented",
+          "passed": true,
+          "detail": "[]"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A08",
+      "subcase": "hostile set PASS inert",
+      "fixture": {
+        "name": "hostile.txt (generated)",
+        "sha256": "fa51851e83868b83d9faa2050e074431a7e689daf733177f1018e332239fa5ae"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input hostile.txt"
+      ],
+      "checks": [
+        {
+          "name": "intake stored as data",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "stage still INTAKE",
+          "passed": true,
+          "detail": "INTAKE"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "0"
+        },
+        {
+          "name": "binding NOT_RUN",
+          "passed": true,
+          "detail": "NOT_RUN"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A09",
+      "subcase": "pasted approval inert",
+      "fixture": {
+        "name": "pasted.txt (generated)",
+        "sha256": "434693f3cf1bbb01ca772b48fd1c6639b2ff3d3b5e3221f93f779adbf3b883e6"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input pasted.txt"
+      ],
+      "checks": [
+        {
+          "name": "intake stored as data",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "no decision created",
+          "passed": true,
+          "detail": "{}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A10",
+      "subcase": "upload/send text inert",
+      "fixture": {
+        "name": "upload.txt (generated)",
+        "sha256": "d901482f3b166bdec58e1f73b23270e26443a47adcf81028ea40e5ed2449f7cc"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input upload.txt"
+      ],
+      "checks": [
+        {
+          "name": "intake stored as data",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "no new files besides store+lock+input",
+          "passed": true,
+          "detail": "['room.json', 'room.json.lock', 'upload.txt']"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        },
+        {
+          "name": "note: packet-level egress monitoring remains NOT_RUN",
+          "passed": true,
+          "detail": "local command only; no network code in slice (C4 test_13)"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A11",
+      "subcase": "proposal dependency view",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room proposal-view --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc"
+      ],
+      "checks": [
+        {
+          "name": "view tasks match golden",
+          "passed": true,
+          "detail": "[{'blocked_reason': None, 'next_allowed_action': 'complete PROP-INTAKE-96bccfdbe2a16dfc-T01', 'readiness': 'READY', 'task_id': 'PROP-INTAKE-96bccfdbe2a16dfc-T01'}, {'blocked_reason': 'Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T01', 'next_allowed_action': 'complete PROP-INTAKE-96bccfdbe2a16dfc-T01', 'readiness': 'BLOCKED', 'task_id': 'PROP-INTAKE-96bccfdbe2a16dfc-T02'}, {'blocked_reason': 'Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T02', 'next_allowed_action': 'complete PROP-INTAKE-96bccfdbe2a16dfc-T02', 'readiness': 'BLOCKED', 'task_id': 'PROP-INTAKE-96bccfdbe2a16dfc-T03'}, {'blocked_reason': 'Depends on not-yet-DONE: PROP-INTAKE-96bccfdbe2a16dfc-T03', 'next_allowed_action': 'complete PROP-INTAKE-96bccfdbe2a16dfc-T03', 'readiness': 'BLOCKED', 'task_id': 'PROP-INTAKE-96bccfdbe2a16dfc-T04'}]"
+        },
+        {
+          "name": "digest matches",
+          "passed": true,
+          "detail": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A12",
+      "subcase": "restart/reload coherent",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room overview --store room.json (new process)"
+      ],
+      "checks": [
+        {
+          "name": "overview ok",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "hashes same",
+          "passed": true,
+          "detail": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6 ['DEC-e81b5e7deada9801']"
+        },
+        {
+          "name": "history valid",
+          "passed": true,
+          "detail": "True"
+        },
+        {
+          "name": "store bytes unchanged by overview",
+          "passed": true,
+          "detail": "read-only"
+        },
+        {
+          "name": "counts 1/1/1",
+          "passed": true,
+          "detail": "1/1/1"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A13",
+      "subcase": "changed brief invalidates approval",
+      "fixture": {
+        "name": "operator-reviewed-snapshot.json",
+        "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json --expected-brief-revision PRODUCT_INTAKE_BRIEF_REV1 (other flags as golden)"
+      ],
+      "checks": [
+        {
+          "name": "REV1 binding rejected stale",
+          "passed": true,
+          "detail": "rc=2 err=error: REJECTED_STALE: expected bindings do not match the current proposal (digest, brief revision, or intake id); no decision created"
+        },
+        {
+          "name": "no decision from REV1 attempt",
+          "passed": true,
+          "detail": "no decision"
+        },
+        {
+          "name": "correct REV2 binding still works after",
+          "passed": true,
+          "detail": "rc2=0"
+        },
+        {
+          "name": "limitation noted",
+          "passed": true,
+          "detail": "C5 has no brief-edit command; changed brief is tested via expected-brief mismatch, per C5_BUILD_NOTE"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A14",
+      "subcase": "no auto-PASS",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room complete --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc --task-id (T01-T04)",
+        "python3 -m control_room update-task --store room.json --id TASK-01 --state DONE"
+      ],
+      "checks": [
+        {
+          "name": "stage still INTAKE",
+          "passed": true,
+          "detail": "INTAKE"
+        },
+        {
+          "name": "binding NOT_RUN",
+          "passed": true,
+          "detail": "NOT_RUN"
+        },
+        {
+          "name": "implementation NOT_VERIFIED",
+          "passed": true,
+          "detail": "NOT_VERIFIED"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": "outside cwd",
+      "fixture": {
+        "name": "../outside.txt (not created)",
+        "sha256": null
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input ../outside.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: input path must be inside the current working directory"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": "symlink",
+      "fixture": {
+        "name": "link.txt -> good.txt",
+        "sha256": null
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input link.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: input path must not be a symlink"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": ".git path",
+      "fixture": {
+        "name": ".git/room.txt (not created)",
+        "sha256": null
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input .git/room.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: input path must not be under .git"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": "secret-like filename",
+      "fixture": {
+        "name": "my-secret.txt",
+        "sha256": "c116166027f683c811d178dfb6eaab366d04051bbb53537318e42057875207ef"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input my-secret.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: input path looks like a secret file; refused"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": "binary (invalid UTF-8)",
+      "fixture": {
+        "name": "binary.txt",
+        "sha256": "7558fff372a1af85660fee0328c00bbde492dd07e83a8ef18d7f0a5ba199e6c3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input binary.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: invalid_utf8: input is not strict UTF-8; no replacement, no record created"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A15",
+      "subcase": "missing file",
+      "fixture": {
+        "name": "missing.txt (not created)",
+        "sha256": null
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input missing.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2 err=error: input file does not exist: missing.txt"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A16",
+      "subcase": "deterministic proposal, two stores",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt (x2 stores)",
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc (x2 stores)"
+      ],
+      "checks": [
+        {
+          "name": "same intake_id",
+          "passed": true,
+          "detail": "[('INTAKE-96bccfdbe2a16dfc', 'de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6'), ('INTAKE-96bccfdbe2a16dfc', 'de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6')]"
+        },
+        {
+          "name": "same digest",
+          "passed": true,
+          "detail": "[('INTAKE-96bccfdbe2a16dfc', 'de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6'), ('INTAKE-96bccfdbe2a16dfc', 'de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6')]"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A17",
+      "subcase": "gate only, OPERATOR_ASSERTED",
+      "fixture": {
+        "name": "claim.txt + example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input claim.txt",
+        "python3 -m control_room decide --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc (golden bindings)"
+      ],
+      "checks": [
+        {
+          "name": "role claim in text creates no decision",
+          "passed": true,
+          "detail": "no decision"
+        },
+        {
+          "name": "matching decide creates decision",
+          "passed": true,
+          "detail": "rc2=0"
+        },
+        {
+          "name": "provenance OPERATOR_ASSERTED",
+          "passed": true,
+          "detail": "OPERATOR_ASSERTED"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A18",
+      "subcase": "immutable intake via correction",
+      "fixture": {
+        "name": "correction-request.txt",
+        "sha256": "84910bb6be58d81b59dd239067b700d191b156cd41f7616e7f3e0ad39175f057"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input correction-request.txt --supersedes INTAKE-96bccfdbe2a16dfc"
+      ],
+      "checks": [
+        {
+          "name": "correction created",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "new id",
+          "passed": true,
+          "detail": "INTAKE-432d09e4f46eaff1"
+        },
+        {
+          "name": "old record byte-identical",
+          "passed": true,
+          "detail": "unchanged"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A19",
+      "subcase": "golden template four tasks",
+      "fixture": {
+        "name": "expected-proposal.json",
+        "sha256": "be03f225419817a0303709019374c888669f1093ec2e67dd6b80af3c303919c7"
+      },
+      "commands": [
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc"
+      ],
+      "checks": [
+        {
+          "name": "four tasks exactly",
+          "passed": true,
+          "detail": "4"
+        },
+        {
+          "name": "payload equals golden",
+          "passed": true,
+          "detail": "payload match"
+        },
+        {
+          "name": "digest matches golden",
+          "passed": true,
+          "detail": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A20",
+      "subcase": "stale decision rejected",
+      "fixture": {
+        "name": "negative-decision.json",
+        "sha256": "5cb7da4f877cfc9e0f68582f985dfe8be74f0cb80c562d0aba00eeae097cd61c"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json --expected-proposal-digest 0000000000000000000000000000000000000000000000000000000000000000 (other flags as golden)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "REJECTED_STALE",
+          "passed": true,
+          "detail": "error: REJECTED_STALE: expected bindings do not match the current proposal (digest, brief revision, or intake id); no decision created"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        },
+        {
+          "name": "rejection event",
+          "passed": true,
+          "detail": "event present"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A21",
+      "subcase": "wrong brief",
+      "fixture": {
+        "name": "operator-reviewed-snapshot.json",
+        "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json (one binding changed)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "REJECTED_STALE",
+          "passed": true,
+          "detail": "error: REJECTED_STALE: expected bindings do not match the current proposal (digest, brief revision, or intake id); no decision created"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A21",
+      "subcase": "wrong intake",
+      "fixture": {
+        "name": "operator-reviewed-snapshot.json",
+        "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json (one binding changed)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "REJECTED_STALE",
+          "passed": true,
+          "detail": "error: REJECTED_STALE: expected bindings do not match the current proposal (digest, brief revision, or intake id); no decision created"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A22",
+      "subcase": "knowledge/Soul/Heart honesty",
+      "fixture": {
+        "name": "example-request.txt + other.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc",
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-35a76ea803281838"
+      ],
+      "checks": [
+        {
+          "name": "same tasks/roles/reasons/deps shape",
+          "passed": true,
+          "detail": "template invariant"
+        },
+        {
+          "name": "Soul unchanged",
+          "passed": true,
+          "detail": "soul unchanged"
+        },
+        {
+          "name": "no Reverse card in proposal",
+          "passed": true,
+          "detail": "no Reverse authority cited"
+        },
+        {
+          "name": "notes state simulated roles only",
+          "passed": true,
+          "detail": "notes honest"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A23",
+      "subcase": "byte cap 20,000 accepted",
+      "fixture": {
+        "name": "byte-ok.txt (generated, 10000 x é)",
+        "sha256": "3877d08990923f37e0442507f6aca03d1cc011fc4bb6860762f9cf0db0d13deb"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input byte-ok.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "20,000 bytes / 10,000 chars",
+          "passed": true,
+          "detail": "20000/10000"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A23",
+      "subcase": "byte cap 20,001 rejected",
+      "fixture": {
+        "name": "request-byte-cap-over.txt",
+        "sha256": "24e9393cfe95959b84669c585c492578df744208bd974a40c229bca1bd77630e"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-byte-cap-over.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason byte_cap_exceeded",
+          "passed": true,
+          "detail": "error: byte_cap_exceeded: input is 20001 bytes, cap 20000 bytes before decode; no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A24",
+      "subcase": "whitespace-only rejected",
+      "fixture": {
+        "name": "request-whitespace.txt",
+        "sha256": "d3fc4500327202de9fd3571f7d1ac8c62570d53903d87aba481e6b95f1ef3444"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-whitespace.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason whitespace_only",
+          "passed": true,
+          "detail": "error: whitespace_only: input is whitespace only; no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A24",
+      "subcase": "accepted content never trimmed",
+      "fixture": {
+        "name": "spaces.txt (generated)",
+        "sha256": "8cc53372c2766f2a7e96a5c80bddca0d9b0870ff8638eab5f92c54a22bc4601c"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input spaces.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "original verbatim",
+          "passed": true,
+          "detail": "'  hello  \\nworld  \\n'"
+        },
+        {
+          "name": "statements untrimmed",
+          "passed": true,
+          "detail": "['  hello  ', 'world  ']"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A25",
+      "subcase": "char cap 10,000 accepted",
+      "fixture": {
+        "name": "request-char-cap-ok.txt",
+        "sha256": "27dd1f61b867b6a0f6e9d8a41c43231de52107e53ae424de8f847b821db4b711"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-char-cap-ok.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "10,000 chars",
+          "passed": true,
+          "detail": "10000"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A25",
+      "subcase": "char cap 10,001 rejected",
+      "fixture": {
+        "name": "request-char-cap-over.txt",
+        "sha256": "0cab99a058600ffaad1292d0c53c0548ebaf88dd1d01030345705f018a813909"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-char-cap-over.txt"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason char_cap_exceeded",
+          "passed": true,
+          "detail": "error: char_cap_exceeded: input is 10001 characters, cap 10000 code points; no record created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A26",
+      "subcase": "request-bom.json",
+      "fixture": {
+        "name": "request-bom.json",
+        "sha256": "fd92b4616500f86d71a3686b7cb9303922c528fab692c042c7410d0e3e81c716"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input raw.txt (bytes decoded from request-bom.json)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason bom_not_accepted",
+          "passed": true,
+          "detail": "error: bom_not_accepted: input starts with a UTF-8 BOM; BOM is rejected, never stripped; no record created"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A27",
+      "subcase": "request-nul.json",
+      "fixture": {
+        "name": "request-nul.json",
+        "sha256": "8f651c4d7f752436e758a9812fbc95bba5b0345af974597f9dda15144bd70bc4"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input raw.txt (bytes decoded from request-nul.json)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "reason nul_or_binary",
+          "passed": true,
+          "detail": "error: nul_or_binary: input contains NUL; no record created"
+        },
+        {
+          "name": "no record",
+          "passed": true,
+          "detail": "{'intakes': 0, 'proposals': 0, 'decisions': 0, 'events': 0, 'revision': 0, 'stage': 'INTAKE'}"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A28",
+      "subcase": "request-crlf.txt",
+      "fixture": {
+        "name": "request-crlf.txt",
+        "sha256": "04307f39d5138b9e080b09cb8d3770df59f285453fb778d6baafa30359e0b807"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-crlf.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "line_endings",
+          "passed": true,
+          "detail": "CRLF"
+        },
+        {
+          "name": "statements",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét trước khi quyết định tiếp theo.', 'Nguồn: báo cáo nội bộ tuần này.', 'Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.']"
+        },
+        {
+          "name": "sha",
+          "passed": true,
+          "detail": "04307f39d5138b9e080b09cb8d3770df59f285453fb778d6baafa30359e0b807"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A28",
+      "subcase": "request-mixed.txt",
+      "fixture": {
+        "name": "request-mixed.txt",
+        "sha256": "e16e08684654dfd97d7d6170f1f3524b99455eff1923900f64e300f4d19e25db"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-mixed.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "line_endings",
+          "passed": true,
+          "detail": "mixed"
+        },
+        {
+          "name": "statements",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét.', 'Nguồn: báo cáo nội bộ tuần này.', 'Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.']"
+        },
+        {
+          "name": "sha",
+          "passed": true,
+          "detail": "e16e08684654dfd97d7d6170f1f3524b99455eff1923900f64e300f4d19e25db"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A28",
+      "subcase": "request-bare-cr.txt",
+      "fixture": {
+        "name": "request-bare-cr.txt",
+        "sha256": "dfd200a8953be59ec22398dc36571edb4c3be42f78e33eabfa40500d973ece00"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-bare-cr.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "line_endings",
+          "passed": true,
+          "detail": "bare-CR"
+        },
+        {
+          "name": "statements",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét.', 'Nguồn: báo cáo nội bộ tuần này.', 'Mục tiêu: có bản tóm tắt rõ ràng để chủ duyệt.']"
+        },
+        {
+          "name": "sha",
+          "passed": true,
+          "detail": "dfd200a8953be59ec22398dc36571edb4c3be42f78e33eabfa40500d973ece00"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A28",
+      "subcase": "request-no-newline.txt",
+      "fixture": {
+        "name": "request-no-newline.txt",
+        "sha256": "53ce72c288d5c4b28046b8d49ac21ef088c9ff8009bc91d8636b9cde16c1ac0c"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input request-no-newline.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "line_endings",
+          "passed": true,
+          "detail": "none"
+        },
+        {
+          "name": "statements",
+          "passed": true,
+          "detail": "['Xin tóm tắt báo cáo tuần cho chủ dự án để chủ xem xét.']"
+        },
+        {
+          "name": "sha",
+          "passed": true,
+          "detail": "53ce72c288d5c4b28046b8d49ac21ef088c9ff8009bc91d8636b9cde16c1ac0c"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A29",
+      "subcase": "unicode combining preserved",
+      "fixture": {
+        "name": "combining.txt (generated)",
+        "sha256": "dcc492420fc77018ce8b7eb59458568e7901e9751194f4dbe7a1044ca16ccd2e"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input combining.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0"
+        },
+        {
+          "name": "combining char preserved",
+          "passed": true,
+          "detail": "'café\\n'"
+        },
+        {
+          "name": "hash over original bytes",
+          "passed": true,
+          "detail": "dcc492420fc77018ce8b7eb59458568e7901e9751194f4dbe7a1044ca16ccd2e"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A30",
+      "subcase": "propose repeat idempotent",
+      "fixture": {
+        "name": "expected-propose-repeat-response.json",
+        "sha256": "1a8f64da03995f85c2937ac083faa0b0444ef1f89fb72bcb2bccf40e6b6b46c3"
+      },
+      "commands": [
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc (twice)"
+      ],
+      "checks": [
+        {
+          "name": "first ok",
+          "passed": true,
+          "detail": "rc1=0"
+        },
+        {
+          "name": "repeat equals golden",
+          "passed": true,
+          "detail": "{'already_exists': True, 'new_proposal_created': False, 'note': 'Same proposal returned; payload and digest unchanged.', 'proposal_digest': 'de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6', 'proposal_id': 'PROP-INTAKE-96bccfdbe2a16dfc'}"
+        },
+        {
+          "name": "one proposal only",
+          "passed": true,
+          "detail": "1"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A31",
+      "subcase": "correction new record, old unchanged",
+      "fixture": {
+        "name": "correction-request.txt",
+        "sha256": "84910bb6be58d81b59dd239067b700d191b156cd41f7616e7f3e0ad39175f057"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input correction-request.txt --supersedes INTAKE-96bccfdbe2a16dfc"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "new id",
+          "passed": true,
+          "detail": "INTAKE-432d09e4f46eaff1"
+        },
+        {
+          "name": "supersedes old",
+          "passed": true,
+          "detail": "INTAKE-96bccfdbe2a16dfc"
+        },
+        {
+          "name": "old hash unchanged",
+          "passed": true,
+          "detail": "ab028e9cce47eea3 vs ab028e9cce47eea3"
+        },
+        {
+          "name": "two intakes",
+          "passed": true,
+          "detail": "2"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A32",
+      "subcase": "view change does not change digest",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room proposal-view --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc",
+        "python3 -m control_room complete --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc --task-id PROP-INTAKE-96bccfdbe2a16dfc-T01",
+        "python3 -m control_room decide --store room.json (golden bindings)"
+      ],
+      "checks": [
+        {
+          "name": "view changed",
+          "passed": true,
+          "detail": "READY -> DONE"
+        },
+        {
+          "name": "digest unchanged by view change",
+          "passed": true,
+          "detail": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6"
+        },
+        {
+          "name": "decide with original digest still works",
+          "passed": true,
+          "detail": "rc3=0 err="
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A32",
+      "subcase": "payload change invalidates bound decision",
+      "fixture": {
+        "name": "other.txt (generated)",
+        "sha256": "79174672116d37a2f524135a24029a79dd54a1cdf23327a03d8e0d1872ac35c9"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc --expected-proposal-digest (other proposal digest)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "REJECTED_STALE",
+          "passed": true,
+          "detail": "error: REJECTED_STALE: expected bindings do not match the current proposal (digest, brief revision, or intake id); no decision created"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "A33",
+      "subcase": "owner acceptance recorded, not assumed",
+      "fixture": {
+        "name": "(no owner instruction in this run)",
+        "sha256": null
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt",
+        "python3 -m control_room propose --store room.json --intake-id INTAKE-96bccfdbe2a16dfc",
+        "python3 -m control_room decide --store room.json (golden bindings)"
+      ],
+      "checks": [
+        {
+          "name": "no owner_product_acceptance field",
+          "passed": true,
+          "detail": "absent"
+        },
+        {
+          "name": "decisions are OPERATOR_ASSERTED only",
+          "passed": true,
+          "detail": "OPERATOR_ASSERTED"
+        },
+        {
+          "name": "acceptance remains PENDING in report",
+          "passed": true,
+          "detail": "no meeting/review/reviewer verdict was recorded as acceptance"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V01",
+      "subcase": "missing expected binding flag",
+      "fixture": {
+        "name": "operator-reviewed-snapshot.json",
+        "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json --proposal-id PROP-INTAKE-96bccfdbe2a16dfc --expected-brief-revision PRODUCT_INTAKE_BRIEF_REV2 --expected-intake-id INTAKE-96bccfdbe2a16dfc --decision APPROVE --reason Owner reviewed proposal --operator local-operator --source local-cli (no --expected-proposal-digest)"
+      ],
+      "checks": [
+        {
+          "name": "nonzero exit (argparse)",
+          "passed": true,
+          "detail": "rc=2"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V02",
+      "subcase": "wrong-format bindings",
+      "fixture": {
+        "name": "operator-reviewed-snapshot.json",
+        "sha256": "04747eb90e622ab8a88aef250f1f312dd60b30a73a61225b0f13f00d781922da"
+      },
+      "commands": [
+        "python3 -m control_room decide --store room.json (wrong-format digest / intake / decision)"
+      ],
+      "checks": [
+        {
+          "name": "digest format rejected",
+          "passed": true,
+          "detail": "error: invalid_expected_binding_format: expected proposal digest must be 64 lowercase hex characters; no decision created"
+        },
+        {
+          "name": "intake format rejected",
+          "passed": true,
+          "detail": "error: invalid_expected_binding_format: expected intake id must match INTAKE-<16 lowercase hex>; no decision created"
+        },
+        {
+          "name": "decision enum rejected",
+          "passed": true,
+          "detail": "error: invalid_decision: decision must be one of ['APPROVE', 'REVISE', 'REJECT', 'DEFER']; no decision created"
+        },
+        {
+          "name": "no decision",
+          "passed": true,
+          "detail": "no decision"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V03",
+      "subcase": "correction rejections with events",
+      "fixture": {
+        "name": "correction-request.txt",
+        "sha256": "84910bb6be58d81b59dd239067b700d191b156cd41f7616e7f3e0ad39175f057"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --input example-request.txt --supersedes INTAKE-96bccfdbe2a16dfc",
+        "python3 -m control_room intake --store room.json --input correction-request.txt --supersedes INTAKE-96bccfdbe2a16dfc",
+        "python3 -m control_room intake --store room.json --input new.txt --supersedes INTAKE-0000000000000000"
+      ],
+      "checks": [
+        {
+          "name": "no-op rejected with event",
+          "passed": true,
+          "detail": "error: correction_no_op_same_bytes: correction bytes equal the original bytes; no new record created"
+        },
+        {
+          "name": "conflict rejected with event",
+          "passed": true,
+          "detail": "error: correction_conflict_existing_id: correction bytes already exist as INTAKE-432d09e4f46eaff1 while supersedes is INTAKE-96bccfdbe2a16dfc; no overwrite, no new record"
+        },
+        {
+          "name": "not-found rejected with event",
+          "passed": true,
+          "detail": "error: correction_supersedes_not_found: supersedes id INTAKE-0000000000000000 is not an existing intake; no record created"
+        },
+        {
+          "name": "still two intakes",
+          "passed": true,
+          "detail": "2"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V04",
+      "subcase": "concurrent decide, exactly one",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "two processes: load store, decide (golden bindings), save with CAS (GO barrier)"
+      ],
+      "checks": [
+        {
+          "name": "exactly one accepted",
+          "passed": true,
+          "detail": "['proc-b']"
+        },
+        {
+          "name": "one decision persisted",
+          "passed": true,
+          "detail": "['DEC-e81b5e7deada9801']"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V05",
+      "subcase": "stdin intake",
+      "fixture": {
+        "name": "example-request.txt via stdin",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room intake --store room.json --stdin < example-request.txt"
+      ],
+      "checks": [
+        {
+          "name": "exit 0",
+          "passed": true,
+          "detail": "rc=0 err="
+        },
+        {
+          "name": "same intake_id as file",
+          "passed": true,
+          "detail": "INTAKE-96bccfdbe2a16dfc"
+        },
+        {
+          "name": "locator local-stdin",
+          "passed": true,
+          "detail": "local-stdin"
+        }
+      ],
+      "result": "PASS"
+    },
+    {
+      "case": "V06",
+      "subcase": "tampered intake fails history",
+      "fixture": {
+        "name": "example-request.txt",
+        "sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3"
+      },
+      "commands": [
+        "python3 -m control_room verify-history --store room.json (after tampering intake text without chain recompute)"
+      ],
+      "checks": [
+        {
+          "name": "chain_valid false",
+          "passed": true,
+          "detail": "False"
+        },
+        {
+          "name": "failures present",
+          "passed": true,
+          "detail": "['final anchor: last event content digest after does not match current store content digest']"
+        }
+      ],
+      "result": "PASS"
+    }
+  ]
+}

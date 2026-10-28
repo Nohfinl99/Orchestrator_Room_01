@@ -1,0 +1,6 @@
+{
+  "chain_valid": true,
+  "event_count": 5,
+  "failures": [],
+  "tamper_limit": "Chain detects corruption and tampering without a full chain recompute. It is NOT tamper-proof against the storage owner, who can rewrite history and recompute digests."
+}

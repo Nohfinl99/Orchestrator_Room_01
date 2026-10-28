@@ -1,0 +1,69 @@
+{
+  "run_id": "run-20261025T103957Z-d41449a3",
+  "helper_version": "2.0.0",
+  "started_utc": "2026-10-25T10:39:57.838400Z",
+  "ended_utc": "2026-10-25T10:40:10.700945Z",
+  "mode": "api-snapshot",
+  "source_root": "/home/hatch/workspace/orchestrator-room-work/clean-checkout-rev4",
+  "selected_interpreter": {
+    "executable": "/usr/bin/python3",
+    "version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-39-generic-x86_64-with-glibc2.39",
+    "exit_code": 0
+  },
+  "git": {
+    "head": null,
+    "dirty": null,
+    "is_git": false
+  },
+  "code_commit": "3d0bf76bab65c37e6b4bed359dfb6dffca7f8f4c",
+  "pin_origin": "evidence/rev4/c4-pinned-manifest.json (published in E4; digests computed from clean API checkout of C4 before the run)",
+  "child_command": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "child_exit": 0,
+  "helper_exit": 0,
+  "counts": {
+    "attempted": 36,
+    "passed": 36,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "counts_valid": true,
+  "skipped_tests": [],
+  "source_digests_before": {
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV4.md": "c76bbc367351f21c42baea1c1d284b84816487135ab37718528266c8d558ee27",
+    "PILOT_RUNBOOK.md": "4c9ee3e229250aa0c82474753eb53e94396c5b871667e14818dbbaa627eed10e",
+    "control_room/README.md": "840cad9b62f177c230737c58ac28b3a5b01656c7e328f7520eb7eb06188355af",
+    "control_room/__init__.py": "86e690e4ed354ffd002a3e70cb8c7a8c45607bcf46ea55fe31239ec717dced52",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "28d37113ce65a34e3572af0ef37066a193637e35c75888dd002628eddfaca7fb",
+    "control_room/cli.py": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+    "tests/test_control_room.py": "43f11aedb79cd9e584f332a042cf4eb5b85cbe6a5407837d5e9f5cc2042e5ea6"
+  },
+  "source_digests_after": {
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV4.md": "c76bbc367351f21c42baea1c1d284b84816487135ab37718528266c8d558ee27",
+    "PILOT_RUNBOOK.md": "4c9ee3e229250aa0c82474753eb53e94396c5b871667e14818dbbaa627eed10e",
+    "control_room/README.md": "840cad9b62f177c230737c58ac28b3a5b01656c7e328f7520eb7eb06188355af",
+    "control_room/__init__.py": "86e690e4ed354ffd002a3e70cb8c7a8c45607bcf46ea55fe31239ec717dced52",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "28d37113ce65a34e3572af0ef37066a193637e35c75888dd002628eddfaca7fb",
+    "control_room/cli.py": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+    "tests/test_control_room.py": "43f11aedb79cd9e584f332a042cf4eb5b85cbe6a5407837d5e9f5cc2042e5ea6"
+  },
+  "reason": "tests passed, counts valid, sources unchanged",
+  "notes": [
+    "A skipped test is NOT_RUN for that subcase, not PASS.",
+    "This manifest's own hash is not stored inside it; hash it externally.",
+    "This run is a test-suite run, not an independent Judge review and not a pentest."
+  ],
+  "source_changed": false,
+  "log_sha256": "52a601af16982e182ec5fc0324ace232234d5ef0f8758a238dcdf70c960aa186"
+}

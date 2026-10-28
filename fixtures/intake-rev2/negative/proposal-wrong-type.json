@@ -1,0 +1,21 @@
+{
+  "case": "proposal-wrong-type",
+  "record_type": "proposal",
+  "instance": {
+    "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "template_version": "INTAKE_TEMPLATE_V1",
+    "intake_id": "INTAKE-96bccfdbe2a16dfc",
+    "intake_original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+    "tasks": "not-a-list",
+    "notes": [
+      "Roles are simulated except Owner; this template does not assign a real worker.",
+      "View fields (readiness, blocked_reason, next_allowed_action) are computed at overview time and are not part of this payload or its digest."
+    ]
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "proposal_wrong_type"
+  },
+  "note": "tasks must be an array of task objects."
+}

@@ -1,0 +1,63 @@
+{
+  "code_commit": "fd3430c9f1b0e98d1f6c9c62067b935f20054498",
+  "evidence_commit": "dde7b605b0ef9c97e3ae91156303638f3ba843fd",
+  "E5R1_manifest_entries": 9,
+  "E5R1_manifest_errors": [],
+  "suite": {
+    "command": "\"C:\\Windows\\system32\\cmd.exe\" /d /s /c \"call \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source\\scripts\\run_windows_tests.bat\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\c5r1-pinned-manifest.json\" \"E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\windows-runs\"\"",
+    "exit": 0,
+    "stdout_sha256": "f3cbda78b6c200920c6bd2b5ce8cc9379a348c26d4ac205d272d53bec8ad75d3",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "pinned_files": 50,
+  "acceptance": {
+    "command": [
+      "C:\\Program Files\\Python314\\python.exe",
+      "-X",
+      "utf8",
+      "E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source\\acceptance\\run_acceptance_c5.py",
+      "--source-root",
+      "E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\source",
+      "--output-dir",
+      "E:\\Kiến Trúc Thông Tin\\Orchestrator\\artifacts\\reviews\\2026-10-25-c4-roadmap\\c5r1-review\\acceptance-output"
+    ],
+    "exit": 2,
+    "stdout_sha256": "e552eb1324849ae84409b1e61c432a5d9d7c9c5d2869908fcab141e0c2ab04ba",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "acceptance_summary": {
+    "total_subcases": 63,
+    "passed": 59,
+    "failed": 0,
+    "not_run": 4,
+    "inconclusive": 0,
+    "required_total": 63,
+    "required_pass": 59,
+    "required_ran": 59,
+    "completed_checks_verdict": "PASS",
+    "full_scope_verdict": "NOT_RUN",
+    "not_run_subcases": [
+      {
+        "case": "A10",
+        "subcase": "packet-level no-egress",
+        "reason": "NOT_RUN in C5R1; requires packet-level monitoring/audit outside the local CLI, not performed. The PASS subcase above covers only the local command scope."
+      },
+      {
+        "case": "A13",
+        "subcase": "real changed-brief invalidation",
+        "reason": "NOT_RUN in C5R1; C5 has no brief-editing command, so a prior approval followed by an actual brief change cannot be demonstrated. The PASS subcase above covers only expected-brief mismatch rejection against the unchanged REV2 proposal."
+      },
+      {
+        "case": "A15",
+        "subcase": "symlink",
+        "reason": "NOT_RUN: symlink creation failed in this environment ([WinError 1314] A required privilege is not held by the client: 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmp46g8ua1f\\\\good.txt' -> 'C:\\\\Users\\\\Admin\\\\AppData\\\\Local\\\\Temp\\\\tmp46g8ua1f\\\\link.txt'); on Windows this is typically WinError 1314 (privilege). The subcase is not counted as PASS."
+      },
+      {
+        "case": "A33",
+        "subcase": "owner product acceptance",
+        "reason": "NOT_RUN / PENDING: owner product acceptance requires a clear owner instruction with source, actor, time, and scope for the product slice itself. The PASS subcase above covers only that C5 does not self-create acceptance."
+      }
+    ]
+  },
+  "source_status_after": ""
+}

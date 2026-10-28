@@ -1,0 +1,20 @@
+test_01_overview_initial (test_control_room.TestControlRoom.test_01_overview_initial) ... ok
+test_02_observation_save_reload_null_elapsed (test_control_room.TestControlRoom.test_02_observation_save_reload_null_elapsed) ... ok
+test_03_facts_and_inferences_separate (test_control_room.TestControlRoom.test_03_facts_and_inferences_separate) ... ok
+test_04_locator_and_hash_retained (test_control_room.TestControlRoom.test_04_locator_and_hash_retained) ... ok
+test_05_task_done_does_not_advance (test_control_room.TestControlRoom.test_05_task_done_does_not_advance) ... ok
+test_06_illegal_and_unauthorised_changes_rejected (test_control_room.TestControlRoom.test_06_illegal_and_unauthorised_changes_rejected) ... ok
+test_07_dependency_ready_and_stale_update (test_control_room.TestControlRoom.test_07_dependency_ready_and_stale_update) ... ok
+test_08_full_stage_path_and_owner_decision_binding (test_control_room.TestControlRoom.test_08_full_stage_path_and_owner_decision_binding) ... ok
+test_09_history_shows_before_after (test_control_room.TestControlRoom.test_09_history_shows_before_after) ... ok
+test_10_verification_derivation (test_control_room.TestControlRoom.test_10_verification_derivation) ... ok
+test_11_hostile_text_is_inert (test_control_room.TestControlRoom.test_11_hostile_text_is_inert) ... ok
+test_12_path_and_size_boundaries (test_control_room.TestControlRoom.test_12_path_and_size_boundaries) ... ok
+test_13_no_network_or_shell_in_slice_code (test_control_room.TestControlRoom.test_13_no_network_or_shell_in_slice_code) ... ok
+test_14_reload_keeps_history_coherent (test_control_room.TestControlRoom.test_14_reload_keeps_history_coherent) ... ok
+test_15_binary_store_is_rejected (test_control_room.TestControlRoom.test_15_binary_store_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.446s
+
+OK

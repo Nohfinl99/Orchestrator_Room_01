@@ -1,0 +1,95 @@
+{
+  "self_excluded": true,
+  "entries": [
+    {
+      "path": "MUSE_AFTER_C5R1_REVIEW.md",
+      "bytes": 4432,
+      "sha256": "0eb3e5cd3e969eb1631fffb273980c64dd66eabed727856480ee11ceeb30c2f2"
+    },
+    {
+      "path": "OWNER_PILOT_PROTOCOL.md",
+      "bytes": 4584,
+      "sha256": "b8a35b17462cf9c23098f4cacf2cb002b054004cc498d13c3c45129ad9d6cb16"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/acceptance-output/acceptance-manifest.json",
+      "bytes": 827,
+      "sha256": "e4059ea523c8940c032ca00d70ccfe188d62e3b902777eacb963aedd9178eb05"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/acceptance-output/acceptance-results.json",
+      "bytes": 575740,
+      "sha256": "aebb81b709361651a2c69f57924a4584ea2dc50e1915ad5d575ea4e952b3d126"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/acceptance-output/acceptance-results.md",
+      "bytes": 10561,
+      "sha256": "525d83ba92568dceadef69cc963eb19015faa800b2c345a6fbac25fb5e74c511"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/c5r1-pinned-manifest.json",
+      "bytes": 6173,
+      "sha256": "4ae61bab4da0538a754fa7415c3df86217503bb28ee5cc27a3c4eea00f850ad7"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/execution-receipt.json",
+      "bytes": 842,
+      "sha256": "eddf64398dcddc7c1fb8dcab9f9a21e277fcf9ce922323e96cc5db7a7ca1f777"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/independent_controls.py",
+      "bytes": 3836,
+      "sha256": "25dd9a83907418599207858274b7c938c14452ddc336ae4eaaf5770ecc0ec613"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/REPORT.md",
+      "bytes": 8723,
+      "sha256": "465a04bb203e3137b6342f349e704ab7311a1dcf99571cc85ae1c59b4febbb7b"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/acceptance-windows.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/acceptance-windows.stdout.log",
+      "bytes": 1165,
+      "sha256": "e552eb1324849ae84409b1e61c432a5d9d7c9c5d2869908fcab141e0c2ab04ba"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/execution.json",
+      "bytes": 3480,
+      "sha256": "08f43e5d7c7010d5099c65f28d5888cf0125b80805c9250102a4285941362aae"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/independent-controls.json",
+      "bytes": 2727,
+      "sha256": "0c93b6dfa901f11a04db5e4a1473955257e7235537b833bbc06200a49d6bf898"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/suite-bat.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/review-evidence/suite-bat.stdout.log",
+      "bytes": 1671,
+      "sha256": "f3cbda78b6c200920c6bd2b5ce8cc9379a348c26d4ac205d272d53bec8ad75d3"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/run_review.py",
+      "bytes": 2968,
+      "sha256": "41b1fe16a493123ac63de27b92a74a239448baca999e65d71038e9c8198fca80"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/windows-runs/run-20261025T175748Z-6f8195a8/manifest.json",
+      "bytes": 14619,
+      "sha256": "7527ae7a9a70d1e06a5ad6cd40d9f870907b417c5e9e6645e4425f47d4f9ec89"
+    },
+    {
+      "path": "reviews/2026-10-26-c5r1/windows-runs/run-20261025T175748Z-6f8195a8/test-run.log",
+      "bytes": 7773,
+      "sha256": "c24cb3433e163b457c974908b126c05df342472a44cd0ae68ad1b59de570e7e6"
+    }
+  ]
+}

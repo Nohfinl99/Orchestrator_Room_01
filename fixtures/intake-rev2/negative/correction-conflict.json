@@ -1,0 +1,14 @@
+{
+  "case": "correction-conflict",
+  "record_type": "correction",
+  "instance": {
+    "bytes_source": "example-request.txt",
+    "supersedes": "INTAKE-0000000000000000",
+    "note": "Bytes already exist as original intake, but supersedes points elsewhere."
+  },
+  "expected": {
+    "accepted": false,
+    "reason": "correction_conflict_existing_id"
+  },
+  "note": "Content ID already exists, supersedes incompatible: conflict reject, no overwrite, old record unchanged."
+}

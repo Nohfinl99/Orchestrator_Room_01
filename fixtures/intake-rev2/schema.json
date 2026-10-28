@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product Intake REV2.1 — intake, proposal, decision (contract, not implementation)",
+  "note": "REV2.1 schema fix (R2-02): this file now has root selectors (intake_schema, proposal_schema, decision_schema) so a validator can validate an actual instance against a named definition, instead of only checking that definition names exist. It also adds the baseline_provenance definition, decided_utc as required with a UTC pattern, the expanded line_endings enum, and additionalProperties=false for intake/proposal/decision. Validated by check_static.py as a static check only; it is not an application test suite.",
+  "intake_schema": {"$ref": "#/definitions/intake"},
+  "proposal_schema": {"$ref": "#/definitions/proposal_payload"},
+  "decision_schema": {"$ref": "#/definitions/decision"},
+  "definitions": {
+    "baseline": {
+      "type": "object",
+      "required": ["redacted_example", "frequency_per_week", "manual_time_minutes", "manual_steps", "errors_per_occurrence", "desired_result"],
+      "properties": {
+        "redacted_example": {"type": ["string", "null"]},
+        "frequency_per_week": {"type": ["number", "null"]},
+        "manual_time_minutes": {"type": ["number", "null"]},
+        "manual_steps": {"type": ["number", "null"]},
+        "errors_per_occurrence": {"type": ["number", "null"]},
+        "desired_result": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "baseline_provenance_entry": {
+      "type": "object",
+      "required": ["source", "supplied_utc", "note"],
+      "properties": {
+        "source": {"type": ["string", "null"], "enum": ["owner", null]},
+        "supplied_utc": {"type": ["string", "null"]},
+        "note": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "baseline_provenance": {
+      "type": "object",
+      "required": ["redacted_example", "frequency_per_week", "manual_time_minutes", "manual_steps", "errors_per_occurrence", "desired_result"],
+      "properties": {
+        "redacted_example": {"$ref": "#/definitions/baseline_provenance_entry"},
+        "frequency_per_week": {"$ref": "#/definitions/baseline_provenance_entry"},
+        "manual_time_minutes": {"$ref": "#/definitions/baseline_provenance_entry"},
+        "manual_steps": {"$ref": "#/definitions/baseline_provenance_entry"},
+        "errors_per_occurrence": {"$ref": "#/definitions/baseline_provenance_entry"},
+        "desired_result": {"$ref": "#/definitions/baseline_provenance_entry"}
+      },
+      "additionalProperties": false
+    },
+    "intake": {
+      "type": "object",
+      "required": ["intake_id", "brief_revision", "template_version", "created_utc", "input_source", "source_locator", "original_text", "original_sha256", "original_length_bytes", "original_length_chars", "input_encoding", "bom", "line_endings", "owner_statements", "proposed_interpretations", "unknowns", "baseline", "baseline_provenance", "duplicate_of", "supersedes"],
+      "properties": {
+        "intake_id": {"type": "string"},
+        "brief_revision": {"type": "string", "const": "PRODUCT_INTAKE_BRIEF_REV2"},
+        "template_version": {"type": "string", "const": "INTAKE_TEMPLATE_V1"},
+        "created_utc": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"},
+        "input_source": {"type": "string"},
+        "source_locator": {"type": "string"},
+        "original_text": {"type": "string"},
+        "original_sha256": {"type": "string"},
+        "original_length_bytes": {"type": "integer"},
+        "original_length_chars": {"type": "integer"},
+        "input_encoding": {"type": "string", "const": "UTF-8"},
+        "bom": {"type": "string", "enum": ["absent"]},
+        "line_endings": {"type": "string", "enum": ["LF", "CRLF", "mixed", "bare-CR", "none"]},
+        "owner_statements": {"type": "array", "items": {"type": "string"}},
+        "proposed_interpretations": {"type": "array", "items": {"type": "string"}},
+        "unknowns": {"type": "array", "items": {"type": "string"}},
+        "baseline": {"$ref": "#/definitions/baseline"},
+        "baseline_provenance": {"$ref": "#/definitions/baseline_provenance"},
+        "duplicate_of": {"type": ["string", "null"]},
+        "supersedes": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "proposal_task": {
+      "type": "object",
+      "required": ["task_id", "title", "role", "depends_on", "reason"],
+      "properties": {
+        "task_id": {"type": "string"},
+        "title": {"type": "string"},
+        "role": {"type": "string"},
+        "depends_on": {"type": "array", "items": {"type": "string"}},
+        "reason": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "proposal_payload": {
+      "type": "object",
+      "required": ["proposal_id", "brief_revision", "template_version", "intake_id", "intake_original_sha256", "tasks", "notes"],
+      "properties": {
+        "proposal_id": {"type": "string"},
+        "brief_revision": {"type": "string", "const": "PRODUCT_INTAKE_BRIEF_REV2"},
+        "template_version": {"type": "string", "const": "INTAKE_TEMPLATE_V1"},
+        "intake_id": {"type": "string"},
+        "intake_original_sha256": {"type": "string"},
+        "tasks": {"type": "array", "items": {"$ref": "#/definitions/proposal_task"}},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "required": ["decision_id", "proposal_id", "proposal_digest", "brief_revision", "intake_id", "decision", "reason", "operator_label", "source_channel", "provenance", "decided_utc"],
+      "properties": {
+        "decision_id": {"type": "string"},
+        "proposal_id": {"type": "string"},
+        "proposal_digest": {"type": "string"},
+        "brief_revision": {"type": "string", "const": "PRODUCT_INTAKE_BRIEF_REV2"},
+        "intake_id": {"type": "string"},
+        "decision": {"type": "string", "enum": ["APPROVE", "REVISE", "REJECT", "DEFER"]},
+        "reason": {"type": "string"},
+        "operator_label": {"type": "string"},
+        "source_channel": {"type": "string"},
+        "provenance": {"type": "string", "const": "OPERATOR_ASSERTED"},
+        "decided_utc": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"}
+      },
+      "additionalProperties": false
+    }
+  }
+}

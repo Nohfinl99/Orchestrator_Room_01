@@ -1,0 +1,8 @@
+exit_code=1
+attempted=1 passed=0 errors=0 failures=1 skipped=0
+log=C:\Users\Admin\AppData\Local\Temp\tmph6w446mr\evidence\windows\windows-test-run-2026-10-25.log
+log_sha256=7af880436ce6cbca1817ef078a6ed9f95220d63bb34cc1d312b9889a84e77849
+manifest=C:\Users\Admin\AppData\Local\Temp\tmph6w446mr\evidence\windows\windows-test-manifest.json
+manifest_sha256=e55eb35a27d38a11d43dd9ece28df18ee83dc72def6f35e9c32ac4ec55144500
+
+Done. Send evidence\windows\windows-test-run-*.log and evidence\windows\windows-test-manifest.json back to Muse in direct chat.

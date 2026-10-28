@@ -1,0 +1,43 @@
+{
+  "kind": "SINGLE_PAINPOINT_OBSERVATION_RECORD",
+  "revision": 1,
+  "status": "NEEDS_OWNER_DATA",
+  "pilot": "OWNER_SELF_USE_PRODUCT_DISCOVERY",
+  "authority": "Capture only; does not authorize model calls, code changes, or external actions",
+  "observation": {
+    "event_id": null,
+    "date_local": null,
+    "trigger_or_goal": null,
+    "raw_problem_statement": null,
+    "current_steps": [],
+    "elapsed_time_minutes": null,
+    "where_work_stalled_or_repeated": null,
+    "current_workaround": null,
+    "result_or_rework": null,
+    "source_locator": null,
+    "source_sha256_if_file": null,
+    "is_direct_observation": null
+  },
+  "separate_inference": {
+    "candidate_pain": null,
+    "candidate_user_segment": "Project owner building products from painpoints",
+    "candidate_value_hypothesis": null,
+    "unknowns": [],
+    "alternative_explanations": []
+  },
+  "repetition": {
+    "known_instances": null,
+    "frequency_source": null,
+    "manual_baseline_source": null
+  },
+  "privacy": {
+    "real_customer_or_business_data": false,
+    "external_provider_upload_allowed": false,
+    "notes": "Use local notes or synthetic/redacted records unless the owner approves a separate data policy."
+  },
+  "review": {
+    "owner_confirmed_problem_statement": null,
+    "independent_review": null,
+    "product_hypothesis_revision": null
+  }
+}

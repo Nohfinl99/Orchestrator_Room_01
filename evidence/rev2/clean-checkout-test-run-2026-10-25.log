@@ -1,0 +1,30 @@
+test_01_overview_initial (test_control_room.TestControlRoomRev2.test_01_overview_initial) ... ok
+test_02_observation_save_reload_null_elapsed_and_readiness (test_control_room.TestControlRoomRev2.test_02_observation_save_reload_null_elapsed_and_readiness) ... ok
+test_03_facts_and_inferences_separate (test_control_room.TestControlRoomRev2.test_03_facts_and_inferences_separate) ... ok
+test_04_locator_and_hash_retained (test_control_room.TestControlRoomRev2.test_04_locator_and_hash_retained) ... ok
+test_05_task_done_does_not_advance (test_control_room.TestControlRoomRev2.test_05_task_done_does_not_advance) ... ok
+test_06_illegal_and_unauthorised_changes_rejected (test_control_room.TestControlRoomRev2.test_06_illegal_and_unauthorised_changes_rejected) ... ok
+test_07_dependency_ready_and_stale_update (test_control_room.TestControlRoomRev2.test_07_dependency_ready_and_stale_update) ... ok
+test_08_full_stage_path_and_owner_decision_binding (test_control_room.TestControlRoomRev2.test_08_full_stage_path_and_owner_decision_binding) ... ok
+test_09_history_shows_before_after_and_chain (test_control_room.TestControlRoomRev2.test_09_history_shows_before_after_and_chain) ... ok
+test_10_verification_no_false_pass (test_control_room.TestControlRoomRev2.test_10_verification_no_false_pass) ... ok
+test_10b_verification_without_receipt_is_inconclusive (test_control_room.TestControlRoomRev2.test_10b_verification_without_receipt_is_inconclusive) ... ok
+test_11_hostile_text_is_inert (test_control_room.TestControlRoomRev2.test_11_hostile_text_is_inert) ... ok
+test_12_path_size_and_time_boundaries (test_control_room.TestControlRoomRev2.test_12_path_size_and_time_boundaries) ... ok
+test_13_no_network_or_shell_in_slice_code (test_control_room.TestControlRoomRev2.test_13_no_network_or_shell_in_slice_code) ... ok
+test_14_reload_keeps_history_coherent (test_control_room.TestControlRoomRev2.test_14_reload_keeps_history_coherent) ... ok
+test_15_binary_store_is_rejected (test_control_room.TestControlRoomRev2.test_15_binary_store_is_rejected) ... ok
+test_16_verify_history_tamper_detection (test_control_room.TestControlRoomRev2.test_16_verify_history_tamper_detection) ... ok
+test_17_stale_whole_store_writer_is_rejected (test_control_room.TestControlRoomRev2.test_17_stale_whole_store_writer_is_rejected) ... ok
+test_18_failed_save_preserves_previous_store (test_control_room.TestControlRoomRev2.test_18_failed_save_preserves_previous_store) ... ok
+test_19_stale_judge_snapshot_rejects_and_records (test_control_room.TestControlRoomRev2.test_19_stale_judge_snapshot_rejects_and_records) ... ok
+test_20_empty_gates_cannot_close_product_path (test_control_room.TestControlRoomRev2.test_20_empty_gates_cannot_close_product_path) ... ok
+test_21_role_simulation_is_labelled (test_control_room.TestControlRoomRev2.test_21_role_simulation_is_labelled) ... ok
+test_22_brief_approval_invalidates_on_linked_tamper (test_control_room.TestControlRoomRev2.test_22_brief_approval_invalidates_on_linked_tamper) ... ok
+test_23_schema_v1_is_rejected (test_control_room.TestControlRoomRev2.test_23_schema_v1_is_rejected) ... ok
+test_24_symlink_store_subcase (test_control_room.TestControlRoomRev2.test_24_symlink_store_subcase) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 8.567s
+
+OK

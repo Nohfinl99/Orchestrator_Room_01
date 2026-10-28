@@ -1,0 +1,10 @@
+{
+  "case": "nul_rejected",
+  "note": "Raw input represented as base64 to keep the repo text-only; the raw bytes contain a NUL byte.",
+  "input_base64": "WGluIHTDs20gdOG6r3QgYsOhbyBjw6FvIHR14bqnbiBjaG8gY2jhu6cgZOG7sSDDoW4gxJHhu4MgY2jhu6cgeGVtIHjDqXQgdHLGsOG7m2Mga2hpIHF1eeG6v3QgxJHhu4tuaCB0aeG6v3AgdGhlby4KTmd14buTbjogYsOhbyBjw6FvIG7hu5lpIGLhu5kgdHXhuqduIG7DoHkuCk3hu6VjIHRpw6p1OiBjw7MgYuG6o24gdMOzbSB04bqvdCByw7UgcsOgbmcgxJHhu4MgY2jhu6cgZHV54buHdC4KAA==",
+  "expected": {
+    "accepted": false,
+    "reason": "nul_or_binary",
+    "intake_record_created": false
+  }
+}

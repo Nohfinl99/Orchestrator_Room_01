@@ -1,0 +1,137 @@
+{
+  "note": "SHA-256 and byte lengths of the actual unmodified local files retained locally. Content is NOT uploaded in this packet; these hashes are identity commitments only.",
+  "room_json": {
+    "sha256": "5269505c7473c4f19af998d5fc1659e4aed97b84c490b05512035c0925ddfdaf",
+    "bytes": 13271
+  },
+  "request_txt": {
+    "sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+    "bytes": 504
+  },
+  "packet_md": {
+    "sha256": "d646ddd4b664607060c24aeff8e8c57483bd40191b4114b3177068edcf6b4475",
+    "bytes": 5164
+  },
+  "all_local_files": {
+    "PACKET.md": {
+      "sha256": "d646ddd4b664607060c24aeff8e8c57483bd40191b4114b3177068edcf6b4475",
+      "bytes": 5164
+    },
+    "logs/answer.meta.txt": {
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061",
+      "bytes": 7
+    },
+    "logs/answer.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/answer.stdout.txt": {
+      "sha256": "caf2e6defc721bee1ca3cf1d46d6b2500be1859914050cbc487f99ff1ab3172a",
+      "bytes": 1567
+    },
+    "logs/assess.meta.txt": {
+      "sha256": "bf75582a489b23fb258182690663f3b8274e4908b24680132c698a70c54ccb2b",
+      "bytes": 14
+    },
+    "logs/assess.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/assess.stdout.txt": {
+      "sha256": "80c4f98910aab8886fa1fbdd7a3a807c199fb41658b3f73b4f176128d47d6335",
+      "bytes": 1063
+    },
+    "logs/clarification_id.txt": {
+      "sha256": "8a0cffa6544d1ef9d2f98ba9a5ca2f5e7eb2be44f252d5658cfd9ce967b78eb0",
+      "bytes": 21
+    },
+    "logs/clarify.meta.txt": {
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061",
+      "bytes": 7
+    },
+    "logs/clarify.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/clarify.stdout.txt": {
+      "sha256": "63a44bfa96c80e429b1eb66c9d4b7c3e58cb4d7d80e19a2059c637653358b3df",
+      "bytes": 676
+    },
+    "logs/draft.meta.txt": {
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061",
+      "bytes": 7
+    },
+    "logs/draft.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/draft.stdout.txt": {
+      "sha256": "6f7824836a7afc4a476e2b75354fa84e4bb1abfec815241e52ae5ffe10b485d4",
+      "bytes": 3568
+    },
+    "logs/init.meta.txt": {
+      "sha256": "f5356244ac443a5d7412687561321773ebe9514f8bd973832f3fb0aa250ff2b6",
+      "bytes": 12
+    },
+    "logs/init.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/init.stdout.txt": {
+      "sha256": "29a472b85af97cd1d479c25e253da8f390e4b203787e68f7e51bc77a1eae1ff2",
+      "bytes": 159
+    },
+    "logs/intake.meta.txt": {
+      "sha256": "177f7db253d92eae42f2f2904c2455db2ae5a46d7936931604de7d0e85ade5e4",
+      "bytes": 14
+    },
+    "logs/intake.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/intake.stdout.txt": {
+      "sha256": "e0a611f5f03d4894de7c95af541bfe16c473f73fbb5b80d997c66e9df14d0d4d",
+      "bytes": 3096
+    },
+    "logs/rewrite-view.meta.txt": {
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061",
+      "bytes": 7
+    },
+    "logs/rewrite-view.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/rewrite-view.stdout.txt": {
+      "sha256": "c0bdb0fec69e1e44aa7a84f3753606cfaa45951f71d07702d22593683e356d07",
+      "bytes": 3636
+    },
+    "logs/rewrite_id.txt": {
+      "sha256": "9f54dfb77baa6937f0de2afd81ece05270a685dd7950e58cc35690dd0e2bed56",
+      "bytes": 19
+    },
+    "logs/verify-history.meta.txt": {
+      "sha256": "19eaf43821a7660ec323a87c8457bf74823beb296c39f5e01aa8a683aa50f061",
+      "bytes": 7
+    },
+    "logs/verify-history.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/verify-history.stdout.txt": {
+      "sha256": "c37179ad76f4670cdfd218e3d59a2a181b19ec79adc417038fdca382ae9c7605",
+      "bytes": 253
+    },
+    "request.txt": {
+      "sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+      "bytes": 504
+    },
+    "room.json": {
+      "sha256": "5269505c7473c4f19af998d5fc1659e4aed97b84c490b05512035c0925ddfdaf",
+      "bytes": 13271
+    },
+    "room.json.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  }
+}

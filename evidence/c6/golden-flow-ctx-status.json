@@ -1,0 +1,196 @@
+{
+  "assessment": {
+    "baseline_note": "Optional baseline fields remain null unless supplied elsewhere; a missing baseline does not block this slice.",
+    "dimensions_missing": [
+      "goal",
+      "context",
+      "scope",
+      "desired_output"
+    ],
+    "dimensions_present": {
+      "context": false,
+      "desired_output": false,
+      "goal": false,
+      "scope": false
+    },
+    "intake_id": "INTAKE-62bc3c29d0f60a68",
+    "method": "RULE_HEURISTIC_KEYWORD_SCAN_V1",
+    "method_note": "Keyword-substring scan only; not semantic understanding, not a model, not natural-language reasoning.",
+    "status": "WAITING_CLARIFICATION",
+    "suggested_questions": [
+      "Mục tiêu cụ thể của yêu cầu này là gì (kết quả cần đạt, không phải cách làm)?",
+      "Ngữ cảnh và workflow hiện tại liên quan là gì (ai, khi nào, ở đâu trong quy trình)?",
+      "Phạm vi của yêu cầu này là gì (bao gồm gì, và cố tình không bao gồm gì)?",
+      "Đầu ra mong muốn cụ thể là gì (dạng nào, dùng để làm bước tiếp theo nào)?"
+    ]
+  },
+  "baseline": {
+    "desired_result": null,
+    "errors_per_occurrence": null,
+    "frequency_per_week": null,
+    "manual_steps": null,
+    "manual_time_minutes": null,
+    "redacted_example": null
+  },
+  "baseline_note": "Optional baseline stays null unless supplied elsewhere; it does not block this slice.",
+  "clarifications": [
+    {
+      "answered_utc": "2026-10-26T02:31:12Z",
+      "answers": [
+        {
+          "answer": "Theo dõi revision rõ hơn",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Mục tiêu cụ thể là gì?"
+        },
+        {
+          "answer": "Một brief có cấu trúc",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Đầu ra mong muốn là gì?"
+        }
+      ],
+      "asked_because_missing_dimensions": [
+        "goal",
+        "context",
+        "scope",
+        "desired_output"
+      ],
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "created_utc": "2026-10-26T02:31:12Z",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "questions": [
+        "Mục tiêu cụ thể là gì?",
+        "Đầu ra mong muốn là gì?"
+      ],
+      "status": "ANSWERED"
+    }
+  ],
+  "context_sources": [],
+  "contextual_proposals": [
+    {
+      "created_utc": "2026-10-26T02:31:12Z",
+      "proposal": {
+        "answers_snapshot": [
+          {
+            "answer": "Theo dõi revision rõ hơn",
+            "answered_utc": "2026-10-26T02:31:12Z",
+            "question": "Mục tiêu cụ thể là gì?"
+          },
+          {
+            "answer": "Một brief có cấu trúc",
+            "answered_utc": "2026-10-26T02:31:12Z",
+            "question": "Đầu ra mong muốn là gì?"
+          }
+        ],
+        "approved_rewrite_digest": "d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+        "approved_rewrite_id": "RW-d30e3de4ad279a1e",
+        "constraints": [],
+        "context": "Relay báo cáo Muse-reviewer-Muse",
+        "desired_output": "Brief có cấu trúc",
+        "goal": "Theo dõi revision rõ hơn",
+        "intake_id": "INTAKE-62bc3c29d0f60a68",
+        "intake_original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+        "labelled_inferences": [
+          {
+            "kind": "LABELLED_INFERENCE_NOT_FACT",
+            "label": "INFERRED_NEED",
+            "text": "cần thấy revision và bằng chứng"
+          }
+        ],
+        "mode": "contextual",
+        "mode_note": "Structured/rule-based template with approved-draft fields inserted verbatim; not semantic routing and not a live worker assignment.",
+        "next_action": "Đọc snapshot rồi quyết định",
+        "proposal_id": "CPROP-d30e3de4ad279a1e",
+        "rewrite_version": "CTX-REWRITE-V1",
+        "scope": "Chỉ local CLI, không provider",
+        "source_ids": [],
+        "tasks": [
+          {
+            "depends_on": [],
+            "reason": "The approved rewrite must stay bound to the exact raw bytes and recorded sources; nothing here rewrites the original.",
+            "role": "Intake Steward (simulated)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T01",
+            "title": "Preserve raw request and context sources"
+          },
+          {
+            "depends_on": [
+              "CPROP-d30e3de4ad279a1e-T01"
+            ],
+            "next_action_verbatim": "Đọc snapshot rồi quyết định",
+            "reason": "This task echoes the approved draft next_action verbatim; it is a plan step, not semantic agent assignment and not live execution.",
+            "role": "Planned step (not a live worker)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T02",
+            "title": "Carry out the draft next_action as written"
+          },
+          {
+            "depends_on": [
+              "CPROP-d30e3de4ad279a1e-T02"
+            ],
+            "reason": "Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.",
+            "role": "Owner (real operator)",
+            "task_id": "CPROP-d30e3de4ad279a1e-T03",
+            "title": "Owner review gate for contextual proposal"
+          }
+        ],
+        "unknowns": [
+          "baseline_chua_do"
+        ]
+      },
+      "proposal_digest": "6d8881856544f9675717d24a51cae9ebdc6669f218f7b72edd783956e8d7f0a8",
+      "proposal_id": "CPROP-d30e3de4ad279a1e"
+    }
+  ],
+  "intake_id": "INTAKE-62bc3c29d0f60a68",
+  "intake_original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+  "legacy_note": "A legacy fixed-template proposal, if present, does NOT enforce the contextual policy and is not a contextual proposal.",
+  "legacy_proposal_exists": false,
+  "mode": "contextual",
+  "rewrites": [
+    {
+      "answers_snapshot": [
+        {
+          "answer": "Theo dõi revision rõ hơn",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Mục tiêu cụ thể là gì?"
+        },
+        {
+          "answer": "Một brief có cấu trúc",
+          "answered_utc": "2026-10-26T02:31:12Z",
+          "question": "Đầu ra mong muốn là gì?"
+        }
+      ],
+      "assessment_missing_at_draft": [
+        "goal",
+        "context",
+        "scope",
+        "desired_output"
+      ],
+      "clarification_id": "CTXQ-492758272a3b3363",
+      "constraints": [],
+      "context": "Relay báo cáo Muse-reviewer-Muse",
+      "created_utc": "2026-10-26T02:31:12Z",
+      "desired_output": "Brief có cấu trúc",
+      "goal": "Theo dõi revision rõ hơn",
+      "intake_id": "INTAKE-62bc3c29d0f60a68",
+      "intake_original_sha256": "f358ebb324cd8ee57f0492fc674c3e31fba295f2f076b02de2251139a316d5ad",
+      "labelled_inferences": [
+        {
+          "kind": "LABELLED_INFERENCE_NOT_FACT",
+          "label": "INFERRED_NEED",
+          "text": "cần thấy revision và bằng chứng"
+        }
+      ],
+      "next_action": "Đọc snapshot rồi quyết định",
+      "review_id": "CTXR-2b010956b06e406e",
+      "review_status": "APPROVE",
+      "rewrite_digest": "d30e3de4ad279a1e97bdf17e43cd3c601410d6640b2b83e74745034f01a8bbbe",
+      "rewrite_id": "RW-d30e3de4ad279a1e",
+      "rewrite_seq": 1,
+      "rewrite_version": "CTX-REWRITE-V1",
+      "scope": "Chỉ local CLI, không provider",
+      "source_ids": [],
+      "unknowns": [
+        "baseline_chua_do"
+      ]
+    }
+  ]
+}

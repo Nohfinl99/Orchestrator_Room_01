@@ -1,0 +1,146 @@
+{
+  "descriptor_label": "REFERENCE_FORM_NOT_HASH_PAYLOAD",
+  "descriptor_meaning": "This file is NOT the original hash payload. Protected literals (owner request text and verbatim reused answers) are represented by exact source SHA-256 plus 0-based char spans. Reconstruct the full original values from the locally-held request (SHA below) BEFORE digest computation, following the numbered steps. Do not call this redacted/reference JSON the original hash payload.",
+  "packet_id": "CTX-001-PACKET-02",
+  "attempt": "attempt-02",
+  "rewrite_id": "RW-74cd5f5b72e0e01c",
+  "rewrite_version": "CTX-REWRITE-V1",
+  "rewrite_seq": 1,
+  "rewrite_digest_expected": "74cd5f5b72e0e01cbe96d08742a0335320dc2dbd1247134691a592b4e8919e97",
+  "digest_algorithm": {
+    "canonicalization": "json.dumps(obj, sort_keys=True, separators=(',', ':'), ensure_ascii=False), UTF-8 encoded",
+    "hash": "SHA-256 hex (lowercase)",
+    "code_pointer": {
+      "repo": "Nohfinl99/Orchestrator-Room",
+      "ref": "c7a837e3538aa6902c24ec4fd3fd8fd1cd047255",
+      "path": "control_room/backend.py",
+      "functions": {
+        "canonical": "_canonical",
+        "payload_builder": "_ctx_rewrite_payload",
+        "digest_site": "ctx_draft"
+      }
+    },
+    "rewrite_id_rule": "RW- + first 16 hex chars of digest"
+  },
+  "digest_payload_fields_literal": {
+    "rewrite_version": "CTX-REWRITE-V1",
+    "intake_id": "INTAKE-0d0bcbe75d4fbee1",
+    "intake_original_sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+    "goal": "Theo dõi rõ revision đang xét, bằng chứng hỗ trợ kết luận, việc còn thiếu và ai làm bước tiếp theo, trong luồng thử local.",
+    "context": "Workflow relay báo cáo Muse → reviewer kiểm tra → đọc kết luận → chuyển instruction trở lại Muse; thử luồng local intake → proposal → operator review.",
+    "scope": "Thử local luồng intake → proposal → operator review với workflow này.",
+    "desired_output": "Snapshot intake/proposal/review có thể kiểm chứng, cho thấy hệ thống có giúp quan sát và điều hành công việc rõ hơn không.",
+    "constraints": [
+      "Local-only, không provider/worker/chat listener",
+      "Không merge/PR, không đổi main hay Orchestrator_Reverse",
+      "Decision là OPERATOR_ASSERTED, không phải product acceptance"
+    ],
+    "unknowns": [
+      "Baseline chưa đo (tần suất, thời gian thủ công, số lỗi) — giữ null theo lời owner",
+      "Kết quả quan sát/điều hành thực tế — chính là điều trial này kiểm chứng"
+    ],
+    "assessment_missing_at_draft": [
+      "goal",
+      "scope"
+    ],
+    "labelled_inferences": [
+      {
+        "kind": "LABELLED_INFERENCE_NOT_FACT",
+        "label": "INFERENCE",
+        "text": "'hệ thống' trong request được hiểu là lát cắt control-room local đang thử (C6R1), không phải hệ thống production hay provider ngoài."
+      }
+    ],
+    "next_action": "Trình snapshot rewrite này cho owner review đúng digest; chỉ APPROVE thật của owner trên đúng digest mới được tạo contextual proposal.",
+    "source_ids": [],
+    "clarification_id": "CTXQ-4723da2edd3488b0"
+  },
+  "digest_payload_answers_snapshot_reference_form": [
+    {
+      "question": "Mục tiêu cụ thể của yêu cầu này là gì (kết quả cần đạt, không phải cách làm)?",
+      "answered_utc": "2026-10-26T12:55:13Z",
+      "answer": {
+        "redacted": true,
+        "representation": "REFERENCE_FORM",
+        "source_sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+        "source_bytes": 504,
+        "source_chars": 406,
+        "char_start_0based": 110,
+        "char_end_exclusive": 234,
+        "span_sha256": "aff75fe3b991f23402d0abc2981ccfa8b750a6191d2d74b275dc2af884e1ef9d",
+        "note": "Literal withheld: reconstruct from the locally-held request (SHA above) by slicing chars [start:end]."
+      }
+    },
+    {
+      "question": "Phạm vi của yêu cầu này là gì (bao gồm gì, và cố tình không bao gồm gì)?",
+      "answered_utc": "2026-10-26T12:55:13Z",
+      "answer": {
+        "redacted": true,
+        "representation": "REFERENCE_FORM",
+        "source_sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+        "source_bytes": 504,
+        "source_chars": 406,
+        "char_start_0based": 236,
+        "char_end_exclusive": 325,
+        "span_sha256": "aa5721f487881e1cca0977bbf10a8494b5a22e37ea4a25a5c033bc480b745c36",
+        "note": "Literal withheld: reconstruct from the locally-held request (SHA above) by slicing chars [start:end]."
+      }
+    }
+  ],
+  "reconstruction_steps": [
+    "1. Take the locally-held request file: 504 bytes, 406 chars, SHA-256 2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907 (previously audited; Codex already holds it locally from the GATE01 audit). Decode as UTF-8.",
+    "2. For each answers_snapshot entry, slice chars [char_start_0based:char_end_exclusive] to recover the exact answer literal. Verify each slice SHA-256 equals the stated span_sha256.",
+    "3. Rebuild answers_snapshot as a list of {question, answer, answered_utc} with the recovered literals (key order irrelevant: canonicalization sorts keys).",
+    "4. Assemble the full payload object from digest_payload_fields_literal plus the rebuilt answers_snapshot.",
+    "5. Canonicalize (sort_keys, separators (',', ':'), ensure_ascii=False), UTF-8 encode, SHA-256. Expected result: 74cd5f5b72e0e01cbe96d08742a0335320dc2dbd1247134691a592b4e8919e97; rewrite_id must be RW- + first 16 hex chars."
+  ],
+  "record_metadata_not_digest_inputs": {
+    "created_utc": "2026-10-26T12:55:23Z",
+    "ctx_event_count_at_draft": 3,
+    "review_id": null,
+    "review_status": "DRAFT_NOT_REVIEWED",
+    "note": "These fields are stored on the rewrite record but are NOT part of the digest payload. Changing them does not change the digest; changing any payload field does."
+  },
+  "intake_binding": {
+    "intake_id": "INTAKE-0d0bcbe75d4fbee1",
+    "input_source": "file:request.txt",
+    "source_locator": "local-file:request.txt",
+    "input_encoding": "UTF-8",
+    "line_endings": "LF",
+    "original_length_bytes": 504,
+    "original_length_chars": 406,
+    "original_sha256": "2bf4740b8e478ecae833171bb3a8acedce3562b089d065416c9c5618b9dd8907",
+    "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+    "template_version": "INTAKE_TEMPLATE_V1",
+    "baseline": {
+      "desired_result": null,
+      "errors_per_occurrence": null,
+      "frequency_per_week": null,
+      "manual_steps": null,
+      "manual_time_minutes": null,
+      "redacted_example": null
+    },
+    "baseline_note": "All baseline fields null: owner stated baseline not measured; null does not block this slice.",
+    "unknowns_count": 6
+  },
+  "clarification_binding": {
+    "clarification_id": "CTXQ-4723da2edd3488b0",
+    "intake_id": "INTAKE-0d0bcbe75d4fbee1",
+    "status": "ANSWERED",
+    "asked_because_missing_dimensions": [
+      "goal",
+      "scope"
+    ],
+    "created_utc": "2026-10-26T12:55:13Z",
+    "answered_utc": "2026-10-26T12:55:13Z",
+    "questions": [
+      "Mục tiêu cụ thể của yêu cầu này là gì (kết quả cần đạt, không phải cách làm)?",
+      "Phạm vi của yêu cầu này là gì (bao gồm gì, và cố tình không bao gồm gì)?"
+    ]
+  },
+  "packager_self_check": {
+    "method": "Reconstructed both answers from request slices and recomputed the digest with the exact canonical function above, before packaging.",
+    "recomputed_digest": "74cd5f5b72e0e01cbe96d08742a0335320dc2dbd1247134691a592b4e8919e97",
+    "matches_expected": true,
+    "executor": "Muse (operator-assisted packaging)"
+  }
+}

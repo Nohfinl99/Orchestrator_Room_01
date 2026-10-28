@@ -1,0 +1,264 @@
+{
+  "briefs": [],
+  "decisions": {
+    "DEC-e81b5e7deada9801": {
+      "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+      "decided_utc": "2026-10-25T17:45:26Z",
+      "decision": "APPROVE",
+      "decision_id": "DEC-e81b5e7deada9801",
+      "intake_id": "INTAKE-96bccfdbe2a16dfc",
+      "operator_label": "local-operator",
+      "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+      "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+      "provenance": "OPERATOR_ASSERTED",
+      "reason": "Owner reviewed proposal",
+      "source_channel": "local-cli"
+    }
+  },
+  "events": [
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "f305aace5309574f809a30f98e5273b3be02dd4eef582ea80b81a747911b8b40",
+      "content_digest_before": "73b3def1c2733298added660001e43a236589b4f8bda57cf03a2f46009fa2ee5",
+      "event_digest": "5a5872d8b43fe3ffba1d77d92c584675b0fbbec72ce2650066f3959fd96bec53",
+      "intake_id": "INTAKE-96bccfdbe2a16dfc",
+      "kind": "intake_created",
+      "linked_evidence": null,
+      "prev_event_digest": "GENESIS",
+      "reason": "intake INTAKE-96bccfdbe2a16dfc created",
+      "role": "owner",
+      "store_revision_after": 1,
+      "store_revision_before": 0,
+      "timestamp_utc": "2026-10-25T17:45:25.525109Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "f305aace5309574f809a30f98e5273b3be02dd4eef582ea80b81a747911b8b40",
+      "content_digest_before": "f305aace5309574f809a30f98e5273b3be02dd4eef582ea80b81a747911b8b40",
+      "event_digest": "6d041af060a5c581b190e6ec7dbc8852d4cbe813079746199aab1684063c8e7a",
+      "intake_id": "INTAKE-96bccfdbe2a16dfc",
+      "kind": "duplicate_submission",
+      "linked_evidence": null,
+      "prev_event_digest": "5a5872d8b43fe3ffba1d77d92c584675b0fbbec72ce2650066f3959fd96bec53",
+      "reason": "duplicate intake submission for INTAKE-96bccfdbe2a16dfc",
+      "role": "owner",
+      "store_revision_after": 2,
+      "store_revision_before": 1,
+      "timestamp_utc": "2026-10-25T17:45:25.649358Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "2160801d1bec317c907813f449eaf0d306120397a0ad98eaca47fd458aafac34",
+      "content_digest_before": "f305aace5309574f809a30f98e5273b3be02dd4eef582ea80b81a747911b8b40",
+      "event_digest": "fe0ec795b7293d1838b63920c640a4fafcf81236ddd48ef0a7c8a4ee025b6b83",
+      "intake_id": "INTAKE-96bccfdbe2a16dfc",
+      "kind": "proposal_created",
+      "linked_evidence": null,
+      "prev_event_digest": "6d041af060a5c581b190e6ec7dbc8852d4cbe813079746199aab1684063c8e7a",
+      "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+      "reason": "proposal PROP-INTAKE-96bccfdbe2a16dfc created for INTAKE-96bccfdbe2a16dfc",
+      "role": "owner",
+      "store_revision_after": 3,
+      "store_revision_before": 2,
+      "timestamp_utc": "2026-10-25T17:45:25.777459Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "00857b9214fca69b1313b8752cdcb5c8cb92848a2f4916b9051d4811f2e6f061",
+      "content_digest_before": "2160801d1bec317c907813f449eaf0d306120397a0ad98eaca47fd458aafac34",
+      "event_digest": "d742094084367bd0df9c48ed053289ed8a41ecddf2908ab470dcc97888b50ff3",
+      "kind": "proposal_task_completed",
+      "linked_evidence": null,
+      "prev_event_digest": "fe0ec795b7293d1838b63920c640a4fafcf81236ddd48ef0a7c8a4ee025b6b83",
+      "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+      "reason": "proposal task PROP-INTAKE-96bccfdbe2a16dfc-T01 completed",
+      "role": "owner",
+      "store_revision_after": 4,
+      "store_revision_before": 3,
+      "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T01",
+      "timestamp_utc": "2026-10-25T17:45:25.898002Z"
+    },
+    {
+      "actor": "local-operator",
+      "after_stage": "INTAKE",
+      "before_stage": "INTAKE",
+      "content_digest_after": "072455fd477c15cd52efcfc96f284160513def2f7588f5de0f647271bb426345",
+      "content_digest_before": "00857b9214fca69b1313b8752cdcb5c8cb92848a2f4916b9051d4811f2e6f061",
+      "decision_id": "DEC-e81b5e7deada9801",
+      "event_digest": "196f7e6b9b567e02189c85b78bb63451cbacb8dd1e777d0af16088355d33d1c0",
+      "kind": "decision_created",
+      "linked_evidence": null,
+      "prev_event_digest": "d742094084367bd0df9c48ed053289ed8a41ecddf2908ab470dcc97888b50ff3",
+      "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+      "provenance": "OPERATOR_ASSERTED",
+      "reason": "decision DEC-e81b5e7deada9801 (APPROVE) for PROP-INTAKE-96bccfdbe2a16dfc",
+      "role": "owner",
+      "store_revision_after": 5,
+      "store_revision_before": 4,
+      "timestamp_utc": "2026-10-25T17:45:26.019334Z"
+    }
+  ],
+  "evidence": [],
+  "inferences": [],
+  "intakes": {
+    "INTAKE-96bccfdbe2a16dfc": {
+      "baseline": {
+        "desired_result": null,
+        "errors_per_occurrence": null,
+        "frequency_per_week": null,
+        "manual_steps": null,
+        "manual_time_minutes": null,
+        "redacted_example": null
+      },
+      "baseline_provenance": {
+        "desired_result": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "errors_per_occurrence": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "frequency_per_week": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "manual_steps": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "manual_time_minutes": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        },
+        "redacted_example": {
+          "note": null,
+          "source": null,
+          "supplied_utc": null
+        }
+      },
+      "bom": "absent",
+      "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+      "created_utc": "2026-10-25T17:45:25Z",
+      "duplicate_of": null,
+      "input_encoding": "UTF-8",
+      "input_source": "file:example-request.txt",
+      "intake_id": "INTAKE-96bccfdbe2a16dfc",
+      "line_endings": "LF",
+      "original_length_bytes": 222,
+      "original_length_chars": 165,
+      "original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+      "original_text": "Xin t\u00f3m t\u1eaft b\u00e1o c\u00e1o tu\u1ea7n cho ch\u1ee7 d\u1ef1 \u00e1n \u0111\u1ec3 ch\u1ee7 xem x\u00e9t tr\u01b0\u1edbc khi quy\u1ebft \u0111\u1ecbnh ti\u1ebfp theo.\nNgu\u1ed3n: b\u00e1o c\u00e1o n\u1ed9i b\u1ed9 tu\u1ea7n n\u00e0y.\nM\u1ee5c ti\u00eau: c\u00f3 b\u1ea3n t\u00f3m t\u1eaft r\u00f5 r\u00e0ng \u0111\u1ec3 ch\u1ee7 duy\u1ec7t.\n",
+      "owner_statements": [
+        "Xin t\u00f3m t\u1eaft b\u00e1o c\u00e1o tu\u1ea7n cho ch\u1ee7 d\u1ef1 \u00e1n \u0111\u1ec3 ch\u1ee7 xem x\u00e9t tr\u01b0\u1edbc khi quy\u1ebft \u0111\u1ecbnh ti\u1ebfp theo.",
+        "Ngu\u1ed3n: b\u00e1o c\u00e1o n\u1ed9i b\u1ed9 tu\u1ea7n n\u00e0y.",
+        "M\u1ee5c ti\u00eau: c\u00f3 b\u1ea3n t\u00f3m t\u1eaft r\u00f5 r\u00e0ng \u0111\u1ec3 ch\u1ee7 duy\u1ec7t."
+      ],
+      "proposed_interpretations": [],
+      "source_locator": "local-file:example-request.txt",
+      "supersedes": null,
+      "template_version": "INTAKE_TEMPLATE_V1",
+      "unknowns": [
+        "redacted_example",
+        "frequency_per_week",
+        "manual_time_minutes",
+        "manual_steps",
+        "errors_per_occurrence",
+        "desired_result"
+      ]
+    }
+  },
+  "judge_reports": [],
+  "observations": [],
+  "project": {
+    "id": "product-discovery-pilot",
+    "name": "Product-discovery pilot",
+    "pain_status": "OWNER_STATED_GOAL_NOT_VALIDATED_PAIN",
+    "room_id": "control-room-1",
+    "soul": {
+      "authority_note": "Soul is guidance only; it never grants authority.",
+      "intended_user": "Project owner, self-use",
+      "interaction_principles": "Show what is known, what is inferred, what is missing, the current revision, who may act next, and what evidence supports the state.",
+      "purpose": "Supervise a local product-discovery workflow through evidence, hypothesis, owner review and a measured local prototype."
+    }
+  },
+  "proposal_task_status": {
+    "PROP-INTAKE-96bccfdbe2a16dfc": {
+      "PROP-INTAKE-96bccfdbe2a16dfc-T01": "DONE",
+      "PROP-INTAKE-96bccfdbe2a16dfc-T02": "PENDING",
+      "PROP-INTAKE-96bccfdbe2a16dfc-T03": "PENDING",
+      "PROP-INTAKE-96bccfdbe2a16dfc-T04": "PENDING"
+    }
+  },
+  "proposals": {
+    "PROP-INTAKE-96bccfdbe2a16dfc": {
+      "created_utc": "2026-10-25T17:45:25Z",
+      "proposal": {
+        "brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+        "intake_id": "INTAKE-96bccfdbe2a16dfc",
+        "intake_original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+        "notes": [
+          "Roles are simulated except Owner; this template does not assign a real worker.",
+          "View fields (readiness, blocked_reason, next_allowed_action) are computed at overview time and are not part of this payload or its digest."
+        ],
+        "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+        "tasks": [
+          {
+            "depends_on": [],
+            "reason": "Proposal needs a preserved, hashed intake before any analysis; capture is first because no later step may change the original.",
+            "role": "Intake Steward (simulated)",
+            "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T01",
+            "title": "Capture and preserve request"
+          },
+          {
+            "depends_on": [
+              "PROP-INTAKE-96bccfdbe2a16dfc-T01"
+            ],
+            "reason": "Analysis needs separated statements; it cannot run before capture, and it must not invent facts.",
+            "role": "Product Analyst (simulated)",
+            "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T02",
+            "title": "Separate owner statements, interpretations and unknowns"
+          },
+          {
+            "depends_on": [
+              "PROP-INTAKE-96bccfdbe2a16dfc-T02"
+            ],
+            "reason": "Proposal needs separated statements and unknowns; it is a rule-based template output, not agent coordination.",
+            "role": "Product Analyst (simulated)",
+            "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T03",
+            "title": "Draft discovery proposal and dependency view"
+          },
+          {
+            "depends_on": [
+              "PROP-INTAKE-96bccfdbe2a16dfc-T03"
+            ],
+            "reason": "Only the owner/operator at the gate may approve, revise, reject or defer; simulated roles cannot decide.",
+            "role": "Owner (real operator)",
+            "task_id": "PROP-INTAKE-96bccfdbe2a16dfc-T04",
+            "title": "Owner review gate"
+          }
+        ],
+        "template_version": "INTAKE_TEMPLATE_V1"
+      },
+      "proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6"
+    }
+  },
+  "review_receipts": [],
+  "revision": 5,
+  "schema_version": 2,
+  "stage": "INTAKE",
+  "tasks": []
+}

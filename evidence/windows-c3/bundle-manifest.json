@@ -1,0 +1,131 @@
+{
+  "kind": "REVIEWER_WINDOWS_C3_SUPPLEMENT",
+  "repository": "Nohfinl99/Orchestrator-Room",
+  "code_C3": "9aca1b91dfe7e85d084bac51392fb65c5e3ee4fa",
+  "builder_evidence_E3": "c134d7ae1e871f3fba5338b7a674694c0350d3c6",
+  "tooling_T": "1a163e759380aad186568cfaefbd05653fd35339",
+  "publication_branch": "codex/windows-c3-review",
+  "acquisition": "Source files fetched via authenticated GitHub file API at exact C3, reconstructed as original UTF-8 bytes. This is an API snapshot, not a claimed local Git checkout.",
+  "execution_layout": "Audited runner from T was invoked externally with cwd at C3 source snapshot; no tooling files were inserted into frozen C3 source.",
+  "source_modified": false,
+  "actual_suite": {
+    "counts": {
+      "attempted": 34,
+      "passed": 33,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 1
+    },
+    "test_process_exit": 0,
+    "helper_process_exit": 0,
+    "environment": {
+      "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1"
+    },
+    "log_sha256": "d2a226190d43ac7db4ac08c5ca352ab9c0c947ebb2485f096ed638c734e75f9e",
+    "raw_helper_manifest_sha256": "e554112b1b2b1d32fcc96252169944c2cc474701f9492e7587ed85a05194afde"
+  },
+  "independent_controls": {
+    "checks": 7,
+    "passed": 6,
+    "failed": 1,
+    "failure_id": "GENESIS_PROJECT_ANCHOR",
+    "runner_exit": 0
+  },
+  "tooling_negative": {
+    "fixture": "Separate intentional failure fixture, not C3",
+    "test_process_exit": 1,
+    "launcher_exit": 0,
+    "source_files_missing": 6,
+    "runner_exit": 0
+  },
+  "review_status": "WINDOWS_RUN_CAPTURED;TOOLING_AND_GENESIS_REVISE_REQUIRED",
+  "overall_system": "NOT_VERIFIED",
+  "full_pentest": "NOT_COMPLETED",
+  "packet_level_egress": "NOT_RUN",
+  "owner_acceptance": "NOT_ISSUED",
+  "symlink": "SKIP_NOT_RUN_WINERROR_1314",
+  "artifact_time_semantics": "Last-write time of captured file, not asserted run start",
+  "files": [
+    {
+      "path": "MUSE_AFTER_WINDOWS_INSTRUCTIONS.md",
+      "bytes": 5468,
+      "sha256": "e5bd4466f46452a2217a4321eb11719c709648ca5575f8ebbdb3edc0a7132bb9",
+      "artifact_last_write_utc": "2026-10-25T10:25:25.4544384Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/REPORT.md",
+      "bytes": 9607,
+      "sha256": "4f0629e0858609ae039cf86efa81eed290b5f20c3731d9e0c8fc5e4283829144",
+      "artifact_last_write_utc": "2026-10-25T10:26:52.4821463Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/smoke_and_controls.py",
+      "bytes": 5593,
+      "sha256": "b61d78c1ad8dd18832a4c13355d748c2490126763cf9438db722dd77d8630e11",
+      "artifact_last_write_utc": "2026-10-25T10:22:15.7113454Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/tooling_checks.py",
+      "bytes": 2981,
+      "sha256": "d47fc6fa268cebfde94a13f2844ed2eca8ea1ca7be15c8cd7fa7c95f4afde0ab",
+      "artifact_last_write_utc": "2026-10-25T10:22:15.7113454Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/execution-receipt.json",
+      "bytes": 6284,
+      "sha256": "d1299b2e5d21a6c3950ec69dd70f29afe8c15466628bb5716b5860f96e0ea20e",
+      "artifact_last_write_utc": "2026-10-25T10:23:34.3721393Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/smoke-and-controls.json",
+      "bytes": 10063,
+      "sha256": "bd07dcaa7909952f307e2852855cb71e9807d7bb1a8f1460d25e430388c6f575",
+      "artifact_last_write_utc": "2026-10-25T10:22:16.1440801Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/windows-helper-console.log",
+      "bytes": 524,
+      "sha256": "fc3be44b4df45373c27dbb9bbe7d027e7aca8f20c7de0c0b7750776a1ef938ba",
+      "artifact_last_write_utc": "2026-10-25T10:17:16.2414338Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/tooling-negative/failing-suite.log",
+      "bytes": 738,
+      "sha256": "7af880436ce6cbca1817ef078a6ed9f95220d63bb34cc1d312b9889a84e77849",
+      "artifact_last_write_utc": "2026-10-25T10:22:16.5199395Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/tooling-negative/helper-manifest.json",
+      "bytes": 1386,
+      "sha256": "e55eb35a27d38a11d43dd9ece28df18ee83dc72def6f35e9c32ac4ec55144500",
+      "artifact_last_write_utc": "2026-10-25T10:22:16.5199395Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/tooling-negative/launcher-console.log",
+      "bytes": 555,
+      "sha256": "efeb6aaf1b8f2975f1bc373561baaf58ee4e5726c1d187e2d04111e7b11d4d6a",
+      "artifact_last_write_utc": "2026-10-25T10:22:16.5199395Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/tooling-negative/result.json",
+      "bytes": 1209,
+      "sha256": "68cd4fae3a2fa2d4edb87998a2c16a83de48fea0ba07c7648634a07ef070fd3a",
+      "artifact_last_write_utc": "2026-10-25T10:22:16.5209401Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/windows/windows-test-manifest.json",
+      "bytes": 1796,
+      "sha256": "e554112b1b2b1d32fcc96252169944c2cc474701f9492e7587ed85a05194afde",
+      "artifact_last_write_utc": "2026-10-25T10:17:16.2260932Z"
+    },
+    {
+      "path": "reviews/2026-10-25-c3-windows/evidence/windows/windows-test-run-2026-10-25.log",
+      "bytes": 4955,
+      "sha256": "d2a226190d43ac7db4ac08c5ca352ab9c0c947ebb2485f096ed638c734e75f9e",
+      "artifact_last_write_utc": "2026-10-25T10:17:16.1088178Z"
+    }
+  ]
+}

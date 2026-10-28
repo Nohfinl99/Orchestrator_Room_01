@@ -1,0 +1,41 @@
+PASS pass: helper 0 got 0
+PASS pass: child 0 
+PASS pass: counts 1 pass 1 skip {'attempted': 2, 'passed': 1, 'errors': 0, 'failures': 0, 'skipped': 1}
+PASS pass: log exists 
+PASS pass: manifest has no self hash 
+PASS fail: helper 1 got 1
+PASS fail: child 1 
+PASS fail: artifacts preserved 
+PASS changed: preflight 2 got 2
+PASS changed: no test log claimed 
+PASS changed: preflight recorded 
+PASS missing: preflight 2 got 2
+PASS interrupt: helper 3 not success got 3
+PASS interrupt: log preserved 
+PASS unique: two run dirs [WindowsPath('C:/Users/Admin/AppData/Local/Temp/tmppxqwjq64/out-twice/run-20261025T160426Z-636f46c1'), WindowsPath('C:/Users/Admin/AppData/Local/Temp/tmppxqwjq64/out-twice/run-20261025T160426Z-bc4cba27')]
+PASS unique: first log untouched 
+PASS bat: propagates helper exit 
+PASS bat: no unconditional Done before exit check 
+BAT execution: NOT_RUN on this platform (static check only); Windows execution must be reported separately.
+PASS parser LF OK: counts got (1, 0, 0, 0) want (1, 0, 0, 0)
+PASS parser LF OK: valid=True got valid=True
+PASS parser CRLF OK: counts got (1, 0, 0, 0) want (1, 0, 0, 0)
+PASS parser CRLF OK: valid=True got valid=True
+PASS parser LF OK skipped: counts got (0, 0, 0, 1) want (0, 0, 0, 1)
+PASS parser LF OK skipped: valid=True got valid=True
+PASS parser CRLF OK skipped: counts got (0, 0, 0, 1) want (0, 0, 0, 1)
+PASS parser CRLF OK skipped: valid=True got valid=True
+PASS parser LF FAILED: counts got (0, 0, 1, 0) want (0, 0, 1, 0)
+PASS parser LF FAILED: valid=True got valid=True
+PASS parser CRLF FAILED: counts got (0, 0, 1, 0) want (0, 0, 1, 0)
+PASS parser CRLF FAILED: valid=True got valid=True
+PASS parser CRLF mismatched totals: counts got (1, 0, 0, 0) want (1, 0, 0, 0)
+PASS parser CRLF mismatched totals: valid=False got valid=False
+PASS parser CRLF zero tests: counts got (0, 0, 0, 0) want (0, 0, 0, 0)
+PASS parser CRLF zero tests: valid=False got valid=False
+PASS parser CRLF missing summary: counts got (1, 0, 0, 0) want (1, 0, 0, 0)
+PASS parser CRLF missing summary: valid=False got valid=False
+PASS parser CRLF truncated summary: counts got (1, 0, 0, 0) want (1, 0, 0, 0)
+PASS parser CRLF truncated summary: valid=False got valid=False
+PASS parser: raw input untouched 
+ALL RUNNER REGRESSIONS PASS

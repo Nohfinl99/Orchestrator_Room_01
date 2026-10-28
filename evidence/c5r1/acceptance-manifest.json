@@ -1,0 +1,17 @@
+{
+  "files": {
+    "acceptance-results.json": {
+      "bytes": 544806,
+      "sha256": "8b28e039e28af42e4a4ae51174216a8060feede35620685b8505e4751ea9824f"
+    },
+    "acceptance-results.md": {
+      "bytes": 10166,
+      "sha256": "b8cfee87a2818c7e420e4d483a8c763107993692c362c9dd8865e8e7d108d066"
+    }
+  },
+  "full_scope_verdict": "NOT_RUN",
+  "note": "Runner output manifest. This manifest excludes itself to avoid self-reference.",
+  "source_root": "/home/hatch/workspace/orchestrator-room-work/slice-v10",
+  "tool_path": "/home/hatch/workspace/orchestrator-room-work/slice-v10/acceptance/run_acceptance_c5.py",
+  "tool_sha256": "5a2da9f2f93eb86233be18e77e37780ec4b218527a1a06b65c2c95633a62df7a"
+}

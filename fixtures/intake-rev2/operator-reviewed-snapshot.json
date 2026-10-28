@@ -1,0 +1,9 @@
+{
+  "synthetic_note": "Snapshot the operator reviewed before invoking decide. The decide command must copy these expected values from this snapshot; it must not substitute the current digest.",
+  "proposal_id": "PROP-INTAKE-96bccfdbe2a16dfc",
+  "expected_proposal_digest": "de30b806df66d4826100ea9e9a17c05408be674686b114b619d382d0204295c6",
+  "expected_brief_revision": "PRODUCT_INTAKE_BRIEF_REV2",
+  "expected_intake_id": "INTAKE-96bccfdbe2a16dfc",
+  "intake_original_sha256": "7a1dd7610d07a7407fe6e8558c77433e37dff71a46600c8c1b433695e9d99df3",
+  "reviewed_utc": "2026-10-25T00:00:00Z"
+}

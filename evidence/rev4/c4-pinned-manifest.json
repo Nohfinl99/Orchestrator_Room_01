@@ -1,0 +1,14 @@
+{
+  "code_commit": "3d0bf76bab65c37e6b4bed359dfb6dffca7f8f4c",
+  "pin_origin": "evidence/rev4/c4-pinned-manifest.json (published in E4; digests computed from clean API checkout of C4 before the run)",
+  "source_digests": {
+    "control_room/__init__.py": "86e690e4ed354ffd002a3e70cb8c7a8c45607bcf46ea55fe31239ec717dced52",
+    "control_room/__main__.py": "82d644c5c56a0b05e23ecd9dd2742780c356118cb517148361bdf6ab60874e90",
+    "control_room/backend.py": "28d37113ce65a34e3572af0ef37066a193637e35c75888dd002628eddfaca7fb",
+    "control_room/cli.py": "0298d4c2c27df22d013d36d1104cf7932c9facdb73c2263615624d9bb8d5a8d5",
+    "control_room/README.md": "840cad9b62f177c230737c58ac28b3a5b01656c7e328f7520eb7eb06188355af",
+    "tests/test_control_room.py": "43f11aedb79cd9e584f332a042cf4eb5b85cbe6a5407837d5e9f5cc2042e5ea6",
+    "PILOT_RUNBOOK.md": "4c9ee3e229250aa0c82474753eb53e94396c5b871667e14818dbbaa627eed10e",
+    "MUSE_KNOWLEDGE_RECEIPT_ADDENDUM_REV4.md": "c76bbc367351f21c42baea1c1d284b84816487135ab37718528266c8d558ee27"
+  }
+}

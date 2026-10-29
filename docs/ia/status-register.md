@@ -73,3 +73,11 @@ Nó là công cụ điều hướng, KHÔNG phải verdict kỹ thuật. Cột
 | `packets/` | Xem [../../packets/README.md](../../packets/README.md) | Packet kiểm chứng được, index riêng |
 | `docs/` | Xem [README.md](../README.md) | Lớp IA + guides, index toàn bộ docs |
 | `scripts/` | CURRENT (tooling) | Runner Windows + test runner |
+
+## Bổ sung điều hướng 29/10/2026
+
+Các README nhóm docs, [guide ma trận](../guides/conceptual-and-acceptance-matrix.vi.md)
+và [changes index](../changes/README.md) là NAVIGATION_ONLY, không phải verdict.
+Các hợp đồng đề xuất mang nhãn CURRENT phía trên không đồng nghĩa APPROVED.
+Các tài liệu chưa phân loại vẫn giữ nguyên trạng thái. Phạm vi nhánh và pin
+lịch sử tra [source map](source-map.md).

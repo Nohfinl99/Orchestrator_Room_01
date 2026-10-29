@@ -1,40 +1,39 @@
 # Orchestrator_Room_01
 
-Bản sao lưu + sắp xếp lại theo IA của
-[`Nohfinl99/Orchestrator-Room`](https://github.com/Nohfinl99/Orchestrator-Room),
-nhánh `muse/local-control-room`, commit
+Phòng điều hành local cho quy trình tiếp nhận yêu cầu, làm rõ ngữ cảnh,
+duyệt brief và chuẩn bị proposal. Lát cắt CLI hiện hành là C6R1;
+toàn hệ **NOT_VERIFIED**, product acceptance **PENDING** theo snapshot rev24.
+
+## Chọn đường đọc
+
+| Cần làm gì? | Mở ở đâu? |
+|---|---|
+| Hiểu dự án và giới hạn | [START_HERE](START_HERE.md) |
+| Xem snapshot trạng thái, gate, việc đang chờ | [Trạng thái](docs/ia/current-state.md) · [Issues](docs/ia/issues-and-next.md) |
+| Chạy contextual intake theo runbook | [Hướng dẫn](docs/guides/README.md) |
+| Hiểu ma trận và cách kiểm chứng | [Cách đọc ma trận](docs/guides/conceptual-and-acceptance-matrix.vi.md) |
+| Đọc brief, kiến trúc, thiết kế | [Briefs](docs/briefs/README.md) · [Specs](docs/specs/README.md) |
+| Đối chiếu kết quả đã lưu | [Reports](docs/reports/README.md) · [Evidence](evidence/README.md) · [Packets](packets/README.md) |
+| Tìm toàn bộ tài liệu | [Docs index](docs/README.md) · [Bản đồ nguồn](docs/ia/source-map.md) |
+
+## Bố cục
+
+- `control_room/`: code CLI; `tests/`: suite; `acceptance/`: runners.
+- `fixtures/`: input/golden/schema lịch sử; `scripts/`: tooling.
+- `docs/`: IA, hướng dẫn, brief, thiết kế, báo cáo, hồ sơ và dữ liệu.
+- `evidence/` và `packets/`: hồ sơ kiểm chứng; giữ nguyên đường dẫn và bytes.
+
+## Repository này và nguồn gốc
+
+Bản sao từ [Orchestrator-Room](https://github.com/Nohfinl99/Orchestrator-Room),
+nhánh `muse/local-control-room`, commit nguồn
 `992b1d09d9fa1fe3bbaff289fbf8824728b07c4f` (2026-10-27).
+Lịch sử đầy đủ và các kênh review nằm ở repo gốc. Repo này có nhánh
+`main` riêng để đọc bản đã sắp xếp; nó không thay thế hoặc merge ngược nguồn.
 
-Repo gốc giữ nguyên và vẫn là nơi lưu lịch sử git đầy đủ.
-Repo này không merge ngược về repo gốc và không thay thế nó.
+Các pin C6R1/E6R1, reviewer và packet vẫn thuộc repo gốc.
+Các gate ở đây phản ánh snapshot đã sao lưu, không phải trạng thái live
+của kênh nguồn. Quyết định owner trên rewrite `74cd5f5b…` vẫn chờ
+trong snapshot; sửa tài liệu không tạo quyết định đó.
 
-## Bắt đầu từ đâu
-
-- [START_HERE.md](START_HERE.md) — điểm vào: mục tiêu, khả năng thật, trạng thái tổng.
-- [docs/README.md](docs/README.md) — bản đồ toàn bộ cây `docs/` và bảng map đường cũ → đường mới.
-- [docs/ia/README.md](docs/ia/README.md) — index lớp IA theo vai trò (người mới / owner / operator / reviewer).
-
-## Bố cục (theo mẫu Reading_Companion: root chỉ giữ file điểm vào)
-
-- `START_HERE.md`, `README.md` (tài liệu này) ở root.
-- `docs/reports/` — báo cáo chạy từng đời (C5, C5R1, C6, C6R1, REV2–REV4).
-- `docs/briefs/` — brief và ma trận acceptance intake (REV1/REV2).
-- `docs/notes/` — handoff, instruction, receipt, changelog, nghiên cứu (kể cả README cũ của repo gốc).
-- `docs/specs/` — đặc tả và policy (acceptance, architecture, pipeline, threat model, verification, pentest plan, pilot runbook).
-- `docs/guides/` — runbook (kể cả `windows/` cho các supplement Windows cũ).
-- `docs/data/` — manifest và template dữ liệu.
-- `docs/ia/` — lớp Information Architecture (trạng thái, bản đồ nguồn, findings, glossary, log quyết định).
-- `docs/reviews/`, `docs/requirements/` — index trỏ tới review và requirement pin ở repo/nhánh khác.
-- `control_room/`, `tests/`, `acceptance/`, `fixtures/`, `scripts/` — code và test, giữ nguyên path.
-- `evidence/`, `packets/` — evidence và packet kiểm chứng được, giữ nguyên path, KHÔNG di chuyển/đổi tên.
-
-## Lưu ý provenance (đọc trước khi trích dẫn)
-
-- Nội dung file được giữ nguyên byte so với repo gốc tại commit nguồn,
-  trừ các tài liệu sống đã cập nhật link/path theo layout mới.
-- Các pin commit/blob và tên nhánh nêu trong tài liệu (ví dụ C6R1
-  `c7a837e3…`, evidence E6R1 `ea9c9464…`, kênh rev24) trỏ về repo
-  gốc, không phải commit của repo này.
-- Toàn hệ: NOT_VERIFIED. Product acceptance: PENDING. Cổng quyết
-  định thật của owner trên digest rewrite `74cd5f5b…` (version 1)
-  vẫn đang chờ ở kênh `ORCHESTRATOR_CHANNEL.md` của repo gốc.
+[Bản ghi chỉnh lý 29/10/2026](docs/changes/2026-10-29-navigation-repair.md).

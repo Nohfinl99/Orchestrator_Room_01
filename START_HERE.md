@@ -10,6 +10,14 @@ phải commit của repo này; lịch sử git đầy đủ vẫn ở repo
 gốc. Repo này không merge ngược về repo gốc và không thay
 thế nó.
 
+## Phạm vi bản sao và đường đọc mới
+
+Các gate bên dưới là snapshot kế thừa tới kênh rev24 ở repo gốc;
+không xác nhận trạng thái live ngày 29/10/2026. Nhánh `main` của
+repo này khác `main` frozen của repo gốc.
+Xem [docs index](docs/README.md), [hướng dẫn đọc GitHub](docs/guides/github-step-by-step.vi.md)
+và [cách đọc ma trận](docs/guides/conceptual-and-acceptance-matrix.vi.md).
+
 ## Mục tiêu
 
 Xây một lát cắt control-room chạy local: nhận một yêu cầu
@@ -51,7 +59,7 @@ Chưa có, đừng suy ra từ tên gọi:
 
 - Không có live worker, chat listener, scheduler, provider,
   runtime knowledge retrieval, hay điều phối agent thông
-  minh. Proposal là template cố định theo luật, không phải
+  minh. Proposal contextual có 3 task cố định theo luật (legacy có 4), không phải
   phân công agent theo ngữ nghĩa.
 - Không có xác thực người dùng thật trong CLI: nhãn
   operator/role chỉ là tham số mô phỏng, provenance của

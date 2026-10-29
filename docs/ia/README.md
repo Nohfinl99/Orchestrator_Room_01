@@ -46,7 +46,14 @@ dùng ngày sửa file hay tên “latest” làm nguồn trạng thái.
 | [../guides/windows-contextual-c6r1.vi.md](../guides/windows-contextual-c6r1.vi.md) | Runbook Windows contextual C6R1 hiện hành |
 | [../guides/windows-local-run.vi.md](../guides/windows-local-run.vi.md) | Hướng dẫn chạy local C5R1 trên Windows — LỊCH SỬ |
 
-## Quy tắc của lớp IA (bắt buộc)
+## Phạm vi trong bản sao
+
+Lượt 29/10/2026 thêm README cho các nhóm docs và sửa entry/guide.
+Các quy tắc kế thừa về nhánh Muse/main frozen bên dưới áp dụng repo
+gốc Orchestrator-Room. Chỉnh lý bản sao theo yêu cầu hiện tại không
+thay lịch sử nguồn, không mở gate. Xem [change record](../changes/2026-10-29-navigation-repair.md).
+
+## Quy tắc bảo toàn của lớp IA
 
 1. **Không di chuyển, không đổi tên file hiện có.** Các submission
    và review trên kênh đang trỏ tới đúng path đó; đổi path là
@@ -59,9 +66,9 @@ dùng ngày sửa file hay tên “latest” làm nguồn trạng thái.
 4. **Không gộp verdict.** Local decision, evidence-review, owner
    feedback và product acceptance báo riêng, không gộp thành
    một verdict chung hay toàn hệ PASS.
-5. **Không merge/PR/main.** Nhánh này là nhánh làm việc của Muse;
-   `main` giữ frozen, không chứa kết quả mới — đó là thiết kế
-   có chủ đích.
+5. **Phân biệt hai repo.** Nhánh Muse và `main` frozen nêu trong hồ sơ
+   thuộc repo gốc. Bản sao này có `main` riêng; không merge ngược nguồn
+   hoặc diễn giải chỉnh lý tài liệu thành approval sản phẩm.
 
 ## Bản IA này (gốc từ repo Orchestrator-Room, commit 992b1d09) gồm gì
 

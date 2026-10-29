@@ -5,6 +5,12 @@ viết, dựa trên pins và manifest đã kiểm chứng trước đó.
 Nó không tự tạo verdict mới. Khi có kết quả mới, cập nhật
 bảng gate ở đây bằng pin mới, không sửa lịch sử cũ.
 
+## Phạm vi repository
+
+Đây là snapshot nguồn tới rev24 được sao lưu tại Orchestrator_Room_01.
+Lượt 29/10/2026 chỉ sửa điều hướng, chưa đọc kênh nguồn live hoặc tạo
+review/verdict/owner decision mới. Các pin trong bảng thuộc repo gốc.
+
 ## Pins (nguồn trạng thái, không phải tên file “latest”)
 
 | Mốc | Pin |
@@ -14,13 +20,13 @@ bảng gate ở đây bằng pin mới, không sửa lịch sử cũ.
 | Code C6 / evidence E6 (trước C6R1) | `385f503b003479d4ae957d97cf3657e3900e1a37` / `da2d318cdad0ea268e8fc709f59fc1462321f4c9` |
 | Reviewer R1 verdict | `APPROVED_SCOPED` (artifact `17da045bb042fa1927cbd6f96028f3fb73537878`, nhánh `codex/ctx-001-r1-review`, report `reviews/ctx-001/r1/REPORT.md`) |
 | Docs current-use (sửa DOC01) | `docs/ia/contextual-intake-current-use.md`, docs commit `1cfcb871b60c5871bf7b4d98208f7cc10586aa9f` |
-| Docs review DOC02/DOC03 | Review `REV-CTX-001-DOC01` (kênh rev11, `CHANGES_REQUESTED_DOCS_ONLY`); bản sửa trong revision docs này, submission `SUB-CTX-001-DOCS-R1`, đang chờ Codex review |
+| Docs review DOC02/DOC03 | DOC02 CLOSED_SCOPED tại DOCS-R1 (rev14); DOC03 CLOSED_SCOPED tại DOCS-R2 APPROVED_SCOPED (rev17), docs `dfedb46e…`; xem bảng gate và cập nhật rev24 bên dưới |
 | Code frozen C5R1 — lịch sử (nhánh `muse/local-control-room`) | `fd3430c9f1b0e98d1f6c9c62067b935f20054498` |
 | Evidence E5R1 — lịch sử (riêng, sau C5R1) | `dde7b605b0ef9c97e3ae91156303638f3ba843fd` |
 | Windows supplement C5R1 — lịch sử (docs/evidence only) | `cc6591cbfbe7faf9315c3171dff69c7062ddb2c2` |
 | Reviewer branch / commit — lịch sử C5R1 | `codex/c5r1-owner-pilot` / `6a48b3f07bd67110b8c8b95768db712994e76499` |
 | Reviewer verdict — lịch sử C5R1 | READY_FOR_BOUNDED_OWNER_TRIAL |
-| Nhánh `main` (frozen, không đổi) | `8bd7d8a9fcdff34ef6ed1626050c2371661ab279` |
+| Nhánh `main` của repo gốc Orchestrator-Room (frozen tại snapshot) | `8bd7d8a9fcdff34ef6ed1626050c2371661ab279` |
 | Code C5 / evidence E5 (lịch sử) | `0a3d5a4d6606f3427b10162671a99adc3ef5b39b` / `18d74aa157fa9130f70f93be770e88c9e345f496` |
 | Checker F21 / evidence E21 (lịch sử) | `bef96ccf3dabda9088491a615eec23cbc8dfe32c` / `1e5907658fbe6dd188ef1b8552fa48c053d040a3` |
 | Packet REV2.1 (lịch sử) | `0441decffd456ab1582375b353fd51d5b25b05c0` |

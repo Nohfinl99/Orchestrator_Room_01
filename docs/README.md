@@ -6,6 +6,23 @@ Root repo chỉ giữ `START_HERE.md` và `README.md`; mọi tài liệu
 khác nằm dưới `docs/`, chia theo chủ đề, theo mẫu tổ chức của
 repo Reading_Companion.
 
+## Tìm theo nhu cầu
+
+| Nhóm | Điểm vào |
+|---|---|
+| Trạng thái và nguồn | [IA](ia/README.md) |
+| Hướng dẫn thao tác, cách đọc ma trận | [Guides](guides/README.md) |
+| Brief và acceptance matrix | [Briefs](briefs/README.md) |
+| Kiến trúc, pipeline, policy đề xuất | [Specs](specs/README.md) |
+| Báo cáo từng revision | [Reports](reports/README.md) |
+| Handoff, receipt, ghi chú lịch sử | [Notes](notes/README.md) |
+| Manifest và template dữ liệu | [Data](data/README.md) |
+| Thay đổi điều hướng của bản sao | [Changes](changes/README.md) |
+| Review / requirement bên ngoài | [Reviews](reviews/index.md) · [Requirements](requirements/index.md) |
+
+Mục lục mới bổ sung vào thư mục hiện có; không dời các file đã được pin.
+Bảng mapping dưới đây ghi lần migration trước, không phải lệnh chạy mới.
+
 ## Cây docs
 
 - `docs/reports/` — báo cáo chạy từng đời.
@@ -76,3 +93,5 @@ Không đổi path: `START_HERE.md` (đã cập nhật provenance),
 
 Một hiệu đính so với bảng mapping lúc đề xuất: `ROADMAP_STATUS.md`
 bị sót trong bảng lúc đầu, đã cho vào `docs/notes/` cùng nhóm notes.
+
+[Tra locator lịch sử chưa resolve](ia/legacy-locators.md).

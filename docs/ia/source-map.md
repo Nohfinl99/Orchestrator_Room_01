@@ -6,7 +6,28 @@ tại; “lịch sử” nghĩa là chỉ dùng để hiểu quá khứ, không
 dùng làm trạng thái hiện tại. Ngày sửa file và tên “latest”
 không phải nguồn trạng thái.
 
-## A. Lớp đọc hiện hành (revision docs này, docs-only)
+## 0. Tra nguồn trong bản sao Orchestrator_Room_01
+
+Các bảng A–H bên dưới mô tả nguồn gốc tại snapshot rev24: “nhánh Muse”,
+“main frozen”, quyền collaborator và kênh review đều nói về **Orchestrator-Room**.
+Chúng không mô tả nhánh main của bản sao này và chưa được truy vấn live
+trong lượt chỉnh lý 29/10/2026. Đường cũ nguyên văn trong bảng là locator
+lịch sử, không phải link hỏng cần đổi pin.
+
+| Nhu cầu ở bản sao | Đường đọc |
+|---|---|
+| Code C6R1 được sao chép | [control_room](../../control_room/) |
+| Report đã di chuyển theo IA | [reports index](../reports/README.md) |
+| Brief và ma trận đề xuất | [briefs index](../briefs/README.md) |
+| Thiết kế và policy | [specs index](../specs/README.md) |
+| Hồ sơ handoff và receipt lịch sử | [notes index](../notes/README.md) |
+| Evidence / packet giữ path | [evidence](../../evidence/README.md) · [packets](../../packets/README.md) |
+| Review / requirement ở nguồn | [review pins](../reviews/index.md) · [requirement pins](../requirements/index.md) |
+| Đường cũ → đường mới | [docs index](../README.md) |
+
+Chỉ bảng điều hướng mới được sửa; pin nguồn và claim acceptance giữ nguyên.
+
+## A. Lớp đọc hiện hành tại nguồn (snapshot, docs-only)
 
 | Nguồn | Revision / locator | Phạm vi claim | Truy cập |
 |---|---|---|---|
@@ -92,3 +113,5 @@ không phải nguồn trạng thái.
 | Nhánh `main` của Orchestrator-Room | `8bd7d8a9fcdff34ef6ed1626050c2371661ab279` | Main frozen; không chứa công việc nhánh Muse (chưa merge, không merge nào được duyệt) | Trong repo (collaborator) |
 | `Nohfinl99/Orchestrator_Reverse` | HEAD `ede6f66d…` (read-only reference) | Candidate knowledge only, NOT_USED_FOR_DECISION; không sửa, không branch/commit/PR | Read-only reference |
 | `Nohfinl99/Muse_knowledge` | Không dùng trong tuyến này | Không phải nguồn cho các packet IA này | Không áp dụng |
+
+[Locator cũ trong các hồ sơ giữ nguyên bytes](legacy-locators.md): 18 đường đọc tương ứng, 2 gap chưa xác định.
